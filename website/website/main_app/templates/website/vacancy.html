@@ -1,0 +1,12 @@
+{% extends 'website/layout.html' %}
+{% block body %}
+    {% if vacant %}
+        {% for vacancy in vacancy %}
+            {{vacancy.number}}
+            {{vacancy.vacant_designation}}
+            <br>
+        {% endfor %}
+    {% else %} 
+        <p>No Vacany</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'website/layout.html' %}
+{% block body %}
+{% for notice in notice_data %}
+    {{notice.title}}
+    {{notice.description}}
+    <a href="{{notice.file.url}}">hi</a>
+{% endfor %}
+{% endblock %}

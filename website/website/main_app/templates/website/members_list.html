@@ -1,0 +1,9 @@
+{% extends 'website/layout.html' %}
+{% block body %}
+    {% for members in members %} 
+        {{members.name}} 
+        {{members.designation}}
+ 
+        <br>
+    {% endfor %}
+{% endblock %}

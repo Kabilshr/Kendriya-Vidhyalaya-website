@@ -1,0 +1,9 @@
+{% extends 'website/layout.html' %}
+{% block body %}
+    {% for alumni in alumni_data %} 
+        {{alumni}},
+        {{alumni.name}}
+        {{alumni.description}}
+        <img src="{{alumni.image.url}}"> 
+    {% endfor %}
+{% endblock %}

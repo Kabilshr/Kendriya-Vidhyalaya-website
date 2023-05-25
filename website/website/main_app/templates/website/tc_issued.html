@@ -1,0 +1,21 @@
+{% extends 'website/layout.html' %}
+{% block body %}
+    <form action="{% url 'tc_issued' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Search Using Name">
+        <input type="submit">
+    </form>
+    {% for tc in tc_search %} 
+        {{tc.name}}
+        {{tc.parents_name}} 
+        {{tc.issue_date}}
+        {{tc.Class_left}}
+    {% endfor %}
+    {% for tc in tc %}
+        {{tc.name}}
+        {{tc.parents_name}} 
+        {{tc.issue_date}}
+        {{tc.Class_left}}
+        <br>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends 'website/layout.html' %}
+{% block body %}
+    {% for holiday in holiday %}
+        <a href="{{holiday.file.url}}">holiday</a>
+    {% endfor %}
+{% endblock %}
