@@ -3,20 +3,61 @@
   margin: 0px;
 }
 
-html {
+html, body {
   height: 100%;
 }
 
 body {
   font-size: 16px;
   background-color: #eee;
-  min-height: 100%;
   display: flex;
   flex-direction: column;
+  height: 2000px;
+}
+
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+body::-webkit-scrollbar {
+  width: 0.5vw;
+  background-color: #F5F5F5;
+}
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #555;
+}
+
+.content {
+  flex: 1;
+}
+
+.nav-link {
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-link::after {
+  height: 1px;
+  width: 100%;
+  color: #FFDD65;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  transition: ease 0.2s;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.nav-link:hover::after, .nav-link:focus::after {
+  opacity: 1;
 }
 
 .header {
-  background-color: #bde0fe;
+  background-color: #FA8072;
+  width: 100%;
   position: relative;
   font-size: 1.25rem;
   min-height: 80px;
@@ -24,6 +65,15 @@ body {
 
 nav {
   margin: 1vw 5vw;
+}
+
+.nav-item:hover {
+  color: #FFDD65;
+}
+
+.dropdown-menu {
+  width: 15rem;
+  border-radius: 0px;
 }
 
 .banner img {
@@ -36,23 +86,50 @@ nav {
  *  border-bottom-right-radius: 20%
  *  border-bottom-left-radius: 20%
  *  padding: 2rem 1.5rem 1rem 0.5rem */
+main {
+  margin-top: 3rem;
+}
+
 footer {
+  position: relative;
+  color: #2D4059;
   margin-top: auto;
   height: auto;
   padding: 2rem;
-  background-color: #bde0fe;
+  background-color: #FA8072;
+}
+footer i {
+  float: left;
+  margin: 5px;
+}
+footer a {
+  text-decoration: none;
+  color: inherit;
 }
 footer img {
   margin-top: 2vh;
+  padding: 0;
+}
+footer span:hover {
+  color: #FFDD65;
+}
+
+.counter {
+  position: relative;
+}
+
+.form-group {
+  margin-bottom: 15px;
 }
 
 .dropdown-item:hover {
-  background-color: #E1BC29;
+  background-color: #FFDD65;
   color: #fff;
 }
 
 .dropdown .dropdown-menu {
   display: none;
+  background-color: #FB9183;
 }
 
 .dropdown:hover > .dropdown-menu, .dropend:hover > .dropdown-menu {
@@ -61,7 +138,7 @@ footer img {
   margin-left: 0.125em;
 }
 
-@media all and (min-width: 992px) {
+@media screen and (min-width: 992px) {
   .dropend:hover > .dropdown-menu {
     position: absolute;
     top: 0;
@@ -71,7 +148,7 @@ footer img {
     margin-left: 0em;
   }
 }
-@media all and (max-width: 992px) {
+@media screen and (max-width: 992px) {
   .footer-logo {
     display: none;
   }

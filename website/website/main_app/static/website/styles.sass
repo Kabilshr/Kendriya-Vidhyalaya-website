@@ -1,6 +1,7 @@
-$primary: #fc9927
+$primary: #FA8072 //salmon
+$primary-light: #FB9183
 $secondary: #2D4059
-$tertiary: #E1BC29
+$tertiary: #FFDD65//E1BC29
 
 *
     padding: 0px
@@ -32,15 +33,12 @@ body
     background-color: #555
 
 
-
-
-
-
 .content
     flex: 1
 
 .nav-link
     position: relative
+    white-space: nowrap
 
 .nav-link::after
     height: 1px
@@ -90,8 +88,10 @@ main
     margin-top: 3rem
 
 footer
+    position: relative
     color: $secondary
     margin-top: auto
+    height: auto
     padding: 2rem
     background-color: $primary
     i
@@ -106,8 +106,8 @@ footer
     span:hover
         color: $tertiary
 
-.footer-contect
-    width: 30px
+.counter
+    position: relative
 
 .form-group
     margin-bottom: 15px
@@ -118,6 +118,7 @@ footer
 
 .dropdown .dropdown-menu 
     display: none
+    background-color: $primary-light
 
 .dropdown:hover > .dropdown-menu,.dropend:hover > .dropdown-menu 
     display: block
@@ -131,7 +132,6 @@ footer
         left: 100%
     .dropend .dropdown-toggle 
         margin-left: 0em
-
 
 @media screen and ( max-width: 992px)
     .footer-logo
