@@ -6,7 +6,7 @@ from .models import *
 
 # Create your views here.
 def index(request):
-    return render(request,"website/layout.html")
+    return render(request,"website/index.html")
 def principal_message(request):
     message = principals_message.objects.get()
     return render(request,"website/principal_message.html",

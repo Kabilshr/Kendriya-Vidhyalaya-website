@@ -2,7 +2,7 @@ $primary: #FA8072 //salmon
 $primary-light: #FB9183
 $secondary: #2D4059
 $tertiary: #FFDD65//E1BC29
-
+//body styles
 *
     padding: 0px
     margin: 0px
@@ -15,9 +15,8 @@ body
     background-color: #eee
     display: flex
     flex-direction: column
-    height: 2000px
 
-body
+body 
   &::-webkit-scrollbar-track
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)
     border-radius: 10px
@@ -32,10 +31,10 @@ body
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)
     background-color: #555
 
-
 .content
     flex: 1
 
+//navbar styles
 .nav-link
     position: relative
     white-space: nowrap
@@ -47,13 +46,14 @@ body
     position: absolute
     left: 0px
     bottom: 0px
-    transition: ease 0.2s
+    transition: ease 0.5s
     pointer-events: none
     opacity: 0
 
-.nav-link:hover::after,.nav-link:focus::after
+.nav-link:hover::after
     opacity: 1
-
+    >a
+        color: #fff
 
 .header
     background-color: $primary
@@ -65,28 +65,36 @@ body
 nav
     margin: 1vw 5vw
 
-.nav-item:hover
-    color: $tertiary
-
 .dropdown-menu
     width: 15rem
-    border-radius: 0px
-
+    border-radius: 0
+    animation: fade-in 300ms forwards
 
 .banner
     img
         height: 5rem
-/*    
-    position: absolute
-    top: 1vh
-    background-color: #fff
-    border-bottom-right-radius: 20%
-    border-bottom-left-radius: 20%
-    padding: 2rem 1.5rem 1rem 0.5rem
 
-main
-    margin-top: 3rem
+.dropdown-item:hover 
+    background-color: $tertiary
+    color: #fff
 
+.dropdown .dropdown-menu 
+    background-color: $primary-light
+
+.dropdown:hover > .dropdown-menu,.dropend:hover > .dropdown-menu 
+    display: block
+    margin-top: 0rem
+    margin-left: 0.125rem
+
+@media screen and (min-width: 992px)
+    .dropend:hover > .dropdown-menu 
+        position: absolute
+        top: 0
+        left: 100%
+    .dropend .dropdown-toggle 
+        margin-left: 0em
+
+//footer styles
 footer
     position: relative
     color: $secondary
@@ -105,35 +113,45 @@ footer
         padding: 0
     span:hover
         color: $tertiary
-
-.counter
-    position: relative
+    button
+        margin-bottom: 10px
 
 .form-group
     margin-bottom: 15px
 
-.dropdown-item:hover 
-    background-color: $tertiary
-    color: #fff
 
-.dropdown .dropdown-menu 
-    display: none
-    background-color: $primary-light
-
-.dropdown:hover > .dropdown-menu,.dropend:hover > .dropdown-menu 
-    display: block
-    margin-top: 0em
-    margin-left: 0.125em
-
-@media screen and (min-width: 992px)
-    .dropend:hover > .dropdown-menu 
-        position: absolute
-        top: 0
-        left: 100%
-    .dropend .dropdown-toggle 
-        margin-left: 0em
-
-@media screen and ( max-width: 992px)
+@media screen and ( max-width: 992px)//remove footer logo for smaller screens
     .footer-logo
         display: none
-    
+
+
+//body styles
+main
+    margin-top: 1.5rem
+
+//home page styles
+.home-section
+    padding: 50px
+
+.gallery-link
+    font-size: 1.2rem
+    font-style: oblique
+    margin: 1.3rem
+    padding: 1rem
+    text-align: right
+
+.faci-content
+    background-color: darkblue
+
+.map
+    display: flex
+    justify-content: center
+
+//animation keyframes
+@keyframes fade-in
+    0%
+        opacity: 0
+        transform: translateY(-10px)
+    100%
+        opacity: 1
+        transform: translateY(0px)

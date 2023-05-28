@@ -12,8 +12,6 @@
 </head>
 <body>
     <header>
-
-        
         <div class="navbar navbar-expand-lg header">
             <div class="container">
                 <div class="banner navbar-brand mb-0">
@@ -63,6 +61,7 @@
                                <li class="dropend"><a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Staff</a>
                                     <ul class="dropdown-menu">
                                         <li><a href="{% url 'members_list'%}" class="dropdown-item">Members list</a></li>
+                                        <li><a href="#" class="dropdown-item">Staff Achievements</a></li>
                                         <li><a href="{% url 'vacancy'%}" class="dropdown-item">Vacancy</a></li>
                                     </ul>
                                 </li>
@@ -72,8 +71,8 @@
                          <li class="nav-item dropdown">
                             <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">News & Updates</a>
                              <ul class="dropdown-menu">
-                               <li><a class="dropdown-item" href="{% url 'academic_notice'%}"> Academic notice</a></li>
-                               <li><a class="dropdown-item" href="{% url 'administrative_notice'%}"> Administrative notice</a></li>
+                               <li><a class="dropdown-item" href="{% url 'academic_notice'%}">Events</a></li>
+                               <li><a class="dropdown-item" href="{% url 'administrative_notice'%}">Notice</a></li>
                              </ul>
                          </li>
                         <li class="nav-item dropdown">
@@ -106,7 +105,7 @@
                         <div class="mb-2">
                             <span class="footer-location">
                                 <i class="fa fa-map-marker"></i>
-                                <a href="https://www.google.com/maps/place/P8FC%2BRP6+Kendriya+Vidyalaya+Kathmandu,+Lazimpat+Rd,+Kathmandu+44600/@27.7245298,85.3217764,17z/data=!4m9!1m2!2m1!1sKendriya+Vidyalaya!3m5!1s0x39eb1919099d583b:0xec53ba3468ef10b7!8m2!3d27.7245298!4d85.3217764!16s%2Fg%2F11b7q85zml" target="_blank">
+                                <a href="https://goo.gl/maps/6UYiA422q2Am4CzT6" target="_blank">
                                     <p>Kendriya Vidyalaya Kathmandu, Lazimpat Rd, Kathmandu</p>
                                 </a>
                             </span>
@@ -119,8 +118,10 @@
                         </div>
                         <div class="mb-2">
                             <span class="footer-mail">
-                                <i class="fa fa-envelope"></i>
-                                principalkvkathmandu@gmail.com
+                                <a href="mailto:principalkvkathmandu@gmail.com">
+                                    <i class="fa fa-envelope"></i>
+                                    principalkvkathmandu@gmail.com
+                                </a>
                             </span>
                         </div>
                     </div>
@@ -153,7 +154,7 @@
         </div>
         <span class="counter">
             <script type="text/javascript" src="https://www.stat-counter.org/count/ciyg"></script><br>
- <a href='https://www.versicherungen.at/'>Versicherungsvergleich</a> <script type='text/javascript' src='https://whomania.com/ctr?id=85e2fa5b1f99eecdc8d5dab8255a74656cfeac34'></script>
+            <a href='https://www.versicherungen.at/'>Versicherungsvergleich</a> <script type='text/javascript' src='https://whomania.com/ctr?id=85e2fa5b1f99eecdc8d5dab8255a74656cfeac34'></script>
         </span>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
