@@ -12,7 +12,7 @@ html, body
 
 body
     font-size: 16px
-    background-color: #eee
+    background-color: #efefef
     display: flex
     flex-direction: column
 
@@ -31,8 +31,10 @@ body
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)
     background-color: #555
 
+
 .content
-    flex: 1
+    position: relative
+    //flex: 1
 
 //navbar styles
 .nav-link
@@ -67,8 +69,10 @@ nav
 
 .dropdown-menu
     width: 15rem
-    border-radius: 0
+    border-radius: 1.75%
     animation: fade-in 300ms forwards
+    transition: ease-in-out 300ms
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3)
 
 .banner
     img
@@ -127,9 +131,29 @@ footer
 
 //body styles
 main
-    margin-top: 1.5rem
+    margin: 2rem
+    margin-top: 5px
 
 //home page styles
+.home-banner
+    background-color: #5A0009
+    position: relative
+    display: flex
+
+.banner-logo
+    img
+        height: 12rem
+
+.banner-title
+    font-weight: bold
+    padding: 3rem
+    text-align: justify
+    text-justify: inter-word
+    color: #fff
+    h6
+        color: #FFCC33
+
+
 .home-section
     padding: 50px
 
@@ -143,10 +167,21 @@ main
 .faci-content
     background-color: darkblue
 
-.map
+.map //homepage bottom map
     display: flex
     justify-content: center
 
+//gallery
+.gallery
+    position: relative
+
+.page-nav
+    position: absolute
+    bottom: 100%
+    right: 0px
+
+
+    
 //animation keyframes
 @keyframes fade-in
     0%
