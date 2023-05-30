@@ -9,7 +9,7 @@ html, body {
 
 body {
   font-size: 16px;
-  background-color: #eee;
+  background-color: #efefef;
   display: flex;
   flex-direction: column;
 }
@@ -30,7 +30,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .content {
-  flex: 1;
+  position: relative;
 }
 
 .nav-link {
@@ -71,8 +71,11 @@ nav {
 
 .dropdown-menu {
   width: 15rem;
-  border-radius: 0;
+  border-radius: 1.75%;
+  transform: translateY(-10px);
   animation: fade-in 300ms forwards;
+  transition: ease-in-out 300ms;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
 }
 
 .banner img {
@@ -135,17 +138,35 @@ footer button {
   margin-bottom: 15px;
 }
 
-@media screen and (max-width: 992px) {
-  .footer-logo {
-    display: none;
-  }
-}
 main {
-  margin-top: 1.5rem;
+  position: relative;
+  margin: 2rem;
+  margin-top: 5px;
 }
 
 .home-section {
   padding: 50px;
+}
+
+.home-banner {
+  padding: 0px;
+  color: #000;
+  position: relative;
+  display: flex;
+}
+
+.banner-logo img {
+  height: 10vw;
+}
+
+.banner-title {
+  font-weight: bold;
+  padding: 3rem;
+  text-align: justify;
+  text-justify: inter-word;
+}
+.banner-title h6 {
+  color: #FFCC33;
 }
 
 .gallery-link {
@@ -165,10 +186,40 @@ main {
   justify-content: center;
 }
 
+.gallery {
+  position: relative;
+  display: flexbox;
+}
+
+.card {
+  margin: 1.25rem;
+  width: 15rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+  transform: translate(0px);
+  transition: ease 300ms;
+}
+
+.card:hover {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+  transform: translateY(-3px) translateX(-2px);
+}
+
+.page-nav {
+  position: relative;
+  bottom: -1px;
+}
+
+@media screen and (max-width: 992px) {
+  .footer-logo {
+    display: none;
+  }
+  .home-banner {
+    display: none;
+  }
+}
 @keyframes fade-in {
   0% {
     opacity: 0;
-    transform: translateY(-10px);
   }
   100% {
     opacity: 1;

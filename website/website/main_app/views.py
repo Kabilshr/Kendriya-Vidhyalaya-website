@@ -114,3 +114,5 @@ def vacancy(request):
         "vacancy":vacany_post,
         "vacant":vacany_present
     })
+def gallery(request):
+    return render(request,"website/gallery.html")

@@ -1,8 +1,20 @@
 {% extends 'website/layout.html' %}
+{% load static %}
 {% block body %}
+<div class="home-banner">
+  <div class="banner-logo">
+    <img src="{% static 'website/bannerlogo.png' %}" alt="logo">
+  </div>
+  <div class="banner-title">
+    <h5>केन्द्रीय विद्यालय काठमांडू </h5>
+    <h5>Kendriya Vidyalaya Kathmandu</h5>
+    <h6>An Autonomous body under Ministry of Education Government of India</h6>
+    <div class="cbse">CBSE Affiliation Number : 6200001,School code-90225</div>
+  </div>
+</div>
 <section> <!-- Gallery -->
   <div class="gallery-link">
-    <a href="">Gallery&#8594;</a>
+    <a href="{% url 'gallery'%}">Gallery&#8594;</a>
   </div>
   <div id="carouselGallery" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -36,10 +48,14 @@
   </div>
 </section>
 <section class="home-section"> <!-- Facilities -->
-  <h2>Facilities</h2>
   <div class="faci-content">
-    <div class="faci-card"></div>
-    <div class="faci-card"></div>
+    <div class="faci-card">
+      aafsafrag
+    </div>
+    <div class="faci-card">
+      <i class="fa-solid fa-chalkboard-user"></i>
+
+    </div>
     <div class="faci-card"></div>
   </div>
 </section>

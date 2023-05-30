@@ -3,4 +3,28 @@
 PS MESSAGE
 {{message.message}}
 <img src={{message.image.url}}>
+{{message.image.url}}
+
+<!-- gallery card -->
+<a href="#"><!-- opens gallery carousel -->
+  <div class="card" style="width: 18rem;">
+    <img src={{message.image.url}} class="card-img-top" alt="card title">
+    <div class="card-body">
+      <h5 class="card-title">Demo Card</h5>
+    </div>
+  </div>
+</a>
+
+<!-- event card -->
+<div class="card" style="width: 18rem;">
+  <img src="{{message.image.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Event title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p><!--few lines of the details should only be visible-->
+    <a href="#" class="btn btn-primary">Learn more..</a>
+  </div>
+</div>
+
+
+
 {% endblock %}

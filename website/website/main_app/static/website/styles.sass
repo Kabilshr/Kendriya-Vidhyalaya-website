@@ -52,6 +52,7 @@ body
     pointer-events: none
     opacity: 0
 
+
 .nav-link:hover::after
     opacity: 1
     >a
@@ -70,6 +71,7 @@ nav
 .dropdown-menu
     width: 15rem
     border-radius: 1.75%
+    transform: translateY(-10px)
     animation: fade-in 300ms forwards
     transition: ease-in-out 300ms
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3)
@@ -123,39 +125,34 @@ footer
 .form-group
     margin-bottom: 15px
 
-
-@media screen and ( max-width: 992px)//remove footer logo for smaller screens
-    .footer-logo
-        display: none
-
-
 //body styles
 main
+    position: relative
     margin: 2rem
     margin-top: 5px
 
 //home page styles
+.home-section
+    padding: 50px
+
 .home-banner
-    background-color: #5A0009
+    padding: 0px
+    color: #000
     position: relative
     display: flex
 
 .banner-logo
     img
-        height: 12rem
+        height: 10vw
 
 .banner-title
     font-weight: bold
     padding: 3rem
     text-align: justify
     text-justify: inter-word
-    color: #fff
     h6
         color: #FFCC33
 
-
-.home-section
-    padding: 50px
 
 .gallery-link
     font-size: 1.2rem
@@ -174,19 +171,36 @@ main
 //gallery
 .gallery
     position: relative
+    display: flexbox
 
+.card
+    margin: 1.25rem
+    width: 15rem
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2)
+    transform: translate(0px)
+    transition: ease 300ms
+
+.card:hover
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5)
+    transform: translateY(-3px) translateX(-2px)
+
+    
 .page-nav
-    position: absolute
-    bottom: 100%
-    right: 0px
+    position: relative
+    bottom: -1px
 
+
+@media screen and ( max-width: 992px)
+    .footer-logo //remove footer logo for smaller screens
+        display: none
+    .home-banner
+        display: none
 
     
 //animation keyframes
 @keyframes fade-in
     0%
         opacity: 0
-        transform: translateY(-10px)
     100%
         opacity: 1
         transform: translateY(0px)
