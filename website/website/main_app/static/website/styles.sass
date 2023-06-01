@@ -12,9 +12,10 @@ html, body
 
 body
     font-size: 16px
-    background-color: #eee
+    background-color: #efefef
     display: flex
     flex-direction: column
+    
 
 body 
   &::-webkit-scrollbar-track
@@ -31,8 +32,10 @@ body
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)
     background-color: #555
 
+
 .content
-    flex: 1
+    position: relative
+    //flex: 1
 
 //navbar styles
 .nav-link
@@ -49,6 +52,7 @@ body
     transition: ease 0.5s
     pointer-events: none
     opacity: 0
+
 
 .nav-link:hover::after
     opacity: 1
@@ -67,8 +71,11 @@ nav
 
 .dropdown-menu
     width: 15rem
-    border-radius: 0
+    border-radius: 1.75%
+    transform: translateY(-10px)
     animation: fade-in 300ms forwards
+    transition: ease-in-out 300ms
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3)
 
 .banner
     img
@@ -119,19 +126,36 @@ footer
 .form-group
     margin-bottom: 15px
 
-
-@media screen and ( max-width: 992px)//remove footer logo for smaller screens
-    .footer-logo
-        display: none
-
-
 //body styles
 main
-    margin-top: 1.5rem
+    position: relative
+    margin: 2rem
+    margin-top: 5px
 
 //home page styles
 .home-section
-    padding: 50px
+    padding: 5rem
+
+.home-banner
+    padding: 0px 15px
+    color: #000
+    position: relative
+    display: flex
+
+.banner-logo
+    img
+        height: 10vw
+
+.banner-title
+    font-weight: bold
+    padding: 3rem
+    text-align: justify
+    text-justify: inter-word
+    h5
+        font-size: 2rem
+    h6
+        color: #FECC33
+
 
 .gallery-link
     font-size: 1.2rem
@@ -140,18 +164,79 @@ main
     padding: 1rem
     text-align: right
 
-.faci-content
-    background-color: darkblue
+.stat-content
+    display: flex
+    justify-content: space-evenly
+    background-color: #0B417E
+    color: #fff
+    padding: 10px
+    border-radius: 15px
+    
+.stat-card
+    display: flex
+    flex-direction: column
+    padding: 15px
+    margin: 10px
+    min-width: 20%
+    border-radius: 15px
+    transition: ease-in 1000ms forwards
+    >i,h2,p
+        align-self: center
+    i
+        transition: ease-in 1000ms forwards
+        font-size: 3vw
+        padding: 5px
+    h2
+        font-weight: bold
+    p
+        text-align: center
+        margin-top: 10px
+        font-size: 1.3rem
 
-.map
+.stat-card:hover
+    background-color: #0a396e
+    i
+        font-size: 3.2vw
+        padding-bottom: 0px
+        transform: translateY(-5px)
+
+
+.map //homepage bottom map
     display: flex
     justify-content: center
 
+//gallery
+.gallery
+    position: relative
+    display: flexbox
+
+.card
+    margin: 1.25rem
+    width: 15rem
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2)
+    transform: translate(0px)
+    transition: ease 300ms
+
+.card:hover
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5)
+    transform: translate3d(-3px, -2px, 0)
+    
+.page-nav
+    position: relative
+    bottom: -1px
+
+
+@media screen and ( max-width: 992px)
+    .footer-logo //remove footer logo for smaller screens
+        display: none
+    .home-banner
+        display: none
+
+    
 //animation keyframes
 @keyframes fade-in
     0%
         opacity: 0
-        transform: translateY(-10px)
     100%
         opacity: 1
         transform: translateY(0px)

@@ -9,9 +9,10 @@ html, body {
 
 body {
   font-size: 16px;
-  background-color: #eee;
+  background-color: #efefef;
   display: flex;
   flex-direction: column;
+  counter-reset: Serial;
 }
 
 body::-webkit-scrollbar-track {
@@ -30,7 +31,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .content {
-  flex: 1;
+  position: relative;
 }
 
 .nav-link {
@@ -71,8 +72,11 @@ nav {
 
 .dropdown-menu {
   width: 15rem;
-  border-radius: 0;
+  border-radius: 1.75%;
+  transform: translateY(-10px);
   animation: fade-in 300ms forwards;
+  transition: ease-in-out 300ms;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
 }
 
 .banner img {
@@ -135,17 +139,38 @@ footer button {
   margin-bottom: 15px;
 }
 
-@media screen and (max-width: 992px) {
-  .footer-logo {
-    display: none;
-  }
-}
 main {
-  margin-top: 1.5rem;
+  position: relative;
+  margin: 2rem;
+  margin-top: 5px;
 }
 
 .home-section {
-  padding: 50px;
+  padding: 5rem;
+}
+
+.home-banner {
+  padding: 0px 15px;
+  color: #000;
+  position: relative;
+  display: flex;
+}
+
+.banner-logo img {
+  height: 10vw;
+}
+
+.banner-title {
+  font-weight: bold;
+  padding: 3rem;
+  text-align: justify;
+  text-justify: inter-word;
+}
+.banner-title h5 {
+  font-size: 2rem;
+}
+.banner-title h6 {
+  color: #FECC33;
 }
 
 .gallery-link {
@@ -156,8 +181,48 @@ main {
   text-align: right;
 }
 
-.faci-content {
-  background-color: darkblue;
+.stat-content {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #0B417E;
+  color: #fff;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  margin: 10px;
+  min-width: 20%;
+  border-radius: 15px;
+  transition: ease-in 1000ms forwards;
+}
+.stat-card > i, .stat-card h2, .stat-card p {
+  align-self: center;
+}
+.stat-card i {
+  transition: ease-in 1000ms forwards;
+  font-size: 3vw;
+  padding: 5px;
+}
+.stat-card h2 {
+  font-weight: bold;
+}
+.stat-card p {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1.3rem;
+}
+
+.stat-card:hover {
+  background-color: #0a396e;
+}
+.stat-card:hover i {
+  font-size: 3.2vw;
+  padding-bottom: 0px;
+  transform: translateY(-5px);
 }
 
 .map {
@@ -165,10 +230,45 @@ main {
   justify-content: center;
 }
 
+.gallery {
+  position: relative;
+  display: flexbox;
+}
+
+.card {
+  margin: 1.25rem;
+  width: 15rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+  transform: translate(0px);
+  transition: ease 300ms;
+}
+
+.card:hover {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+  transform: translate3d(-3px, -2px, 0);
+}
+
+.serial-no:first-child:before {
+  counter-increment: Serial;
+  content: counter(Serial);
+}
+
+.page-nav {
+  position: relative;
+  bottom: -1px;
+}
+
+@media screen and (max-width: 992px) {
+  .footer-logo {
+    display: none;
+  }
+  .home-banner {
+    display: none;
+  }
+}
 @keyframes fade-in {
   0% {
     opacity: 0;
-    transform: translateY(-10px);
   }
   100% {
     opacity: 1;

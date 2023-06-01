@@ -23,5 +23,5 @@ urlpatterns = [
     path("NewsLetter",views.newsletter,name="newsletter"),
     path("Members_List",views.members_list,name="members_list"),
     path("Vacancy",views.vacancy,name="vacancy"),
-
+    path("Gallery",views.gallery,name="gallery"),
 ]
