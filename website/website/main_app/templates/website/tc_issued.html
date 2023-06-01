@@ -1,5 +1,14 @@
 {% extends 'website/layout.html' %}
 {% block body %}
+<!--
+    todo backwards serial number
+    todo use javascript for search
+    todo style search bar
+    backend
+        todo list should be in last come first order(new at the top)
+        todo add more classes
+        todo make serial number auto instead of from db
+-->
     <form action="{% url 'tc_issued' %}" method="post">
         {% csrf_token %}
         <input type="text" name="name" placeholder="Search Using Name">
@@ -11,11 +20,34 @@
         {{tc.issue_date}}
         {{tc.Class_left}}
     {% endfor %}
-    {% for tc in tc %}
-        {{tc.name}}
-        {{tc.parents_name}} 
-        {{tc.issue_date}}
-        {{tc.Class_left}}
-        <br>
-    {% endfor %}
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">S.no</th>
+                    <th scope="col">Student Name</th>
+                    <th scope="col">Parents Name</th>
+                    <th scope="col">Date of Birth</th>
+                    <th scope="col">Adm.No</th>
+                    <th scope="col">Class Left</th>
+                    <th scope="col">Tc No.</th>
+                    <th scope="col">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tc in tc %}
+                <tr>
+                    <th scope="row">{{tc.Class_left}}</th><!--make it iterable -->
+                    <td>{{tc.name}}</td>
+                    <td>{{tc.parents_name}}</td>
+                    <td>{{tc.date_of_birth}}</td>
+                    <td>{{tc.Admission_number}}</td>
+                    <td>{{tc.Class_left}}</td>
+                    <td>{{tc.TC_no}}</td>
+                    <td>{{tc.issue_date}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

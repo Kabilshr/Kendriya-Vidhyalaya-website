@@ -1,7 +1,7 @@
 {% extends 'website/layout.html' %}
 {% load static %}
 {% block body %}
-<div class="home-banner">
+<section class="home-banner">
   <div class="banner-logo">
     <img src="{% static 'website/bannerlogo.png' %}" alt="logo">
   </div>
@@ -11,7 +11,7 @@
     <h6>An Autonomous body under Ministry of Education Government of India</h6>
     <div class="cbse">CBSE Affiliation Number : 6200001,School code-90225</div>
   </div>
-</div>
+</section>
 <section> <!-- Gallery -->
   <div class="gallery-link">
     <a href="{% url 'gallery'%}">Gallery&#8594;</a>
@@ -48,15 +48,22 @@
   </div>
 </section>
 <section class="home-section"> <!-- Facilities -->
-  <div class="faci-content">
-    <div class="faci-card">
-      aafsafrag
+  <div class="stat-content">
+    <div class="stat-card">
+      <i class="fa-solid fa-star"></i>
+      <h2>50+</h2>
+      <p>Years of Excellence</p>
     </div>
-    <div class="faci-card">
+    <div class="stat-card">
       <i class="fa-solid fa-chalkboard-user"></i>
-
+      <h2>25+</h2>
+      <p>Teachers</p>
     </div>
-    <div class="faci-card"></div>
+    <div class="stat-card">
+      <i class="fa-solid fa-user-graduate"></i>
+      <h2>500+</h2>
+      <p>Enrolled Students</p>
+    </div>
   </div>
 </section>
 <section class="home-section map">
