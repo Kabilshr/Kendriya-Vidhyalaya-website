@@ -47,6 +47,52 @@
       </button>
   </div>
 </section>
+<section class="home-section">
+  <div><!--todo auto update thoughts-->
+    <h3>Thought of the day</h3>
+    <p class="thought">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem iusto quisquam recusandae dolor nesciunt fuga nemo modi doloribus ducimus unde?</p>
+    <p class="thought-auth">-by someone</p>
+  </div>
+  <div class="school-goals">
+    <h3>School Goals</h3>
+    <ol type="1">
+      <li>Providing personality building education</li>
+      <li>Provide students with the opportunity for overall development</li>
+      <li>To reinforce the values ​​of life in the society with high moral, social and cultural values.</li>
+      <li>To develop the quality of global citizenship in the students with national ethos</li>
+    </ol>
+  </div>
+</section>
+<hr>
+<section class="home-section about-section">
+  <div class="row">
+    <div class="about col-md-8">
+      <h3>About KV Kathmandu</h3>
+      <img src="{% static 'website/school_building.jpg' %}" alt="">
+      <p>
+        Kendriya Vidyalaya, Embassy of India, Kathmandu, is one of the three Kendriya Vidyalayas located abroad and the other
+        two are Moscow and in Tehran. These schools require the education of the children of employees working in Indian
+        Missions and other bodies. It is a civil sector school.
+      </p>
+      <p>
+        Kendriya Vidyalaya Kathmandu was established in the year 1973 under the Indian Cooperative Mission(ICM). The Embassy of
+        India, Kathmandu has provided land for the school building in the embassy premises, and the building was constructed by
+        the Kendriya Vidyalaya Sangathan. ICM closed down in the year 1980 and after that the school was managed by the Embassy
+        of India, Kathmandu.
+      </p>
+      <p>
+        The Ambassador of India to Nepal is its patron and the deputy chief of mission is the ex-officil chairman of the school
+        management committee. It is a single block school and science and commerce education is available at + 2 level.
+      </p>
+    </div>
+    <div class="notice col-md-4">
+      <h3>Notice</h3>
+      <div class="notice-content">
+        
+      </div>
+    </div>
+  </div>
+</section>
 <section class="home-section"> <!-- Facilities -->
   <div class="stat-content">
     <div class="stat-card">
@@ -66,8 +112,24 @@
     </div>
   </div>
 </section>
+<section class="home-section">
+  <div class="facilities">
+    <a tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="left" data-bs-title="Dismissible popover" data-bs-content="And here's some amazing content. It's very engaging. Right?">
+      <div class="faci-item">
+        <div class="faci-icon">
+          <i class="fa-solid fa-info"></i>
+        </div>
+        <div class="faci-title">
+          <h5>faci title</h5>
+        </div>
+        <div class="faci-description">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, dicta!</p>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
 <section class="home-section map">
   <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3531.7653678506645!2d85.3217764!3d27.7245298!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1919099d583b%3A0xec53ba3468ef10b7!2sKendriya%20Vidyalaya%20Kathmandu!5e0!3m2!1sen!2snp!4v1685198837897!5m2!1sen!2snp" width="80%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </section>
-
 {% endblock %}

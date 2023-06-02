@@ -3,18 +3,46 @@
     {% for holiday in holiday %}
         <a href="{{holiday.file.url}}">holiday</a>
     {% endfor %}
-    <div class="table-responsive">
+    <div class="table-responsive text-nowrap">
         <table class="table table-striped table-hover table-bordered">
             <thead class="table-light">
                 <tr>
-                    <th scope="col">S.no</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Designation</th>
+                    <th scope="col ">S.no</th>
+                    <th scope="col">Holiday</th>
+                    <th scope="col">Date</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <th scope="row"></th><!--make it iterable -->
+                    <th scope="row"></th>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">Vacation</th>
+                    <th scope="col">Start date</th>
+                    <th scope="col">End date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Summer</th><!--make it iterable -->
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">Autumn</th><!--make it iterable -->
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">Winter</th><!--make it iterable -->
                     <td></td>
                     <td></td>
                 </tr>

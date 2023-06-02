@@ -1,6 +1,6 @@
 $primary: #FA8072 //salmon
 $primary-light: #FB9183
-$secondary: #2D4059
+$secondary: #e89209
 $tertiary: #FFDD65//E1BC29
 //body styles
 *
@@ -11,7 +11,7 @@ html, body
   height: 100%
 
 body
-    font-size: 16px
+    font-size: 18px
     background-color: #efefef
     display: flex
     flex-direction: column
@@ -104,7 +104,7 @@ nav
 //footer styles
 footer
     position: relative
-    color: $secondary
+    color: #474a4d
     margin-top: auto
     height: auto
     padding: 2rem
@@ -134,7 +134,10 @@ main
 
 //home page styles
 .home-section
-    padding: 5rem
+    margin: 1rem
+    padding: 1.5rem
+    h3
+        color: $secondary
 
 .home-banner
     padding: 0px 15px
@@ -163,6 +166,33 @@ main
     margin: 1.3rem
     padding: 1rem
     text-align: right
+
+.thought
+    font-style: italic
+    background-color: #e1dede
+.thought-auth
+    font-style: oblique
+
+
+.about-section
+    div
+        padding: 10px
+
+.about
+    img
+        width: 100%
+        margin-bottom: 2%
+
+.notice
+    h3
+        text-align: center
+
+.notice-content
+    background-color: #e1dede
+    border: solid 1px $secondary    
+    width: 100%
+    height: 60%
+
 
 .stat-content
     display: flex
@@ -200,10 +230,47 @@ main
         padding-bottom: 0px
         transform: translateY(-5px)
 
+.facilities
+    //background-color: #eee//#dadada
+    button
+        border: none
+
+.faci-item
+    display: grid
+    //width: 40%
+    grid-template-columns: 30px auto 
+    grid-template-rows: 1.3rem 2rem 
+    padding: 10px
+    column-gap: 8px
+    border: 1px outset
+
+.faci-item:hover
+    background-color: #dadada
+
+.faci-icon
+    position: relative
+    top: 50%
+    background-color: #fff
+    display: flex
+    justify-content: center
+    align-content: center
+    height: 2rem
+    width: 2rem
+    border-radius: 50%
+    padding: 5px
+    grid-area: 1 / 1 / 2
+
+.faci-title
+    grid-area: 1 / 2 / 2 
+    text-align: left
+
+.faci-description
+    font-size: 0.8rem
+    grid-area: 2 / 2 / 3
 
 .map //homepage bottom map
     display: flex
-    justify-content: center
+    justify-content: space-around
 
 //gallery
 .gallery
@@ -224,6 +291,10 @@ main
 .page-nav
     position: relative
     bottom: -1px
+
+//table
+table
+    text-transform: capitalize
 
 
 @media screen and ( max-width: 992px)
