@@ -1,12 +1,26 @@
 {% extends 'website/layout.html' %}
 {% block body %}
     {% if vacant %}
-        {% for vacancy in vacancy %}
-            {{vacancy.number}}
-            {{vacancy.vacant_designation}}
-            <br>
-        {% endfor %}
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">S.no</th>
+                    <th scope="col">Vacant Designation</th>
+                    <th scope="col">Vacant Positions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for vacancy in vacancy %}
+                <tr>
+                    <th scope="row"></th><!--make it iterable -->
+                    <td>{{vacancy.vacant_designation}}</td>
+                    <td>{{vacancy.number}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     {% else %} 
-        <p>No Vacany</p>
+        <h3 align="center" style="margin: 20%">No Vacancy</h3>
     {% endif %}
+    
 {% endblock %}

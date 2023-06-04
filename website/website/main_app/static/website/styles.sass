@@ -11,11 +11,10 @@ html, body
   height: 100%
 
 body
-    font-size: 18px
-    background-color: #efefef
+    font-size: 16px
+    background-color: #fff//#efefef
     display: flex
     flex-direction: column
-    
 
 body 
   &::-webkit-scrollbar-track
@@ -32,6 +31,8 @@ body
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)
     background-color: #555
 
+h1,h2,h3
+    color: $secondary
 
 .content
     position: relative
@@ -41,6 +42,7 @@ body
 .nav-link
     position: relative
     white-space: nowrap
+    font-weight: 500
 
 .nav-link::after
     height: 1px
@@ -81,6 +83,9 @@ nav
     img
         height: 5rem
 
+.dropdown-item
+    font-weight: 500
+
 .dropdown-item:hover 
     background-color: $tertiary
     color: #fff
@@ -115,6 +120,8 @@ footer
     a
         text-decoration: none
         color: inherit
+    h3
+        color: inherit
     img
         margin-top: 2vh
         padding: 0
@@ -136,8 +143,6 @@ main
 .home-section
     margin: 1rem
     padding: 1.5rem
-    h3
-        color: $secondary
 
 .home-banner
     padding: 0px 15px
@@ -156,8 +161,9 @@ main
     text-justify: inter-word
     h5
         font-size: 2rem
+        color: inherit  
     h6
-        color: #FECC33
+        color: #c9a740
 
 
 .gallery-link
@@ -166,6 +172,18 @@ main
     margin: 1.3rem
     padding: 1rem
     text-align: right
+
+#carouselGallery
+    
+    height: 30vw
+    width: auto
+    img
+        position: relative
+        left: 50%
+        transform: translateX(-50%)
+        height: 30vw
+        width: auto
+        
 
 .thought
     font-style: italic
@@ -189,7 +207,7 @@ main
 
 .notice-content
     background-color: #e1dede
-    border: solid 1px $secondary    
+    border: solid 1px $primary   
     width: 100%
     height: 60%
 
@@ -197,7 +215,7 @@ main
 .stat-content
     display: flex
     justify-content: space-evenly
-    background-color: #0B417E
+    background-color: $primary//#0B417E
     color: #fff
     padding: 10px
     border-radius: 15px
@@ -218,13 +236,14 @@ main
         padding: 5px
     h2
         font-weight: bold
+        color: inherit
     p
         text-align: center
         margin-top: 10px
         font-size: 1.3rem
 
 .stat-card:hover
-    background-color: #0a396e
+    background-color: $primary-light//#0a396e
     i
         font-size: 3.2vw
         padding-bottom: 0px
@@ -236,19 +255,22 @@ main
         border: none
 
 .faci-item
+    background-color: #efefef
     display: grid
-    //width: 40%
     grid-template-columns: 30px auto 
     grid-template-rows: 1.3rem 2rem 
     padding: 10px
+    margin: 5px
     column-gap: 8px
-    border: 1px outset
+    //border: 1px outset
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1)
+    text-overflow: ellipsis
+    border-radius: 15px
 
 .faci-item:hover
     background-color: #dadada
 
 .faci-icon
-    position: relative
     top: 50%
     background-color: #fff
     display: flex
@@ -296,14 +318,14 @@ main
 table
     text-transform: capitalize
 
-
 @media screen and ( max-width: 992px)
     .footer-logo //remove footer logo for smaller screens
         display: none
     .home-banner
         display: none
+    .stat-content
+        flex-direction: column
 
-    
 //animation keyframes
 @keyframes fade-in
     0%

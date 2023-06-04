@@ -1,9 +1,24 @@
 {% extends 'website/layout.html' %}
 {% block body %}
-    {% for members in members %} 
-        {{members.name}} 
-        {{members.address}}
-        {{members.post}}
-        <br>
-    {% endfor %}
+<h1>Vidyalaya Management Committee Members</h1>
+<table class="table table-striped table-hover table-bordered">
+    <thead class="table-light">
+        <tr>
+            <th scope="col">S.no</th>
+            <th scope="col">Name</th>
+            <th scope="col">Post</th>
+            <th scope="col">Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for members in members %}
+        <tr>
+            <th scope="row"></th><!--make it iterable -->
+            <td>{{members.name}}</td>
+            <td>{{members.post}}</td>
+            <td>{{members.address}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
