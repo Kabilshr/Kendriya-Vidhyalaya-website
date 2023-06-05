@@ -4,6 +4,9 @@
     todo backwards serial number
     todo use javascript for search
     todo style search bar
+    todo 100 names in a page
+    todo add pagination
+    todo? only last 5 years displayed, rest in archive
     backend
         todo list should be in last come first order(new at the top)
         todo add more classes
@@ -20,7 +23,7 @@
         {{tc.issue_date}}
         {{tc.Class_left}}
     {% endfor %}
-    <div class="table-responsive">
+    <div class="table-responsive text-nowrap">
         <table class="table table-striped table-hover table-bordered">
             <thead class="table-light">
                 <tr>
@@ -37,7 +40,8 @@
             <tbody>
                 {% for tc in tc %}
                 <tr>
-                    <th scope="row">{{tc.Class_left}}</th><!--make it iterable -->
+                    <th scope="row">{{forloop.counter}}</th>
+<!--make it iterable -->
                     <td>{{tc.name}}</td>
                     <td>{{tc.parents_name}}</td>
                     <td>{{tc.date_of_birth}}</td>

@@ -1,12 +1,18 @@
-from django.shortcuts import render
 
-# Create your views here.
+
+
 from django.shortcuts import render
 from .models import *
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 def index(request):
-    return render(request,"website/index.html")
+    notice=Notice.objects.all()[::-1][:5]
+    carousel_image=Carousel_image.objects.get()
+    return render(request,"website/index.html",{
+        "notice":notice,
+        "carousel_image":carousel_image
+    })
 def principal_message(request):
     message = principals_message.objects.get()
     return render(request,"website/principal_message.html",
@@ -16,8 +22,6 @@ def about_kv(request):
     return render(request,"website/about_kv.html")
 def facilities(request):
     return render(request,"website/facilities.html")
-def ict(request):
-    return render(request,"website/ict.html")
 def milestone(request):
     return render(request,"website/milestone.html")
 def contact_us(request):
@@ -25,9 +29,15 @@ def contact_us(request):
 def sport_and_games(request):
     return render(request,"website/sport_and_games.html")
 def holidays(request):
-    holiday=Holiday.objects.all()
+    holiday=Holiday.objects.filter(category='holiday')
+    summer_vacation=Holiday.objects.filter(category='summer_vacation')
+    winter_vacation=Holiday.objects.filter(category='winter_vacation')
+    autum_vacation=Holiday.objects.filter(category='autum_vacation')
     return render(request,"website/holidays.html",{
-                      'holiday':holiday
+                      'holiday':holiday,
+                      'summer_vacation':summer_vacation,
+                      'winter_vacation':winter_vacation,
+                      'autum_vacation':autum_vacation,
                   })
 def tc_issued(request):
     if request.method == "POST":
@@ -59,21 +69,21 @@ def vmc_members(request):
     })
 def committees(request):
     return render(request,"website/committes.html")
-def administrative_notice(request):
+def notice(request):
     try:
-        notice_data=Administrative_Notice.objects.all()[::-1][:10]
+        notice_data=Notice.objects.all()[::-1][:10]
     except:
         notice_data=None
-    return render(request,"website/administrative_notice.html",{
+    return render(request,"website/notice.html",{
         'notice_data':notice_data,
     })
-def academic_notice(request):
+def news_and_events(request):
     try:
-        notice_data=Administrative_Notice.objects.all()[::-1][:10]
+        notice_data=News_and_Events.objects.all()[::-1]
     except:
         notice_data=None
     finally:
-            return render(request,"website/academic_notice.html",{
+            return render(request,"website/news_and_events.html",{
             'notice_data':notice_data,
         })
 def class_1(request):
@@ -93,7 +103,7 @@ def alumni(request):
 def achievement(request):
     return render(request,"website/achievement.html")
 def newsletter(request):
-    news_letter=News_letter.objects.all()
+    news_letter=News_letter.objects.all()[::-1][:20]
     return render(request,"website/newsletter.html",{
         'news_letter':news_letter
     })
@@ -105,14 +115,19 @@ def members_list(request):
 def vacancy(request):
     vacany_post=None
     vacany_present=False
-    try:
-        vacany_post=Vacancy.objects.all()
+    vacany_post=Vacancy.objects.all()
+    if vacany_post:
         vacany_present=True
-    except:
-        vacany_present=False
     return render(request,"website/vacancy.html",{
         "vacancy":vacany_post,
         "vacant":vacany_present
     })
 def gallery(request):
     return render(request,"website/gallery.html")
+def fees(request):
+    fee=Fee_structure.objects.get()
+    return HttpResponseRedirect(f'{fee.file.url}')
+def show_event(request,pk):
+    return render(request,'website/show_event.html',{
+        "event":News_and_Events.objects.filter(pk=pk)
+    })
