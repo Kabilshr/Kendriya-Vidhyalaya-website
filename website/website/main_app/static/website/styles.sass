@@ -136,13 +136,12 @@ footer
 //body styles
 main
     position: relative
-    margin: 2rem
     margin-top: 5px
 
 //home page styles
 .home-section
-    margin: 1rem
-    padding: 1.5rem
+    margin: 1rem 0
+    padding: 1.5rem 0
 
 .home-banner
     padding: 0px 15px
@@ -165,29 +164,28 @@ main
     h6
         color: #c9a740
 
-
 .gallery-link
     font-size: 1.2rem
     font-style: oblique
     margin: 1.3rem
-    padding: 1rem
+    padding: 0.5rem
     text-align: right
 
 #carouselGallery
-    
-    height: 30vw
-    width: auto
+    $height: 30vw
+    $height-mobile: 3vh
+    height: $height
+    background-color: #6f6f6f8b
     img
         position: relative
         left: 50%
         transform: translateX(-50%)
-        height: 30vw
-        width: auto
-        
+        height: $height
 
 .thought
     font-style: italic
     background-color: #e1dede
+    
 .thought-auth
     font-style: oblique
 
@@ -255,6 +253,7 @@ main
         border: none
 
 .faci-item
+    position: relative
     background-color: #efefef
     display: grid
     grid-template-columns: 30px auto 
@@ -271,6 +270,7 @@ main
     background-color: #dadada
 
 .faci-icon
+    position: absolute
     top: 50%
     background-color: #fff
     display: flex
@@ -325,6 +325,8 @@ table
         display: none
     .stat-content
         flex-direction: column
+    #carouselGallery
+        display: none
 
 //animation keyframes
 @keyframes fade-in
