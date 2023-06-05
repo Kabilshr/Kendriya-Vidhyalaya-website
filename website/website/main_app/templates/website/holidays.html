@@ -11,6 +11,13 @@
                     <th scope="col">Holiday</th>
                     <th scope="col">Date</th>
                 </tr>
+                {% for holiday in holiday %} 
+                    <tr>
+                        <th>{{forloop.counter}}</th>
+                        <th>{{holiday.name}}</th>
+                        <th>{{holiday.start_date}}</th>
+                    </tr>
+                {% endfor %}
             </thead>
             <tbody>
                 <tr>
@@ -32,20 +39,25 @@
             </thead>
             <tbody>
                 <tr>
-                    <th scope="row">Summer</th><!--make it iterable -->
-                    <td></td>
-                    <td></td>
+                    <th scope="row">Summer</th>
+                    {% for holiday in summer_vacation %}
+                        <td>{{holiday.start_date}}</td>
+                        <td>{{holiday.end_date}}</td>
+                    {% endfor %}
                 </tr>
                 <tr>
                     <th scope="row">Autumn</th><!--make it iterable -->
-                    <td></td>
-                    <td></td>
+                {% for holiday in autum_vacation %}
+                    <td>{{holiday.start_date}}</td>
+                    <td>{{holiday.end_date}}</td>
+                {% endfor %}
                 </tr>
                 <tr>
                     <th scope="row">Winter</th><!--make it iterable -->
-                    <td></td>
-                    <td></td>
-                </tr>
+                {% for holiday in winter_vacation %}
+                    <td>{{holiday.start_date}}</td>
+                    <td>{{holiday.end_date}}</td>
+                {% endfor %}
             </tbody>
         </table>
     </div>
