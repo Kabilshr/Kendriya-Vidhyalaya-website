@@ -1,5 +1,6 @@
 from django.db import models
-
+from datetime import date
+from django.contrib import admin
 # Create your models here.
 Vacancy_posts=[('principal','Principal'),('PGT (Physics)','PGT (Physics)'),('PGT (Chemistry)','PGT (Chemistry)'),('PGT (Maths)','PGT (Maths)'),
                ('PGT (Biology)','PGT (Biology)'),('PGT (Computer)','PGT (Computer)'),('PGT (Economics)','PGT (Economics)'), 
@@ -23,11 +24,6 @@ class Alumni(models.Model):
     def __str__(self):
         return f"{self.name}"
 class News_letter(models.Model):
-    title=models.CharField(max_length=32)
-    file=models.FileField(upload_to='website/files',blank=False,null=False)
-    def __str__(self) :
-        return f"{self.title}"
-class Holiday(models.Model):
     title=models.CharField(max_length=32)
     file=models.FileField(upload_to='website/files',blank=False,null=False)
     def __str__(self) :
@@ -60,18 +56,36 @@ class Vacancy(models.Model):
     vacant_designation=models.CharField(choices=Vacancy_posts,max_length=32)
     def __str__(self):
         return f"{self.vacant_designation}"
-class Administrative_Notice(models.Model):
+class Notice(models.Model):
     file=models.FileField(upload_to='website/files',blank=False,null=False)
     title=models.TextField(blank=False)
     description=models.TextField(blank=False)
     def __str__(self):
         return f"{self.title}"
-class Academic_Notice(models.Model):
+class News_and_Events(models.Model):
+    id=models.IntegerField(primary_key=True,auto_created=True)
     file=models.ImageField(upload_to='website/images',blank=False,null=False)
     title=models.TextField(blank=False)
     description=models.TextField(blank=False)
     def __str__(self):
         return f"{self.title}"
-
-
-
+class Fee_structure(models.Model):
+    file=models.FileField(upload_to='website/files',blank=False,null=False)
+    def __str__(self):
+        return f"Fee structure for the year {date.today().year}"
+class Holiday(models.Model):
+    name=models.TextField(max_length=32,blank=False,null=False)
+    start_date=models.DateField(blank=False,null=False)
+    end_date=models.DateField(default=None)
+    category=models.CharField(choices=
+                              (('holiday','Holiday'),('summer_vacation','Summer Vacation'),('winter_vacation','Winter Vacation'),('autum_vacation','Autum Vacation')),
+                              max_length=32)
+    def __str__(self):
+        return f"{self.name}"
+class Carousel_image(models.Model):
+        image_1=models.ImageField(upload_to='website/images/' ,blank=False ,null=False)
+        image_2=models.ImageField(upload_to='website/images/' ,blank=False ,null=False)
+        image_3=models.ImageField(upload_to='website/images/' ,blank=False ,null=False)
+        image_4=models.ImageField(upload_to='website/images/' ,blank=False ,null=False)
+class News_and_EventsAdmin(admin.ModelAdmin):
+    exclude= ('id',)

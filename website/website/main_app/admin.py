@@ -10,7 +10,8 @@ admin.site.register(News_letter)
 admin.site.register(vmc_member)
 admin.site.register(member_list)
 admin.site.register(Vacancy)
-admin.site.register(Administrative_Notice)
-admin.site.register(Academic_Notice)
-
+admin.site.register(Notice)
+admin.site.register(Fee_structure)
+admin.site.register(Carousel_image)
+admin.site.register(News_and_Events,News_and_EventsAdmin)
 
