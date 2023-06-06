@@ -93,7 +93,7 @@
         </div>
     </header>
     <main class="content">
-        <div class="container">
+        <div class="container-lg">
             {% block body %}
             {% endblock %}
         </div>
@@ -101,7 +101,7 @@
     <footer>
         <div class="container-md">
             <div class="row">
-                <div class="col-md-4 my-auton footer-logo">
+                <div class="col-md-4 my-auton footer-logo my-auto">
                     <a href="{% url 'index' %}"><img src="{% static 'website/sitelogo.png' %}" height="200"></a>
                 </div>
                 <div class="col-sm-7 col-md-4 my-auto">
@@ -129,8 +129,8 @@
                             </span>
                         </div>
                     </div>
-                    </div>
-                <div class="col-sm-5 col-md-4 my-auto quick-links">
+                </div>
+                <div class="col-sm-5 col-md-4 my-auto">
                     <div class="form_group">
                         <h3>Feedback Form</h3>
                         <form id="simpleContactForm" data-request="simpleContact::onFormSubmit">

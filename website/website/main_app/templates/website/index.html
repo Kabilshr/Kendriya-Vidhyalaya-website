@@ -47,6 +47,44 @@
     <a href="{% url 'gallery'%}">Gallery&#8594;</a>
   </div>
 </section>
+<section class="home-section about-section">
+  <div class="row">
+    <div class="about col-md-8">
+      <h3>About KV Kathmandu</h3>
+      <img src="{% static 'website/school_building.jpg' %}" alt="">
+      <p>
+        Kendriya Vidyalaya, Embassy of India, Kathmandu, is one of the three Kendriya Vidyalayas located abroad and the
+        other
+        two are Moscow and in Tehran. These schools require the education of the children of employees working in Indian
+        Missions and other bodies. It is a civil sector school.
+      </p>
+      <p>
+        Kendriya Vidyalaya Kathmandu was established in the year 1973 under the Indian Cooperative Mission(ICM). The
+        Embassy of
+        India, Kathmandu has provided land for the school building in the embassy premises, and the building was
+        constructed by
+        the Kendriya Vidyalaya Sangathan. ICM closed down in the year 1980 and after that the school was managed by the
+        Embassy
+        of India, Kathmandu.
+      </p>
+      <p>
+        The Ambassador of India to Nepal is its patron and the deputy chief of mission is the ex-offical chairman of the
+        school
+        management committee. It is a single block school and science and commerce education is available at + 2 level.
+      </p>
+    </div>
+    <div class="notice col-md-4">
+      <h3>Notice</h3>
+      <div class="notice-content">
+        {% for notice in notice %}
+        <p>{{notice.title}}</p>
+        <p>{{notice.file.url}}</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+<hr>
 <section class="home-section">
   <div><!--todo auto update thoughts-->
     <h3>Thought of the day</h3>
@@ -64,38 +102,6 @@
   </div>
 </section>
 <hr>
-<section class="home-section about-section">
-  <div class="row">
-    <div class="about col-md-8">
-      <h3>About KV Kathmandu</h3>
-      <img src="{% static 'website/school_building.jpg' %}" alt="">
-      <p>
-        Kendriya Vidyalaya, Embassy of India, Kathmandu, is one of the three Kendriya Vidyalayas located abroad and the other
-        two are Moscow and in Tehran. These schools require the education of the children of employees working in Indian
-        Missions and other bodies. It is a civil sector school.
-      </p>
-      <p>
-        Kendriya Vidyalaya Kathmandu was established in the year 1973 under the Indian Cooperative Mission(ICM). The Embassy of
-        India, Kathmandu has provided land for the school building in the embassy premises, and the building was constructed by
-        the Kendriya Vidyalaya Sangathan. ICM closed down in the year 1980 and after that the school was managed by the Embassy
-        of India, Kathmandu.
-      </p>
-      <p>
-        The Ambassador of India to Nepal is its patron and the deputy chief of mission is the ex-offical chairman of the school
-        management committee. It is a single block school and science and commerce education is available at + 2 level.
-      </p>
-    </div>
-    <div class="notice col-md-4">
-      <h3>Notice</h3>
-      <div class="notice-content">
-        {% for notice in notice %} 
-          <p>{{notice.title}}</p>
-          <p>{{notice.file.url}}</p>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-</section>
 <section class="home-section">
   <div class="stat-content">
     <div class="stat-card">
