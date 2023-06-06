@@ -1,5 +1,6 @@
 {% extends 'website/layout.html' %}
 {% block body %}
+<h1>Newsletter</h1>
     {% for news in news_letter %}
     <a href="{{news.file.url}}">{{news.title}}</a>
     {% endfor %}

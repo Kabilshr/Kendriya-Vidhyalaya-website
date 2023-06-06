@@ -11,6 +11,69 @@
         {% endwith %} 
     {% endfor %}
 {% endblock %}
+
+<!--
+    for backend guy
+    todo gallery doesn't need description
+    todo need to access 1st image from all the images(thumbnail)
+    
+    
+    todo change name of id for modal
+    todo fix modal auto scroll carousel
+-->
+
+<!--
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <img src={{message.image.url}} class="card-img-top" alt="card title">
+            <div class="card-body">
+                <h5 class="card-title">{{gallery.title}}</h5>
+            </div>
+        </div>
+    </div>
+
+
+    -Modal-
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div id="carouselExampleControls" class="carousel slide">
+                    <div class="carousel-inner overflow-hidden">
+                        {% with image=gallery.images.all %}
+                        {% for image in image %}
+                            <div class="carousel-item active">
+                                <img src="{{image.image.url}}" alt="">
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+  var myCarousel = document.querySelector('#carouselExampleControls')
+    var myModalEl = document.getElementById('exampleModal')
+
+    myModalEl.addEventListener('show.bs.modal', function (event) {
+      const trigger = event.relatedTarget
+      var bsCarousel = bootstrap.Carousel.getInstance(myCarousel)
+      bsCarousel.to(trigger.dataset.bsSlideTo)
+    })
+</script>
+-->
+
 <!--<div>
     <div class="gallery row row-cols-1 row-cols-md-2 row-cols-lg-4 g-2">
         <div class="col">
