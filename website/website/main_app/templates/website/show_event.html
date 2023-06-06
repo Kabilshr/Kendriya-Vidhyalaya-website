@@ -1,6 +1,10 @@
 {% extends 'website/layout.html' %}
 {% block body %}
-    {% for event in event %}
-        {{event}} 
+    {{event.title}}
+    {{event.description}}
+    {% with image=event.images.all %}
+    {% for image in image %} 
+        <img src="{{image.image.url}}">
     {% endfor %}
+    {% endwith %}
 {% endblock %}

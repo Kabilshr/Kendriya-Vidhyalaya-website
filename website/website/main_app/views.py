@@ -1,17 +1,37 @@
 
 
-
+from datetime import date
 from django.shortcuts import render
 from .models import *
 from django.http import HttpResponseRedirect
-
+import requests
 # Create your views here.
+
 def index(request):
+    quotes=quote.objects.get()
+    if date.today() != quotes.last_updated:
+        api_url = 'https://api.api-ninjas.com/v1/quotes?category=inspirational'
+        response = requests.get(api_url, headers={'X-Api-Key': 'W0FQSDaLu2ED6wnd+pkcnA==KAQ9M2sJJyNPqYUL'})
+        if response.status_code == requests.codes.ok:
+            response=response.json()
+            quote_to_be_displayed=response[0]['quote']
+            author=response[0]['author']
+            quotes.author=author
+            quotes.quote=quote_to_be_displayed
+            quotes.last_updated=date.today()
+            quotes.save()
+        else:
+            print("Error:", response.status_code, response.text)
+    else:
+        quote_to_be_displayed=quotes.quote
+        author=quotes.author
     notice=Notice.objects.all()[::-1][:5]
     carousel_image=Carousel_image.objects.get()
     return render(request,"website/index.html",{
         "notice":notice,
-        "carousel_image":carousel_image
+        "carousel_image":carousel_image,
+        "quote":quote_to_be_displayed,
+        "author":author
     })
 def principal_message(request):
     message = principals_message.objects.get()
@@ -70,22 +90,15 @@ def vmc_members(request):
 def committees(request):
     return render(request,"website/committes.html")
 def notice(request):
-    try:
-        notice_data=Notice.objects.all()[::-1][:10]
-    except:
-        notice_data=None
+    notice_data=Notice.objects.all()[::-1][:10]
     return render(request,"website/notice.html",{
         'notice_data':notice_data,
     })
 def news_and_events(request):
-    try:
-        notice_data=News_and_Events.objects.all()[::-1]
-    except:
-        notice_data=None
-    finally:
-            return render(request,"website/news_and_events.html",{
-            'notice_data':notice_data,
-        })
+    events=News_and_Events.objects.all()[::-1][:30]
+    return render(request,"website/news_and_events.html",{
+        'event':events,
+    })
 def class_1(request):
     return render(request,"website/class_1.html")
 def class_11(request):
@@ -93,10 +106,7 @@ def class_11(request):
 def other_class(request):
     return render(request,"website/other_class.html")
 def alumni(request):
-    try:
-        alumni_data=Alumni.objects.all()[::-1][:5]
-    except:
-        alumni_data=Alumni.objects.all()
+    alumni_data=Alumni.objects.all()[::-1][:5]
     return render(request,"website/alumni.html",{
         'alumni_data':alumni_data,
     })
@@ -123,11 +133,14 @@ def vacancy(request):
         "vacant":vacany_present
     })
 def gallery(request):
-    return render(request,"website/gallery.html")
+    gallery=Gallery.objects.all()[::-1][:30]
+    return render(request,"website/gallery.html",{
+        'gallery':gallery
+    })
 def fees(request):
     fee=Fee_structure.objects.get()
     return HttpResponseRedirect(f'{fee.file.url}')
 def show_event(request,pk):
     return render(request,'website/show_event.html',{
-        "event":News_and_Events.objects.filter(pk=pk)
+        "event":News_and_Events.objects.get(pk=pk)
     })
