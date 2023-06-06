@@ -19,8 +19,9 @@
                 {% endfor %}
             </tbody>
         </table>
-    {% else %} 
-        <h3 style="margin: 20%">No Vacancy</h3>
+    {% else %}
+        <div class="no-vacant-container">
+            <h3 id="no-vacant">No Vacancy</h3>
+        </div>
     {% endif %}
-    
 {% endblock %}

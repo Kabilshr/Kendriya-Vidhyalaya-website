@@ -40,7 +40,6 @@ h1, h2, h3 {
 .nav-link {
   position: relative;
   white-space: nowrap;
-  font-weight: 500;
 }
 
 .nav-link::after {
@@ -68,10 +67,6 @@ h1, h2, h3 {
   position: relative;
   font-size: 1.25rem;
   min-height: 80px;
-}
-
-nav {
-  margin: 1vw 5vw;
 }
 
 .dropdown-menu {
@@ -144,6 +139,22 @@ footer span:hover {
 }
 footer button {
   margin-bottom: 10px;
+}
+
+.form_group {
+  margin: 5px 10px;
+  padding: 5px 5px;
+}
+
+.g-recaptcha {
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  overflow-y: hidden;
+}
+
+.footer-contact {
+  padding: 5px 10px;
 }
 
 .form-group {
@@ -355,6 +366,24 @@ main {
 
 table {
   text-transform: capitalize;
+}
+
+.no-vacant-container {
+  height: 10vh;
+  position: relative;
+}
+
+#no-vacant {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.input-group {
+  display: flex;
+  justify-content: end;
+  margin: 1.2rem;
 }
 
 @media screen and (max-width: 992px) {

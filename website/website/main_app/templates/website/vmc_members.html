@@ -1,7 +1,7 @@
 {% extends 'website/layout.html' %}
 {% block body %}
 <h1>Vidyalaya Management Committee Members</h1>
-<table class="table table-striped table-hover table-bordered">
+<table class="table table-striped table-bordered">
     <thead class="table-light">
         <tr>
             <th scope="col">S.no</th>
@@ -13,7 +13,7 @@
     <tbody>
         {% for members in members %}
         <tr>
-            <th scope="row"></th><!--make it iterable -->
+            <th scope="row">{{forloop.counter}}</th>
             <td>{{members.name}}</td>
             <td>{{members.post}}</td>
             <td>{{members.address}}</td>

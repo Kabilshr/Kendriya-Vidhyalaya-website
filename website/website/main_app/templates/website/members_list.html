@@ -1,7 +1,6 @@
 {% extends 'website/layout.html' %}
 {% block body %}
 <!--
-todo iterable serial number
 todo order of designatin fixed eg- principal on top always
 -->
 <h1>Staff Members</h1>
@@ -18,7 +17,7 @@ todo order of designatin fixed eg- principal on top always
             <tbody>
                 {% for members in members %}
                 <tr>
-                    <th scope="row">{{forloop.counter}}</th><!--make it iterable -->
+                    <th scope="row">{{forloop.counter}}</th>
                     <td>{{members.name}}</td>
                     <td>{{members.origin}} </td>
                     <td>{{members.designation}}</td>

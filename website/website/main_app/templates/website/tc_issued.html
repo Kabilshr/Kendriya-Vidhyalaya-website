@@ -3,19 +3,25 @@
 <!--
     todo backwards serial number
     todo use javascript for search
-    todo style search bar
-    todo 100 names in a page
+    todo latest entry at top
+    todo 150 names in a page
     todo add pagination
-    todo? only last 5 years displayed, rest in archive
     backend
         todo list should be in last come first order(new at the top)
         todo add more classes
-        todo make serial number auto instead of from db
+        todo able to search from all data of table
 -->
-    <form action="{% url 'tc_issued' %}" method="post">
+    <h1>Transfer Certificate Issued</h1>
+    <form action="{% url 'tc_issued' %}" method="post" align="right" style="margin: 1rem">
         {% csrf_token %}
-        <input type="text" name="name" placeholder="Search Using Name">
-        <input type="submit">
+        <div class="input-group">
+            <div class="form-outline">
+                <input id="search-input" type="search" id="form1" class="form-control" name="name" placeholder="Search Using Name">
+            </div>
+            <button id="search-button" type="submit" value="submit" class="btn btn-primary">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
     </form>
     {% for tc in tc_search %} 
         {{tc.name}}
@@ -24,7 +30,7 @@
         {{tc.Class_left}}
     {% endfor %}
     <div class="table-responsive text-nowrap">
-        <table class="table table-striped table-hover table-bordered">
+        <table class="table table-hover table-bordered">
             <thead class="table-light">
                 <tr>
                     <th scope="col">S.no</th>
@@ -41,7 +47,6 @@
                 {% for tc in tc %}
                 <tr>
                     <th scope="row">{{forloop.counter}}</th>
-<!--make it iterable -->
                     <td>{{tc.name}}</td>
                     <td>{{tc.parents_name}}</td>
                     <td>{{tc.date_of_birth}}</td>
@@ -54,4 +59,29 @@
             </tbody>
         </table>
     </div>
+    <script>
+        const searchFocus = document.getElementById('search-focus');
+            const keys = [
+                { keyCode: 'AltLeft', isTriggered: false },
+                { keyCode: 'ControlLeft', isTriggered: false },
+            ];
+            window.addEventListener('keydown', (e) => {
+                keys.forEach((obj) => {
+                    if (obj.keyCode === e.code) {
+                        obj.isTriggered = true;
+                    }
+                });
+                const shortcutTriggered = keys.filter((obj) => obj.isTriggered).length === keys.length;
+                if (shortcutTriggered) {
+                    searchFocus.focus();
+                }
+            });
+            window.addEventListener('keyup', (e) => {
+                keys.forEach((obj) => {
+                    if (obj.keyCode === e.code) {
+                        obj.isTriggered = false;
+                    }
+                });
+            });
+    </script>
 {% endblock %}
