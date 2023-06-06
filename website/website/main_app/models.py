@@ -9,6 +9,7 @@ Vacancy_posts=[('principal','Principal'),('PGT (Physics)','PGT (Physics)'),('PGT
                ('TGT (English)','TGT (English)'),('TGT (Hindi)','TGT (Hindi)'),('PRT','PRT'),('SSA','SSA'),('Lab Attendant','Lab Attendant'),
                ('Sub Staff','Sub Staff'),('JR. Secratariat Assistant','JR. Secratariat Assistant')]
 from django.db import models
+
 class Class(models.Model):
     class_name=models.CharField(max_length=16)
     def __str__(self) :
@@ -63,8 +64,7 @@ class Notice(models.Model):
     def __str__(self):
         return f"{self.title}"
 class News_and_Events(models.Model):
-    id=models.IntegerField(primary_key=True,auto_created=True)
-    file=models.ImageField(upload_to='website/images',blank=False,null=False)
+    id=models.IntegerField(primary_key=True,auto_created=True,blank=False,null=False)
     title=models.TextField(blank=False)
     description=models.TextField(blank=False)
     def __str__(self):
@@ -87,5 +87,23 @@ class Carousel_image(models.Model):
         image_2=models.ImageField(upload_to='website/images/' ,blank=False ,null=False)
         image_3=models.ImageField(upload_to='website/images/' ,blank=False ,null=False)
         image_4=models.ImageField(upload_to='website/images/' ,blank=False ,null=False)
-class News_and_EventsAdmin(admin.ModelAdmin):
+class News_and_Events_GalleryAdmin(admin.ModelAdmin):
     exclude= ('id',)
+class quote(models.Model):
+    quote=models.TextField()
+    last_updated=models.DateField()
+    author=models.TextField()
+
+class Gallery(models.Model):
+    id=models.IntegerField(primary_key=True,auto_created=True,blank=False,null=False)
+    title=models.TextField(blank=False)
+    description=models.TextField(blank=False)
+    def __str__(self):
+        return f"{self.title}"
+    
+class Images(models.Model):
+    event=models.ForeignKey(News_and_Events,on_delete=models.CASCADE,related_name='images',blank=True,null=True)
+    gallery=models.ForeignKey(Gallery,on_delete=models.CASCADE,related_name='images',blank=True,null=True)
+    image=models.ImageField(upload_to='website/images/' ,blank=False ,null=False)
+    def __str__(self):
+        return f"{self.event}"

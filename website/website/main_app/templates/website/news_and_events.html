@@ -6,14 +6,29 @@
     <a href="{{notice.file.url}}">hi</a>
 {% endfor %}-->
 <h1>Events</h1>
-<div class="gallery row row-cols-1 row-cols-md-2 row-cols-lg-4 g-2">
+{% for event in event %}
+<a href="{% url 'show_event' pk=event.id %}">
+    {{event.title}} 
+    {{event.description}}
+    {% with image=event.images.all %}
+    {% for image in image %}
+        {% if forloop.counter == 1 %}
+            {{image.image.url}}
+        {% endif %}
+    {% endfor %} 
+    {% endwith %}
+</a>
+{% endfor %}
+{% endblock %}
+
+<!--<div class="gallery row row-cols-1 row-cols-md-2 row-cols-lg-4 g-2">
     <div class="col">
         <div class="card" style="width: 18rem;">
             <img src="{{message.image.url}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Event title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p><!--few lines of the details should only be visible-->
+                    content.</p><!--few lines of the details should only be visible
                 <a href="#" class="btn btn-primary">Learn more..</a>
             </div>
         </div>
@@ -24,7 +39,7 @@
             <div class="card-body">
                 <h5 class="card-title">Event title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p><!--few lines of the details should only be visible-->
+                    content.</p><!--few lines of the details should only be visible
                 <a href="#" class="btn btn-primary">Learn more..</a>
             </div>
         </div>
@@ -35,7 +50,17 @@
             <div class="card-body">
                 <h5 class="card-title">Event title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p><!--few lines of the details should only be visible-->
+                    content.</p><!--few lines of the details should only be visible
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <img src="{{message.image.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Event title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                    content.</p><!--few lines of the details should only be visible
                 <a href="#" class="btn btn-primary">Learn more..</a>
             </div>
         </div>
@@ -46,7 +71,7 @@
             <div class="card-body">
                 <h5 class="card-title">Event title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p><!--few lines of the details should only be visible-->
+                    content.</p><!--few lines of the details should only be visible
                 <a href="#" class="btn btn-primary">Learn more..</a>
             </div>
         </div>
@@ -57,7 +82,7 @@
             <div class="card-body">
                 <h5 class="card-title">Event title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p><!--few lines of the details should only be visible-->
+                    content.</p><!--few lines of the details should only be visible
                 <a href="#" class="btn btn-primary">Learn more..</a>
             </div>
         </div>
@@ -68,7 +93,7 @@
             <div class="card-body">
                 <h5 class="card-title">Event title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p><!--few lines of the details should only be visible-->
+                    content.</p><!--few lines of the details should only be visible
                 <a href="#" class="btn btn-primary">Learn more..</a>
             </div>
         </div>
@@ -79,18 +104,7 @@
             <div class="card-body">
                 <h5 class="card-title">Event title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p><!--few lines of the details should only be visible-->
-                <a href="#" class="btn btn-primary">Learn more..</a>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src="{{message.image.url}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Event title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p><!--few lines of the details should only be visible-->
+                    content.</p><!--few lines of the details should only be visible
                 <a href="#" class="btn btn-primary">Learn more..</a>
             </div>
         </div>
@@ -113,5 +127,4 @@
             </a>
         </li>
     </ul>
-</nav>
-{% endblock %}
+</nav>--> 
