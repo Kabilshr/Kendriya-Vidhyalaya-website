@@ -64,12 +64,12 @@ def tc_issued(request):
     if request.method == "POST":
         name=request.POST['name']
         if not name:
-            tcs_issued=TC.objects.all()
+            tcs_issued=TC.objects.all()[::-1]
             return render(request,"website/tc_issued.html",{
                 'tc':tcs_issued
             })
         try:
-            tcs_issued=TC.objects.filter(name__contains=f'{name}')
+            tcs_issued=TC.objects.filter(name__contains=f'{name}')[::-1]
             return render(request,"website/tc_issued.html",{
             'tc_search':tcs_issued
         })
@@ -79,7 +79,7 @@ def tc_issued(request):
                 'tc_search':tcs_issued
                 })
     else:
-        tcs_issued=TC.objects.all()
+        tcs_issued=TC.objects.all()[::-1]
         return render(request,"website/tc_issued.html",{
             'tc':tcs_issued
         })
@@ -143,33 +143,40 @@ def gallery(request):
     length=len(gallery)
     page=int(request.GET['page'])
     if page == 1:
-          try:
-            gallery=Gallery.objects.all()[::-1]
-            gallery=gallery[:2]
-          except:
-              gallery=gallery=Gallery.objects.all()[::-1]
-          print(gallery) 
+        if gallery:
+            gallery=gallery[:8]
+            return render(request,"website/gallery.html",{
+        'gallery':gallery,
+        'length':length,
+        'page':page,
+        'next':page+1,
+        'previous':page-1,})
+        else:
+            return HttpResponseRedirect(reverse('index'))
     elif page == 2:
-        try:
-          gallery=Gallery.objects.all()[::-1]
-          gallery=gallery[2:4]
-        except:
+        if gallery[8:16]:
+            gallery=gallery[8:16]
+            return render(request,"website/gallery.html",{
+        'gallery':gallery,
+        'length':length,
+        'page':page,
+        'next':page+1,
+        'previous':page-1,})
+        else:
             return HttpResponseRedirect(reverse('index'))
     elif page == 3:
-        try:
-          gallery=Gallery.objects.all()[::-1]
-          gallery=gallery[4:6]
-        except:
+        if gallery[16:24]:
+            gallery=gallery[16:24]
+            return render(request,"website/gallery.html",{
+        'gallery':gallery,
+        'length':length,
+        'page':page,
+        'next':page+1,
+        'previous':page-1,})
+        else:
             return HttpResponseRedirect(reverse('index'))
     else:
         return HttpResponseRedirect(reverse('index'))
-    
-    print(length)
-    return render(request,"website/gallery.html",{
-        'gallery':gallery,
-        'length':length,
-        'page':page
-    })
 def fees(request):
     fee=Fee_structure.objects.get()
     return HttpResponseRedirect(f'{fee.file.url}')
