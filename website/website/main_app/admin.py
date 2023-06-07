@@ -14,7 +14,7 @@ admin.site.register(Notice)
 admin.site.register(Fee_structure)
 admin.site.register(Carousel_image)
 admin.site.register(News_and_Events,News_and_Events_GalleryAdmin)
-admin.site.register(quote)
 admin.site.register(Images)
 admin.site.register(Gallery,News_and_Events_GalleryAdmin)
+admin.site.register(Committies)
 

@@ -5,6 +5,7 @@ from django.shortcuts import render
 from .models import *
 from django.http import HttpResponseRedirect
 import requests
+from django.urls import reverse
 # Create your views here.
 
 def index(request):
@@ -88,14 +89,19 @@ def vmc_members(request):
         'members':vmc_members
     })
 def committees(request):
-    return render(request,"website/committes.html")
+    committee=Committies.objects.all()
+    return render(request,"website/committes.html",
+                  {
+                      "committee":committee
+                  })
 def notice(request):
     notice_data=Notice.objects.all()[::-1][:10]
     return render(request,"website/notice.html",{
         'notice_data':notice_data,
     })
 def news_and_events(request):
-    events=News_and_Events.objects.all()[::-1][:30]
+
+    events=News_and_Events.objects.all()[::-1]
     return render(request,"website/news_and_events.html",{
         'event':events,
     })
@@ -133,9 +139,36 @@ def vacancy(request):
         "vacant":vacany_present
     })
 def gallery(request):
-    gallery=Gallery.objects.all()[::-1][:30]
+    gallery = Gallery.objects.all()
+    length=len(gallery)
+    page=int(request.GET['page'])
+    if page == 1:
+          try:
+            gallery=Gallery.objects.all()[::-1]
+            gallery=gallery[:2]
+          except:
+              gallery=gallery=Gallery.objects.all()[::-1]
+          print(gallery) 
+    elif page == 2:
+        try:
+          gallery=Gallery.objects.all()[::-1]
+          gallery=gallery[2:4]
+        except:
+            return HttpResponseRedirect(reverse('index'))
+    elif page == 3:
+        try:
+          gallery=Gallery.objects.all()[::-1]
+          gallery=gallery[4:6]
+        except:
+            return HttpResponseRedirect(reverse('index'))
+    else:
+        return HttpResponseRedirect(reverse('index'))
+    
+    print(length)
     return render(request,"website/gallery.html",{
-        'gallery':gallery
+        'gallery':gallery,
+        'length':length,
+        'page':page
     })
 def fees(request):
     fee=Fee_structure.objects.get()

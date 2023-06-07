@@ -1,24 +1,41 @@
 {% extends 'website/layout.html' %}
 {% block body %}
 <h1>Gallery</h1>
+    {{length}}
     {% for gallery in gallery %} 
         {{gallery.title}}
-        {{gallery.description}} 
         {% with image=gallery.images.all %}
         {% for image in image %}
+        {% if forloop.counter == 1 %}
             {{image.image.url}}
+        {% endif %}
         {% endfor %} 
         {% endwith %} 
     {% endfor %}
+{% if length > 2 %}
+    <nav aria-label="Page navigation page-nav">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="{% url 'gallery'%}?page={{page}}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="{% url 'gallery'%}?page=1">1</a></li>
+                <li class="page-item"><a class="page-link" href="{% url 'gallery'%}?page=2">2</a></li>
+                <li class="page-item"><a class="page-link" href="{% url 'gallery'%}?page=3">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+{% endif %}
 {% endblock %}
 
-<!--
-    for backend guy
-    todo gallery doesn't need description
-    todo need to access 1st image from all the images(thumbnail)
     
     
-    todo change name of id for modal
+<!-- todo change name of id for modal
     todo fix modal auto scroll carousel
 -->
 
@@ -43,8 +60,11 @@
                         {% for image in image %}
                             <div class="carousel-item active">
                                 <img src="{{image.image.url}}" alt="">
-                            </div>
+                        {% empty %}
                         {% endfor %}
+                        {% endwith %}
+                        
+                            </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
                         data-bs-slide="prev">

@@ -44,7 +44,9 @@
       </button>
   </div>
   <div class="gallery-link">
-    <a href="{% url 'gallery'%}">Gallery&#8594;</a>
+      <a href="{% url 'gallery'%}?page=1">Gallery&#8594;</a>
+    </form>
+   
   </div>
 </section>
 <section class="home-section about-section">
@@ -77,8 +79,8 @@
       <h3>Notice</h3>
       <div class="notice-content">
         {% for notice in notice %}
-        <p>{{notice.title}}</p>
-        <p>{{notice.file.url}}</p>
+        <a href="{{notice.file.url}}">{{notice.title}}</a>
+        <br>
         {% endfor %}
       </div>
     </div>
