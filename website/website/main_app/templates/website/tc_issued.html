@@ -2,12 +2,9 @@
 {% block body %}
 <!--
     todo backwards serial number
-    todo use javascript for search
-    todo latest entry at top
     todo 150 names in a page
     todo add pagination
     backend
-        todo list should be in last come first order(new at the top)
         todo add more classes
         todo able to search from all data of table
 -->
@@ -21,6 +18,11 @@
             <button id="search-button" type="submit" value="submit" class="btn btn-primary">
                 <i class="fas fa-search"></i>
             </button>
+            <a href="{% url 'tc_issued' %}" id="tc-reload">
+                <button class="btn btn-primary">
+                    <i class="fa-solid fa-rotate-right"></i>
+                </button>
+            </a>
         </div>
     </form>
     {% if tc_search %}

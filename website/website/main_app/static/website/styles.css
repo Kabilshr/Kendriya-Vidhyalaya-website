@@ -385,6 +385,15 @@ table {
   margin: 1.2rem;
 }
 
+#search-button {
+  border-radius: 0 10px 10px 0;
+}
+
+#tc-reload {
+  margin-left: 5px;
+  border-radius: 10px;
+}
+
 @media screen and (max-width: 992px) {
   .footer-logo {
     display: none;
