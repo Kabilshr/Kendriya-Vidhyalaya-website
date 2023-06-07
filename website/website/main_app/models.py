@@ -97,7 +97,6 @@ class quote(models.Model):
 class Gallery(models.Model):
     id=models.IntegerField(primary_key=True,auto_created=True,blank=False,null=False)
     title=models.TextField(blank=False)
-    description=models.TextField(blank=False)
     def __str__(self):
         return f"{self.title}"
     
@@ -107,3 +106,6 @@ class Images(models.Model):
     image=models.ImageField(upload_to='website/images/' ,blank=False ,null=False)
     def __str__(self):
         return f"{self.event}"
+class Committies(models.Model):
+    Committee_name=models.TextField(choices=(('Admissions','Admissions'),('Academic advisory','Academic_Advisory'),('Examination','Examination'),('Transpotation','Transpotation')))
+    members=models.ManyToManyField(member_list,related_name='committees')

@@ -1,4 +1,12 @@
 {% extends 'website/layout.html' %}
 {% block body %}
+    {% for committee in committee %}
+    {% with members=committee.members.all %} 
+        {% for members in members %} 
+            {{members.name}}
+        {% endfor %}
+        {{committee.Committee_name}}
+    {% endwith %}
+    {% endfor %}
 <h1>Committes</h1>
 {% endblock %}
