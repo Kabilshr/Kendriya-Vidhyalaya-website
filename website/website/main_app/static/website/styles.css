@@ -46,7 +46,6 @@ h1, h2, h3 {
   position: relative;
   white-space: nowrap;
 }
-
 .nav-link::after {
   height: 1px;
   width: 100%;
@@ -58,7 +57,6 @@ h1, h2, h3 {
   pointer-events: none;
   opacity: 0;
 }
-
 .nav-link:hover::after {
   opacity: 1;
 }
@@ -90,7 +88,6 @@ h1, h2, h3 {
 .dropdown-item {
   font-weight: 500;
 }
-
 .dropdown-item:hover {
   background-color: #FFDD65;
   color: #fff;
@@ -284,7 +281,6 @@ main {
   margin-top: 10px;
   font-size: 1.3rem;
 }
-
 .stat-card:hover {
   background-color: #FB9183;
 }
@@ -312,7 +308,6 @@ main {
   text-overflow: ellipsis;
   border-radius: 15px;
 }
-
 .faci-item:hover {
   background-color: #dadada;
 }
@@ -358,7 +353,6 @@ main {
   transform: translate(0px);
   transition: ease 300ms;
 }
-
 .card:hover {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
   transform: translate3d(-3px, -2px, 0);
@@ -387,7 +381,7 @@ table {
 
 .input-group {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   margin: 1.2rem;
 }
 

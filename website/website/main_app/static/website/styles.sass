@@ -46,23 +46,20 @@ h1,h2,h3
 .nav-link
     position: relative
     white-space: nowrap
-
-.nav-link::after
-    height: 1px
-    width: 100%
-    color: $tertiary
-    position: absolute
-    left: 0px
-    bottom: 0px
-    transition: ease 0.5s
-    pointer-events: none
-    opacity: 0
-
-
-.nav-link:hover::after
-    opacity: 1
-    >a
-        color: #fff
+    &::after
+        height: 1px
+        width: 100%
+        color: $tertiary
+        position: absolute
+        left: 0px
+        bottom: 0px
+        transition: ease 0.5s
+        pointer-events: none
+        opacity: 0
+    &:hover::after
+        opacity: 1
+        >a
+            color: #fff
 
 .header
     background-color: $primary
@@ -85,10 +82,9 @@ h1,h2,h3
 
 .dropdown-item
     font-weight: 500
-
-.dropdown-item:hover 
-    background-color: $tertiary
-    color: #fff
+    &:hover 
+        background-color: $tertiary
+        color: #fff
 
 .dropdown .dropdown-menu 
     background-color: $primary-light
@@ -195,6 +191,7 @@ main
         transform: translateX(-50%)
         height: $height
 
+//thought
 .thought
     font-style: italic
     background-color: #e1dede
@@ -202,7 +199,7 @@ main
 .thought-auth
     font-style: oblique
 
-
+//about us
 .about-section
     div
         padding: 10px
@@ -221,7 +218,6 @@ main
     border: solid 1px $primary   
     width: 100%
     height: 60%
-
 
 .stat-content
     display: flex
@@ -252,13 +248,12 @@ main
         text-align: center
         margin-top: 10px
         font-size: 1.3rem
-
-.stat-card:hover
-    background-color: $primary-light//#0a396e
-    i
-        font-size: 3.2vw
-        padding-bottom: 0px
-        transform: translateY(-5px)
+    &:hover
+        background-color: $primary-light//#0a396e
+        i
+            font-size: 3.2vw
+            padding-bottom: 0px
+            transform: translateY(-5px)
 
 .facilities
     //background-color: #eee//#dadada
@@ -278,9 +273,8 @@ main
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1)
     text-overflow: ellipsis
     border-radius: 15px
-
-.faci-item:hover
-    background-color: #dadada
+    &:hover
+        background-color: #dadada
 
 .faci-icon
     position: absolute
@@ -318,10 +312,9 @@ main
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2)
     transform: translate(0px)
     transition: ease 300ms
-
-.card:hover
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5)
-    transform: translate3d(-3px, -2px, 0)
+    &:hover
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5)
+        transform: translate3d(-3px, -2px, 0)
     
 .page-nav
     position: relative
@@ -346,7 +339,7 @@ table
 //TC issued
 .input-group
     display: flex
-    justify-content: end
+    justify-content: flex-end
     margin: 1.2rem
 
 @media screen and ( max-width: 992px)
