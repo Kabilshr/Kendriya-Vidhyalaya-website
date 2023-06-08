@@ -76,7 +76,7 @@
                          <li class="nav-item dropdown">
                             <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">News & Updates</a>
                              <ul class="dropdown-menu">
-                               <li><a class="dropdown-item" href="{% url 'news_and_events'%}">Events</a></li>
+                               <li><a class="dropdown-item" href="{% url 'news_and_events'%}?page=1">Events</a></li>
                                <li><a class="dropdown-item" href="{% url 'notice'%}">Notice</a></li>
                              </ul>
                          </li>
@@ -134,8 +134,9 @@
                 <div class="col-sm-5 col-md-4 my-auto">
                     <div class="form_group">
                         <h3>Feedback Form</h3>
-                        <form id="ContactForm" data-request="...">
-                            <div id="contact_flash_message"></div>
+                        <form id="simpleContactForm" data-request="simpleContact::onFormSubmit" action="{% url 'index' %}" method="post">
+                            {% csrf_token %}
+                            <div id="simple_contact_flash_message"></div>
                             <div class="form-group">
                                 <input type="email" id="email" name="email" class="form-control" placeholder="Email" required="">
                             </div>

@@ -1,45 +1,58 @@
 {% extends 'website/layout.html' %}
 {% block body %}
-<!-- {% for notice in notice_data %}
-    {{notice.title}}
-    {{notice.description}}
-    <a href="{{notice.file.url}}">hi</a>
-{% endfor %}-->
-<h1>Events</h1>
-{% for event in event %}
-<a href="{% url 'show_event' pk=event.id %}">
-    {{event.title}} 
-    {{event.description}}
-    {% with image=event.images.all %}
-    {% for image in image %}
+<h1>News and Events</h1>
+    {% for events in events %}
+    <a href="{% url 'show_event' pk=events.id %}">
+        {{events.title}}
+        {% with image=events.images.all %}
+        {{image}}
+        {% for image in image %}
         {% if forloop.counter == 1 %}
             {{image.image.url}}
         {% endif %}
-        {{length}}
-    {% endfor %} 
-    {% endwith %}
+        {% endfor %}
+        </a>
+        {% endwith %}
+        <br>
+    {% endfor %}
+{% if length > 8 %}
     <nav aria-label="Page navigation page-nav">
-        <ul class="pagination">
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</a>
-{% endfor %}
-{% endblock %}
+            <ul class="pagination">
+                {% if length < 16 %}
+                    <li class="page-item">
+                        <a class="page-link" href="{% url 'news_and_events'%}?page={{previous}}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="{% url 'news_and_events'%}?page=1">1</a></li>
+                    <li class="page-item"><a class="page-link" href="{% url 'news_and_events'%}?page=2">2</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="{% url 'news_and_events'%}?page={{next}}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a> 
+                    </li>
+                {% endif %}
+                {% if length > 16 %}
+                    <li class="page-item">
+                        <a class="page-link" href="{% url 'news_and_events'%}?page={{previous}}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="{% url 'news_and_events'%}?page=1">1</a></li>
+                    <li class="page-item"><a class="page-link" href="{% url 'news_and_events'%}?page=2">2</a></li>
+                    <li class="page-item"><a class="page-link" href="{% url 'news_and_events'%}?page=3">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="{% url 'news_and_events'%}?page={{next}}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
 
-<!--<div class="gallery row row-cols-1 row-cols-md-2 row-cols-lg-4 g-2">
+            </ul>
+        </nav>
+{% endif %}
+{% endblock %}
+<!--<div class="news_and_events row row-cols-1 row-cols-md-2 row-cols-lg-4 g-2">
     <div class="col">
         <div class="card" style="width: 18rem;">
             <img src="{{message.image.url}}" class="card-img-top" alt="...">
