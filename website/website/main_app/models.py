@@ -105,7 +105,10 @@ class Images(models.Model):
     gallery=models.ForeignKey(Gallery,on_delete=models.CASCADE,related_name='images',blank=True,null=True)
     image=models.ImageField(upload_to='website/images/' ,blank=False ,null=False)
     def __str__(self):
-        return f"{self.event}"
+        if self.event:
+            return f"{self.event}"
+        else:
+            return f"{self.gallery}"
 class Committies(models.Model):
     Committee_name=models.TextField(choices=(('Admissions','Admissions'),('Academic advisory','Academic_Advisory'),('Examination','Examination'),('Transpotation','Transpotation')))
     members=models.ManyToManyField(member_list,related_name='committees')

@@ -9,7 +9,10 @@
         {% if forloop.counter == 1 %}
             {{image.image.url}}
         {% endif %}
-        {% endfor %} 
+        {% endfor %}
+        {% for image in image %} 
+            {{image.image.url}}
+        {% endfor %}
         {% endwith %} 
     {% endfor %}
 {% if length > 8 %}
