@@ -1,12 +1,45 @@
 {% extends 'website/layout.html' %}
 {% block body %}
-    {% for committee in committee %}
-    {% with members=committee.members.all %} 
-        {% for members in members %} 
-            {{members.name}}
-        {% endfor %}
-        {{committee.Committee_name}}
-    {% endwith %}
-    {% endfor %}
 <h1>Committes</h1>
+
+<!--
+    todo fix rowspan thing
+-->
+     
+        
+    
+    
+
+<div class="table-responsive text-nowrap">
+    <table class="table table-hover table-bordered">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">S.no</th>
+                <th scope="col">Committees</th>
+                <th scope="col">Members</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for committee in committee %}
+        {% with members=committee.members.all %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td rowspan="3">{{committee.Committee_name}}</td>
+                <td style="text-align: center;">
+                    {% for members in members %}
+                
+                    
+                        {{members.name}}
+                        <hr style="margin: 5px;">
+                        
+                 
+                    {% endfor %}
+
+                </td>
+            </tr>
+        {% endwith %}
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}
