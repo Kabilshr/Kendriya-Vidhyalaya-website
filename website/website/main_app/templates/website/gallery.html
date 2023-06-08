@@ -17,7 +17,7 @@
         {% for gallery in gallery %} 
             {% with image=gallery.images.all %}
             <div class="col">
-                <div class="card" style="width: 18rem;"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <div class="card" style="width: 18rem;"  data-bs-toggle="modal" data-bs-target="#Modal">
                     {% for image in image %}
                         {% if forloop.counter == 1 %}
                             <img src="{{image.image.url}}" class="card-img-top" alt="card title">
@@ -28,10 +28,10 @@
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
-                        <div id="carouselExampleControls" class="carousel slide">
+                        <div id="carouselControls" class="carousel slide">
                             <div class="carousel-inner overflow-hidden">
                                 {% for image in image %}
                                     <div class="carousel-item active">
@@ -39,12 +39,12 @@
                                     </div>
                                 {% endfor %}
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls"
                                 data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselControls"
                                 data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
@@ -93,8 +93,8 @@
         </nav>
 {% endif %}
 <script>
-    var myCarousel = document.querySelector('#carouselExampleControls')
-    var myModalEl = document.getElementById('exampleModal')
+    var myCarousel = document.querySelector('#carouselControls')
+    var myModalEl = document.getElementById('Modal')
 
     myModalEl.addEventListener('show.bs.modal', function (event) {
         const trigger = event.relatedTarget
@@ -103,13 +103,6 @@
     })
 </script>
 
-
-
-{% endblock %}
-x = TC.object[::-1]
-tc_issued = x.fasfas
-    
-    
 <!-- todo change name of id for modal-->
 
 
