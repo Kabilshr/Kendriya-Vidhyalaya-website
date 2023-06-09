@@ -79,7 +79,11 @@
       <h3>Notice</h3>
       <div class="notice-content">
         {% for notice in notice %}
-        <a href="{{notice.file.url}}">{{notice.title}}</a>
+        <a href="{{notice.file.url}}">
+          <div class="notice-card">
+            <p class="notice-title">{{notice.title}}</p>
+          </div>
+        </a>
         <br>
         {% endfor %}
       </div>
@@ -214,7 +218,7 @@
       <div class="col">
         <a tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="right"
           data-bs-title="e-Class Rooms"
-          data-bs-content="Seven (07) Classrooms are well equipped with LCD Projectors,Desktop Computers and Display Screen">
+          data-bs-content="Seven Classrooms are well equipped with LCD Projectors,Desktop Computers and Display Screen">
           <div class="faci-item">
             <div class="faci-icon">
               <i class="fa-solid fa-chalkboard"></i><!--supposed to be a smart board-->

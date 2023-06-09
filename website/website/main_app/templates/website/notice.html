@@ -1,10 +1,15 @@
 {% extends 'website/layout.html' %}
 {% block body %}
+<!--archive after 50 notice-->
 <h1>Notice</h1>
 {% for notice in notice_data %}
-    {{notice.title}}
-    {{notice.description}}
-    <a href="{{notice.file.url}}">{{notice.title}}</a>
-    <br>
+    <div class="notice-container">
+        <a href="{{notice.file.url}}">
+            <div class="notice-card">
+                <h3 class="notice-title">{{notice.title}}</h3>
+                <p>{{notice.description}}</p>
+            </div>
+        </a>
+    </div>
 {% endfor %}
 {% endblock %}
