@@ -14,9 +14,9 @@
             <tbody>
                 {% for holiday in holiday %}
                 <tr>
-                    <th>{{forloop.counter}}</th>
-                    <th>{{holiday.name}}</th>
-                    <th>{{holiday.start_date}}</th>
+                    <td scope="row">{{forloop.counter}}</td>
+                    <td>{{holiday.name}}</td>
+                    <td>{{holiday.start_date}}</td>
                 </tr>
                 {% endfor %}
             </tbody>
