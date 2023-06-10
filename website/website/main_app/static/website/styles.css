@@ -206,11 +206,11 @@ main {
   text-align: right;
 }
 
-#homeGallery {
+#homeGallery, #eventGallery {
   height: 30vw;
   background-color: rgba(111, 111, 111, 0.5450980392);
 }
-#homeGallery img {
+#homeGallery img, #eventGallery img {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -369,14 +369,22 @@ main {
 
 .card {
   margin: 1.25rem;
-  width: 15rem;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
   transform: translate(0px);
   transition: ease-out 300ms;
 }
+.card p {
+  margin: 0.2rem;
+}
 .card:hover {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
   transform: translate3d(-3px, -2px, 0);
+}
+
+.card-title {
+  color: #e89209;
+  text-transform: capitalize;
+  margin: 0.25rem;
 }
 
 .page-nav {
@@ -462,6 +470,10 @@ table {
 
 .notice-title {
   margin: 0 2rem;
+}
+
+.event-description {
+  font-size: 1.3rem;
 }
 
 @media screen and (max-width: 992px) {

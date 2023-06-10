@@ -180,7 +180,7 @@ main
     padding: 0.5rem
     text-align: right
 
-#homeGallery
+#homeGallery, #eventGallery
     $height: 30vw
     $height-mobile: 3vh
     height: $height
@@ -322,20 +322,27 @@ main
     display: flex
     justify-content: space-around
 
-//gallery
+//gallery & events
 .gallery
     position: relative
     display: flexbox
 
 .card
     margin: 1.25rem
-    width: 15rem
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2)
     transform: translate(0px)
     transition: ease-out 300ms
+    p
+        margin: 0.2rem
+     
     &:hover
         box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5)
         transform: translate3d(-3px, -2px, 0)
+
+.card-title
+    color: $secondary
+    text-transform: capitalize
+    margin: 0.25rem
 
 .page-nav
     position: relative
@@ -411,6 +418,10 @@ table
 
 .notice-title
     margin: 0 2rem
+
+//event
+.event-description
+    font-size: 1.3rem
 
 @media screen and ( max-width: 992px)
     .footer-logo //remove footer logo for smaller screens
