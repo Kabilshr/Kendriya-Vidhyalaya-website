@@ -13,45 +13,87 @@
   </div>
 </section> -->
 <section> <!-- Gallery -->
-  <div id="carouselGallery" class="carousel slide" data-bs-ride="carousel">
+  <div id="homeGallery" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselGallery" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselGallery" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselGallery" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      <button type="button" data-bs-target="#carouselGallery" data-bs-slide-to="3" aria-label="Slide 4"></button>
+      <button type="button" data-bs-target="#homeGallery" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#homeGallery" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#homeGallery" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#homeGallery" data-bs-slide-to="3" aria-label="Slide 4"></button>
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img src="{{carousel_image.image_1.url}}" class="d-block" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="{{carousel_image.image_2.url}}" class="d-block w-100" alt="...">
+        <img src="{{carousel_image.image_2.url}}" class="d-block" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="{{carousel_image.image_3.url}}" class="d-block w-100" alt="...">
+        <img src="{{carousel_image.image_3.url}}" class="d-block" alt="...">
       </div>
       <div class="carousel-item">
-         <img src="{{carousel_image.image_4.url}}" class="d-block w-100" alt="...">
+        <img src="{{carousel_image.image_4.url}}" class="d-block" alt="...">
       </div>
     </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselGallery" data-bs-slide="prev">
+      <button class="carousel-control-prev" type="button" data-bs-target="#homeGallery" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselGallery" data-bs-slide="next">
+      <button class="carousel-control-next" type="button" data-bs-target="#homeGallery" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
   </div>
   <div class="gallery-link">
-    <a href="{% url 'gallery'%}">Gallery&#8594;</a>
+      <a href="{% url 'gallery'%}?page=1">Gallery&#8594;</a>   
   </div>
 </section>
+<section class="home-section about-section">
+  <div class="row">
+    <div class="about col-md-8">
+      <h3>About KV Kathmandu</h3>
+      <img src="{% static 'website/school_building.jpg' %}" alt="">
+      <p>
+        Kendriya Vidyalaya, Embassy of India, Kathmandu, is one of the three Kendriya Vidyalayas located abroad and the
+        other
+        two are Moscow and in Tehran. These schools require the education of the children of employees working in Indian
+        Missions and other bodies. It is a civil sector school.
+      </p>
+      <p>
+        Kendriya Vidyalaya Kathmandu was established in the year 1973 under the Indian Cooperative Mission(ICM). The
+        Embassy of
+        India, Kathmandu has provided land for the school building in the embassy premises, and the building was
+        constructed by
+        the Kendriya Vidyalaya Sangathan. ICM closed down in the year 1980 and after that the school was managed by the
+        Embassy
+        of India, Kathmandu.
+      </p>
+      <p>
+        The Ambassador of India to Nepal is its patron and the deputy chief of mission is the ex-offical chairman of the
+        school
+        management committee. It is a single block school and science and commerce education is available at + 2 level.
+      </p>
+    </div>
+    <div class="notice col-md-4">
+      <h3>Notice</h3>
+      <div class="notice-content">
+        {% for notice in notice %}
+        <a href="{{notice.file.url}}">
+          <div class="notice-card">
+            <p class="notice-title">{{notice.title}}</p>
+          </div>
+        </a>
+        <br>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+<hr>
 <section class="home-section">
-  <div><!--todo auto update thoughts-->
+  <div>
     <h3>Thought of the day</h3>
-    <p class="thought">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem iusto quisquam recusandae dolor nesciunt fuga nemo modi doloribus ducimus unde?</p>
-    <p class="thought-auth">-by someone</p>
+    <p class="thought" id="quote">{{quote}}</p>
+    <p class="thought-auth" id="author">-{{author}}</p>
   </div>
   <div class="school-goals">
     <h3>School Goals</h3>
@@ -64,38 +106,6 @@
   </div>
 </section>
 <hr>
-<section class="home-section about-section">
-  <div class="row">
-    <div class="about col-md-8">
-      <h3>About KV Kathmandu</h3>
-      <img src="{% static 'website/school_building.jpg' %}" alt="">
-      <p>
-        Kendriya Vidyalaya, Embassy of India, Kathmandu, is one of the three Kendriya Vidyalayas located abroad and the other
-        two are Moscow and in Tehran. These schools require the education of the children of employees working in Indian
-        Missions and other bodies. It is a civil sector school.
-      </p>
-      <p>
-        Kendriya Vidyalaya Kathmandu was established in the year 1973 under the Indian Cooperative Mission(ICM). The Embassy of
-        India, Kathmandu has provided land for the school building in the embassy premises, and the building was constructed by
-        the Kendriya Vidyalaya Sangathan. ICM closed down in the year 1980 and after that the school was managed by the Embassy
-        of India, Kathmandu.
-      </p>
-      <p>
-        The Ambassador of India to Nepal is its patron and the deputy chief of mission is the ex-offical chairman of the school
-        management committee. It is a single block school and science and commerce education is available at + 2 level.
-      </p>
-    </div>
-    <div class="notice col-md-4">
-      <h3>Notice</h3>
-      <div class="notice-content">
-        {% for notice in notice %} 
-          <p>{{notice.title}}</p>
-          <p>{{notice.file.url}}</p>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-</section>
 <section class="home-section">
   <div class="stat-content">
     <div class="stat-card">
@@ -124,7 +134,7 @@
           data-bs-content="The Physics department of KV, Kathmandu is fully equipped with scientific instruments and facilities for experiments, projects, and innovative work. Students can learn physics concepts through hands-on activities, and a small library offers science and physics books for reference.">
           <div class="faci-item">
             <div class="faci-icon">
-              <i class="fa-solid fa-info"></i>
+              <i class="fa-solid fa-compass-drafting"></i>
             </div>
             <div class="faci-title">
               <h5>Physics Lab</h5>
@@ -141,7 +151,7 @@
           data-bs-content="In our well-equipped chemistry lab, the main objective is to equip our students with the necessary skills to pursue chemistry in higher academic and professional courses. Through practicals and projects, students develop problem-solving abilities, gain exposure to industrial processes and technological applications, and cultivate a genuine interest in chemistry.">
           <div class="faci-item">
             <div class="faci-icon">
-              <i class="fa-solid fa-info"></i>
+              <i class="fa-solid fa-flask"></i>
             </div>
             <div class="faci-title">
               <h5>Chemistry Lab</h5>
@@ -158,7 +168,7 @@
           data-bs-content="KV Kathmandu's Biology lab is fully equipped with scientific instruments, chemicals, a human skeleton, and an ample number of specimens. It provides all necessary facilities for conducting experiments in secondary and senior secondary classes. The lab also features a computer with internet connectivity to cater to the students' needs.">
           <div class="faci-item">
             <div class="faci-icon">
-              <i class="fa-solid fa-info"></i>
+              <i class="fa-solid fa-dna"></i>
             </div>
             <div class="faci-title">
               <h5>Biology Lab</h5>
@@ -175,7 +185,7 @@
           data-bs-content="Our Vidyalaya boasts two computer labs: the Junior Computer Lab and the Senior Computer Lab. These labs are equipped with a total of 62 computers, along with essential peripherals such as an LCD projector, scanner, and UPSs.">
           <div class="faci-item">
             <div class="faci-icon">
-              <i class="fa-solid fa-info"></i>
+              <i class="fa-solid fa-computer"></i>
             </div>
             <div class="faci-title">
               <h5>Computer Lab</h5>
@@ -192,7 +202,7 @@
           data-bs-content="The school library has more than 15,000 books varying from text books, reference books, dictionaries, children’s books, fiction and non-fiction. All the students of the school are members of the library. Two books can be borrowed at a time. It has a computer too.">
           <div class="faci-item">
             <div class="faci-icon">
-              <i class="fa-solid fa-info"></i>
+              <i class="fa-solid fa-book-open"></i>
             </div>
             <div class="faci-title">
               <h5>Library</h5>
@@ -206,10 +216,10 @@
       <div class="col">
         <a tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="right"
           data-bs-title="e-Class Rooms"
-          data-bs-content="Seven (07) Classrooms are well equipped with LCD Projectors,Desktop Computers and Display Screen">
+          data-bs-content="Seven Classrooms are well equipped with LCD Projectors,Desktop Computers and Display Screen">
           <div class="faci-item">
             <div class="faci-icon">
-              <i class="fa-solid fa-info"></i>
+              <i class="fa-solid fa-chalkboard"></i><!--supposed to be a smart board-->
             </div>
             <div class="faci-title">
               <h5>e-Class Rooms</h5>

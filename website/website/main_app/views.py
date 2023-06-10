@@ -1,18 +1,52 @@
 
 
-
+from datetime import date
 from django.shortcuts import render
 from .models import *
 from django.http import HttpResponseRedirect
-
+import requests
+from django.urls import reverse
+from django.core.mail import send_mail
 # Create your views here.
+
 def index(request):
-    notice=Notice.objects.all()[::-1][:5]
-    carousel_image=Carousel_image.objects.get()
-    return render(request,"website/index.html",{
-        "notice":notice,
-        "carousel_image":carousel_image
-    })
+    if request.method == 'POST':
+        email=request.POST['email'] 
+        phone=request.POST['phone']
+        message=request.POST['message']
+        send_mail(
+            'Feedback form submitted',
+            f"Message: {message} \nPhone Number:  {phone}  \nEmail Address:  {email} \nThis is an auto-generated message",
+            email,
+            ['eoikvkathmandu@gmail.com']
+        )
+        return HttpResponseRedirect(reverse('index'))
+    else:
+        quotes=quote.objects.get()
+        if date.today() != quotes.last_updated:
+            api_url = 'https://api.api-ninjas.com/v1/quotes?category=inspirational'
+            response = requests.get(api_url, headers={'X-Api-Key': 'W0FQSDaLu2ED6wnd+pkcnA==KAQ9M2sJJyNPqYUL'})
+            if response.status_code == requests.codes.ok:
+                response=response.json()
+                quote_to_be_displayed=response[0]['quote']
+                author=response[0]['author']
+                quotes.author=author
+                quotes.quote=quote_to_be_displayed
+                quotes.last_updated=date.today()
+                quotes.save()
+            else:
+                print("Error:", response.status_code, response.text)
+        else:
+            quote_to_be_displayed=quotes.quote
+            author=quotes.author
+        notice=Notice.objects.all()[::-1][:5]
+        carousel_image=Carousel_image.objects.get()
+        return render(request,"website/index.html",{
+            "notice":notice,
+            "carousel_image":carousel_image,
+            "quote":quote_to_be_displayed,
+            "author":author
+        })
 def principal_message(request):
     message = principals_message.objects.get()
     return render(request,"website/principal_message.html",
@@ -43,12 +77,12 @@ def tc_issued(request):
     if request.method == "POST":
         name=request.POST['name']
         if not name:
-            tcs_issued=TC.objects.all()
+            tcs_issued=TC.objects.all()[::-1][:400]
             return render(request,"website/tc_issued.html",{
                 'tc':tcs_issued
             })
         try:
-            tcs_issued=TC.objects.filter(name__contains=f'{name}')
+            tcs_issued=TC.objects.filter(name__contains=f'{name}')[::-1][:400]
             return render(request,"website/tc_issued.html",{
             'tc_search':tcs_issued
         })
@@ -58,7 +92,7 @@ def tc_issued(request):
                 'tc_search':tcs_issued
                 })
     else:
-        tcs_issued=TC.objects.all()
+        tcs_issued=TC.objects.all()[::-1][:400]
         return render(request,"website/tc_issued.html",{
             'tc':tcs_issued
         })
@@ -68,24 +102,55 @@ def vmc_members(request):
         'members':vmc_members
     })
 def committees(request):
-    return render(request,"website/committes.html")
+    committee=Committies.objects.all()
+    return render(request,"website/committes.html",
+                  {
+                      "committee":committee
+                  })
 def notice(request):
-    try:
-        notice_data=Notice.objects.all()[::-1][:10]
-    except:
-        notice_data=None
+    notice_data=Notice.objects.all()[::-1][:10]
     return render(request,"website/notice.html",{
         'notice_data':notice_data,
     })
 def news_and_events(request):
-    try:
-        notice_data=News_and_Events.objects.all()[::-1]
-    except:
-        notice_data=None
-    finally:
+    events = News_and_Events.objects.all()
+    length=len(events)
+    page=int(request.GET['page'])
+    if page == 1:
+        if events:
+            events=events[:8]
             return render(request,"website/news_and_events.html",{
-            'notice_data':notice_data,
-        })
+        'events':events,
+        'length':length,
+        'page':page,
+        'next':page+1,
+        'previous':page-1,})
+        else:
+            return HttpResponseRedirect(reverse('index'))
+    elif page == 2:
+        if events[8:16]:
+            events=events[8:16]
+            return render(request,"website/news_and_events.html",{
+        'events':events,
+        'length':length,
+        'page':page,
+        'next':page+1,
+        'previous':page-1,})
+        else:
+            return HttpResponseRedirect(reverse('index'))
+    elif page == 3:
+        if events[16:24]:
+            events=events[16:24]
+            return render(request,"website/news_and_events.html",{
+        'events':events,
+        'length':length,
+        'page':page,
+        'next':page+1,
+        'previous':page-1,})
+        else:
+            return HttpResponseRedirect(reverse('index'))
+    else:
+        return HttpResponseRedirect(reverse('index'))
 def class_1(request):
     return render(request,"website/class_1.html")
 def class_11(request):
@@ -93,13 +158,23 @@ def class_11(request):
 def other_class(request):
     return render(request,"website/other_class.html")
 def alumni(request):
-    try:
-        alumni_data=Alumni.objects.all()[::-1][:5]
-    except:
-        alumni_data=Alumni.objects.all()
-    return render(request,"website/alumni.html",{
-        'alumni_data':alumni_data,
-    })
+    if request.method == 'POST':
+        name=request.POST['name'] 
+        phone=request.POST['phone']
+        year_passed=request.POST['year']
+        describe=request.POST['description']
+        send_mail(
+            'Alumni form submitted',
+            f"Name: {name} \nPhone Number:  {phone}  \nYear Passes:  {year_passed} \nCurrent Position: {describe} \nAn Alumni form has been submitted to the website please contact the alumnus and add their data to the website \nThis is an auto-generated message",
+            name,
+            ['eoikvkathmandu@gmail.com']
+        )
+        return HttpResponseRedirect(reverse('index'))
+    else:
+        alumni_data=Alumni.objects.all()[::-1][:10]
+        return render(request,"website/alumni.html",{
+            'alumni_data':alumni_data,
+        })
 def achievement(request):
     return render(request,"website/achievement.html")
 def newsletter(request):
@@ -123,11 +198,48 @@ def vacancy(request):
         "vacant":vacany_present
     })
 def gallery(request):
-    return render(request,"website/gallery.html")
+    gallery = Gallery.objects.all()
+    length=len(gallery)
+    page=int(request.GET['page'])
+    if page == 1:
+        if gallery:
+            gallery=gallery[:8]
+            return render(request,"website/gallery.html",{
+        'gallery':gallery,
+        'length':length,
+        'page':page,
+        'next':page+1,
+        'previous':page-1,})
+        else:
+            return HttpResponseRedirect(reverse('index'))
+    elif page == 2:
+        if gallery[8:16]:
+            gallery=gallery[8:16]
+            return render(request,"website/gallery.html",{
+        'gallery':gallery,
+        'length':length,
+        'page':page,
+        'next':page+1,
+        'previous':page-1,})
+        else:
+            return HttpResponseRedirect(reverse('index'))
+    elif page == 3:
+        if gallery[16:24]:
+            gallery=gallery[16:24]
+            return render(request,"website/gallery.html",{
+        'gallery':gallery,
+        'length':length,
+        'page':page,
+        'next':page+1,
+        'previous':page-1,})
+        else:
+            return HttpResponseRedirect(reverse('index'))
+    else:
+        return HttpResponseRedirect(reverse('index'))
 def fees(request):
     fee=Fee_structure.objects.get()
     return HttpResponseRedirect(f'{fee.file.url}')
 def show_event(request,pk):
     return render(request,'website/show_event.html',{
-        "event":News_and_Events.objects.filter(pk=pk)
+        "event":News_and_Events.objects.get(pk=pk)
     })

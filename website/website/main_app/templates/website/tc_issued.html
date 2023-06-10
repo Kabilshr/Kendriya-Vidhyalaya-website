@@ -2,29 +2,63 @@
 {% block body %}
 <!--
     todo backwards serial number
-    todo use javascript for search
-    todo style search bar
-    todo 100 names in a page
+    todo 150 names in a page
     todo add pagination
-    todo? only last 5 years displayed, rest in archive
     backend
-        todo list should be in last come first order(new at the top)
         todo add more classes
-        todo make serial number auto instead of from db
+        todo able to search from all data of table
 -->
-    <form action="{% url 'tc_issued' %}" method="post">
+    <h1>Transfer Certificate Issued</h1>
+    <form action="{% url 'tc_issued' %}" method="post" align="right" style="margin: 1rem">
         {% csrf_token %}
-        <input type="text" name="name" placeholder="Search Using Name">
-        <input type="submit">
+        <div class="input-group">
+            <div class="form-outline">
+                <input id="search-input" type="search" id="form1" class="form-control" name="name" placeholder="Search Using Name">
+            </div>
+            <button id="search-button" type="submit" value="submit" class="btn btn-primary">
+                <i class="fas fa-search"></i>
+            </button>
+            <a href="{% url 'tc_issued' %}" id="tc-reload">
+                <button class="btn btn-primary">
+                    <i class="fa-solid fa-rotate-right"></i>
+                </button>
+            </a>
+        </div>
     </form>
-    {% for tc in tc_search %} 
-        {{tc.name}}
-        {{tc.parents_name}} 
-        {{tc.issue_date}}
-        {{tc.Class_left}}
-    {% endfor %}
+    {% if tc_search %}
     <div class="table-responsive text-nowrap">
-        <table class="table table-striped table-hover table-bordered">
+        <table class="table table-hover table-bordered">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">S.no</th>
+                    <th scope="col">Student Name</th>
+                    <th scope="col">Parents Name</th>
+                    <th scope="col">Date of Birth</th>
+                    <th scope="col">Adm.No</th>
+                    <th scope="col">Class Left</th>
+                    <th scope="col">Tc No.</th>
+                    <th scope="col">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tc in tc_search %} 
+                <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{tc.name}}</td>
+                    <td>{{tc.parents_name}}</td>
+                    <td>{{tc.date_of_birth}}</td>
+                    <td>{{tc.Admission_number}}</td>
+                    <td>{{tc.Class_left}}</td>
+                    <td>{{tc.TC_no}}</td>
+                    <td>{{tc.issue_date}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover table-bordered">
             <thead class="table-light">
                 <tr>
                     <th scope="col">S.no</th>
@@ -41,7 +75,6 @@
                 {% for tc in tc %}
                 <tr>
                     <th scope="row">{{forloop.counter}}</th>
-<!--make it iterable -->
                     <td>{{tc.name}}</td>
                     <td>{{tc.parents_name}}</td>
                     <td>{{tc.date_of_birth}}</td>
@@ -51,7 +84,33 @@
                     <td>{{tc.issue_date}}</td>
                 </tr>
                 {% endfor %}
+    {% endif %}
             </tbody>
         </table>
     </div>
+    <script>
+        const searchFocus = document.getElementById('search-focus');
+            const keys = [
+                { keyCode: 'AltLeft', isTriggered: false },
+                { keyCode: 'ControlLeft', isTriggered: false },
+            ];
+            window.addEventListener('keydown', (e) => {
+                keys.forEach((obj) => {
+                    if (obj.keyCode === e.code) {
+                        obj.isTriggered = true;
+                    }
+                });
+                const shortcutTriggered = keys.filter((obj) => obj.isTriggered).length === keys.length;
+                if (shortcutTriggered) {
+                    searchFocus.focus();
+                }
+            });
+            window.addEventListener('keyup', (e) => {
+                keys.forEach((obj) => {
+                    if (obj.keyCode === e.code) {
+                        obj.isTriggered = false;
+                    }
+                });
+            });
+    </script>
 {% endblock %}

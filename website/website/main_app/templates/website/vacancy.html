@@ -1,6 +1,7 @@
 {% extends 'website/layout.html' %}
 {% block body %}
     {% if vacant %}
+        <h1>Vacancy</h1>
        <table class="table table-striped table-hover table-bordered">
             <thead class="table-light">
                 <tr>
@@ -12,15 +13,16 @@
             <tbody>
                 {% for vacancy in vacancy %}
                 <tr>
-                    <th scope="row">{{forloop.counter}}</th><!--make it iterable -->
+                    <th scope="row">{{forloop.counter}}</th>
                     <td>{{vacancy.vacant_designation}}</td>
                     <td>{{vacancy.number}}</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-    {% else %} 
-        <h3 style="margin: 20%">No Vacancy</h3>
+    {% else %}
+        <div class="no-vacant-container">
+            <h3 id="no-vacant">No Vacancy</h3>
+        </div>
     {% endif %}
-    
 {% endblock %}

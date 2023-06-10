@@ -1,89 +1,195 @@
 {% extends 'website/layout.html' %}
+{{length}}
+<!-- {{gallery.title}}
+{% with image=gallery.images.all %}
+{% for image in image %}
+{% if forloop.counter == 1 %}
+{{image.image.url}}
+{% endif %}
+{% endfor %}
+{% endwith %} -->
+<!--
+    !! all the cards are targetting modal from 1st card declared in 1st loop
+-->
 {% block body %}
 <h1>Gallery</h1>
-<div class="gallery row row-cols-1 row-cols-md-2 row-cols-lg-4 g-2">
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src={{message.image.url}} class="card-img-top" alt="card title">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+    <div class="gallery row row-cols-1 row-cols-md-2 row-cols-lg-4 g-2 py-3">
+        {% for gallery in gallery %} 
+            {% with image=gallery.images.all %}
+            <div class="col">
+                <div class="card" style="width: 18rem; height: 20rem;"  data-bs-toggle="modal" data-bs-target="#Modal">
+                    {% for image in image %}
+                        {% if forloop.counter == 1 %}
+                            <img src="{{image.image.url}}" class="card-img-top" alt="card title" style="height: 12rem;">
+                        {% endif %}
+                    {% endfor %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{gallery.title}}</h5>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src={{message.image.url}} class="card-img-top" alt="card title">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+            <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div id="carouselControls" class="carousel slide">
+                            <div class="carousel-inner overflow-hidden">
+                                {% for image in image %}
+                                    <div class="carousel-item active">
+                                        <img src="{{image.image.url}}" alt="">
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselControls"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+            {% endwith %}
+        {% endfor %}
     </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src={{message.image.url}} class="card-img-top" alt="card title">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src={{message.image.url}} class="card-img-top" alt="card title">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src={{message.image.url}} class="card-img-top" alt="card title">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src={{message.image.url}} class="card-img-top" alt="card title">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src={{message.image.url}} class="card-img-top" alt="card title">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src={{message.image.url}} class="card-img-top" alt="card title">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-            </div>
-        </div>
-    </div>
-</div>
-
+{% if length > 2 %}
     <nav aria-label="Page navigation page-nav">
-        <ul class="pagination">
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+            <ul class="pagination">
+                {% if length < 16 %}
+                    <li class="page-item">
+                        <a class="page-link" href="{% url 'gallery'%}?page={{previous}}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="{% url 'gallery'%}?page=1">1</a></li>
+                    <li class="page-item"><a class="page-link" href="{% url 'gallery'%}?page=2">2</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="{% url 'gallery'%}?page={{next}}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a> 
+                    </li>
+                {% endif %}
+                {% if length > 16 %}
+                    <li class="page-item">
+                        <a class="page-link" href="{% url 'gallery'%}?page={{previous}}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="{% url 'gallery'%}?page=1">1</a></li>
+                    <li class="page-item"><a class="page-link" href="{% url 'gallery'%}?page=2">2</a></li>
+                    <li class="page-item"><a class="page-link" href="{% url 'gallery'%}?page=3">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="{% url 'gallery'%}?page={{next}}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
 
+            </ul>
+        </nav>
+{% endif %}
+<script>
+    var myCarousel = document.querySelector('#carouselControls')
+    var myModalEl = document.getElementById('Modal')
+
+    myModalEl.addEventListener('show.bs.modal', function (event) {
+        const trigger = event.relatedTarget
+        var bsCarousel = bootstrap.Carousel.getInstance(myCarousel)
+        bsCarousel.to(trigger.dataset.bsSlideTo)
+    })
+</script>
 {% endblock %}
+<!-- todo change name of id for modal-->
+
+
+
+<!--<div>
+    <div class="gallery row row-cols-1 row-cols-md-2 row-cols-lg-4 g-2">
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src={{message.image.url}} class="card-img-top" alt="card title">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src={{message.image.url}} class="card-img-top" alt="card title">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src={{message.image.url}} class="card-img-top" alt="card title">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src={{message.image.url}} class="card-img-top" alt="card title">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src={{message.image.url}} class="card-img-top" alt="card title">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src={{message.image.url}} class="card-img-top" alt="card title">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src={{message.image.url}} class="card-img-top" alt="card title">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src={{message.image.url}} class="card-img-top" alt="card title">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        <nav aria-label="Page navigation page-nav">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>-->

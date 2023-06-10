@@ -1,35 +1,29 @@
 {% extends 'website/layout.html' %}
 {% block body %}
-    {% for holiday in holiday %}
-        <a href="{{holiday.file.url}}">holiday</a>
-    {% endfor %}
+    <h1>Holidays</h1>
     <div class="table-responsive text-nowrap">
-        <table class="table table-striped table-hover table-bordered">
+        <table class="table table-striped table-bordered">
             <thead class="table-light">
                 <tr>
                     <th scope="col ">S.no</th>
                     <th scope="col">Holiday</th>
                     <th scope="col">Date</th>
                 </tr>
-                {% for holiday in holiday %} 
-                    <tr>
-                        <th>{{forloop.counter}}</th>
-                        <th>{{holiday.name}}</th>
-                        <th>{{holiday.start_date}}</th>
-                    </tr>
-                {% endfor %}
+                
             </thead>
             <tbody>
+                {% for holiday in holiday %}
                 <tr>
-                    <th scope="row"></th>
-                    <td></td>
-                    <td></td>
+                    <td scope="row">{{forloop.counter}}</td>
+                    <td>{{holiday.name}}</td>
+                    <td>{{holiday.start_date}}</td>
                 </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
     <div class="table-responsive text-nowrap">
-        <table class="table table-striped table-hover table-bordered">
+        <table class="table table-striped table-bordered">
             <thead class="table-light">
                 <tr>
                     <th scope="col">Vacation</th>

@@ -34,6 +34,10 @@ body
 h1,h2,h3
     color: $secondary
 
+.heading
+    position: absolute
+    right: 50%
+
 .content
     position: relative
     //flex: 1
@@ -42,24 +46,20 @@ h1,h2,h3
 .nav-link
     position: relative
     white-space: nowrap
-    font-weight: 500
-
-.nav-link::after
-    height: 1px
-    width: 100%
-    color: $tertiary
-    position: absolute
-    left: 0px
-    bottom: 0px
-    transition: ease 0.5s
-    pointer-events: none
-    opacity: 0
-
-
-.nav-link:hover::after
-    opacity: 1
-    >a
-        color: #fff
+    &::after
+        height: 1px
+        width: 100%
+        color: $tertiary
+        position: absolute
+        left: 0px
+        bottom: 0px
+        transition: ease 0.5s
+        pointer-events: none
+        opacity: 0
+    &:hover::after
+        opacity: 1
+        >a
+            color: #fff
 
 .header
     background-color: $primary
@@ -67,9 +67,6 @@ h1,h2,h3
     position: relative
     font-size: 1.25rem
     min-height: 80px
-
-nav
-    margin: 1vw 5vw
 
 .dropdown-menu
     width: 15rem
@@ -85,10 +82,9 @@ nav
 
 .dropdown-item
     font-weight: 500
-
-.dropdown-item:hover 
-    background-color: $tertiary
-    color: #fff
+    &:hover 
+        background-color: $tertiary
+        color: #fff
 
 .dropdown .dropdown-menu 
     background-color: $primary-light
@@ -130,19 +126,31 @@ footer
     button
         margin-bottom: 10px
 
+.form_group
+    margin: 5px 10px
+    padding: 5px 5px
+
+.g-recaptcha
+    margin: 0
+    padding: 0
+    overflow: auto
+    overflow-y: hidden
+
+.footer-contact
+    padding: 5px 10px
+
 .form-group
     margin-bottom: 15px
 
 //body styles
 main
     position: relative
-    margin: 2rem
     margin-top: 5px
 
 //home page styles
 .home-section
-    margin: 1rem
-    padding: 1.5rem
+    margin: 1rem 0
+    padding: 1.5rem 0
 
 .home-banner
     padding: 0px 15px
@@ -165,33 +173,33 @@ main
     h6
         color: #c9a740
 
-
 .gallery-link
     font-size: 1.2rem
     font-style: oblique
     margin: 1.3rem
-    padding: 1rem
+    padding: 0.5rem
     text-align: right
 
-#carouselGallery
-    
-    height: 30vw
-    width: auto
+#homeGallery, #eventGallery
+    $height: 30vw
+    $height-mobile: 3vh
+    height: $height
+    background-color: #6f6f6f8b
     img
         position: relative
         left: 50%
         transform: translateX(-50%)
-        height: 30vw
-        width: auto
-        
+        height: $height
 
+//thought
 .thought
     font-style: italic
-    background-color: #e1dede
+    font-size: 1.2rem
+    
 .thought-auth
-    font-style: oblique
+    font-style: normal
 
-
+//about us
 .about-section
     div
         padding: 10px
@@ -206,10 +214,26 @@ main
         text-align: center
 
 .notice-content
-    background-color: #e1dede
-    border: solid 1px $primary   
     width: 100%
-    height: 60%
+    height: 100%
+    display: flex
+    flex-direction: column
+    a
+        text-decoration: none
+        color: $secondary
+        text-transform: capitalize
+
+.notice-card
+    border-radius: 10px
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3)
+    font-size: 1.35rem
+    color: $secondary
+    height: 3.5rem
+    padding: 1.3rem
+    margin: 0.7rem 0
+    //border: thin solid $secondary
+    &:hover
+        background-color: #efefef
 
 
 .stat-content
@@ -232,8 +256,9 @@ main
         align-self: center
     i
         transition: ease-in 1000ms forwards
-        font-size: 3vw
+        font-size: max(50px, 3vw)
         padding: 5px
+            
     h2
         font-weight: bold
         color: inherit
@@ -241,13 +266,12 @@ main
         text-align: center
         margin-top: 10px
         font-size: 1.3rem
-
-.stat-card:hover
-    background-color: $primary-light//#0a396e
-    i
-        font-size: 3.2vw
-        padding-bottom: 0px
-        transform: translateY(-5px)
+    &:hover
+        background-color: $primary-light//#0a396e
+        i
+            font-size: 3.2vw
+            padding-bottom: 0px
+            transform: translateY(-5px)
 
 .facilities
     //background-color: #eee//#dadada
@@ -255,6 +279,7 @@ main
         border: none
 
 .faci-item
+    position: relative
     background-color: #efefef
     display: grid
     grid-template-columns: 30px auto 
@@ -266,11 +291,11 @@ main
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1)
     text-overflow: ellipsis
     border-radius: 15px
-
-.faci-item:hover
-    background-color: #dadada
+    &:hover
+        background-color: #dadada
 
 .faci-icon
+    position: absolute
     top: 50%
     background-color: #fff
     display: flex
@@ -280,43 +305,123 @@ main
     width: 2rem
     border-radius: 50%
     padding: 5px
+    padding-top: 7px
     grid-area: 1 / 1 / 2
 
 .faci-title
     grid-area: 1 / 2 / 2 
+    padding-top: 0.2rem
     text-align: left
 
 .faci-description
     font-size: 0.8rem
+    padding-top: 0.5rem
     grid-area: 2 / 2 / 3
 
 .map //homepage bottom map
     display: flex
     justify-content: space-around
 
-//gallery
+//gallery & events
 .gallery
     position: relative
     display: flexbox
 
 .card
     margin: 1.25rem
-    width: 15rem
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2)
     transform: translate(0px)
-    transition: ease 300ms
+    transition: ease-out 300ms
+    p
+        margin: 0.2rem
+     
+    &:hover
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5)
+        transform: translate3d(-3px, -2px, 0)
 
-.card:hover
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5)
-    transform: translate3d(-3px, -2px, 0)
-    
+.card-title
+    color: $secondary
+    text-transform: capitalize
+    margin: 0.25rem
+
 .page-nav
     position: relative
     bottom: -1px
 
+.about-container
+    margin: 3rem 0px
+    padding: 1.2rem
+    font-size: 1.3rem
+
+.about-img
+   height: 30vw
+   position: relative
+   left: 50%
+   transform: translateX(-50%)
+   margin: 10px
+
 //table
 table
     text-transform: capitalize
+
+//vacancy page
+.no-vacant-container
+    height: 10vh
+    position: relative
+
+#no-vacant
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%)
+
+
+//TC issued
+.input-group
+    display: flex
+    justify-content: flex-end
+    margin: 1.2rem
+
+#search-button
+    border-radius: 0 10px 10px 0
+
+#tc-reload
+    margin-left: 5px
+    border-radius: 10px
+
+//contact us
+.contact
+    position: relative
+    left: 50%
+    transform: translateX(-50%)
+    border-collapse: collapse
+    margin: 5rem
+    td,th
+        padding: 1rem
+        border: 1px solid
+
+//notice
+.notice-container
+    padding: 0 5rem
+    .notice-card
+        height: auto
+    a
+        text-decoration: none
+        color: inherit
+        text-transform: capitalize
+        margin: 0 1.2rem
+    p
+        overflow-wrap: break-word
+        color: #000
+        margin: 1.2rem 2rem
+        font-size: 1rem
+
+.notice-title
+    margin: 0 2rem
+
+//event
+.event-description
+    font-size: 1.3rem
 
 @media screen and ( max-width: 992px)
     .footer-logo //remove footer logo for smaller screens
@@ -325,6 +430,8 @@ table
         display: none
     .stat-content
         flex-direction: column
+    #homeGallery
+        display: none
 
 //animation keyframes
 @keyframes fade-in
