@@ -29,13 +29,13 @@
                 </div>
             </div>
             <div class="modal fade" id="Modal_{{forloop.counter}}" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-dialog modal-dialog-centered" style="min-width: 70%;">
                     <div class="modal-content">
                         <div id="carouselControls_{{forloop.counter}}" class="carousel slide">
                             <div class="carousel-inner overflow-hidden">
                                 {% for image in image %}
                                     <div class="carousel-item active">
-                                        <img src="{{image.image.url}}" alt="">
+                                        <img src="{{image.image.url}}" alt="" style="max-height: 80vh; width: 100%;">
                                     </div>
                                 {% endfor %}
                             </div>
