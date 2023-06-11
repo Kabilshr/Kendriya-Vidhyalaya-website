@@ -42,7 +42,7 @@ class TC(models.Model):
         return f"{self.name}"
 class vmc_member(models.Model):
     name=models.CharField(max_length=128)
-    post=models.CharField(max_length=32)
+    post=models.TextField()
     address=models.CharField(max_length=128)
     def __str__(self):
         return f"{self.name}"
