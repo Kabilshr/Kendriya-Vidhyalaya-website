@@ -407,7 +407,9 @@ main {
 }
 
 table {
+  margin: auto;
   text-transform: capitalize;
+  border-top-left-radius: 20px;
 }
 
 .no-vacant-container {

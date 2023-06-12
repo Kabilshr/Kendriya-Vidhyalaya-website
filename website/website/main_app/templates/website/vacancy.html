@@ -2,24 +2,26 @@
 {% block body %}
     {% if vacant %}
         <h1>Vacancy</h1>
-       <table class="table table-striped table-hover table-bordered">
-            <thead class="table-light">
-                <tr>
-                    <th scope="col">S.no</th>
-                    <th scope="col">Vacant Designation</th>
-                    <th scope="col">Vacant Positions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for vacancy in vacancy %}
-                <tr>
-                    <th scope="row">{{forloop.counter}}</th>
-                    <td>{{vacancy.vacant_designation}}</td>
-                    <td>{{vacancy.number}}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <div class="table-responsive text-nowrap">
+            <table class="table table-striped table-hover table-bordered">
+                 <thead class="table-light">
+                     <tr class="table-info">
+                         <th scope="col">S.no</th>
+                         <th scope="col">Vacant Designation</th>
+                         <th scope="col">Vacant Positions</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     {% for vacancy in vacancy %}
+                     <tr>
+                         <td scope="row">{{forloop.counter}}.</td>
+                         <td>{{vacancy.vacant_designation}}</td>
+                         <td>{{vacancy.number}}</td>
+                     </tr>
+                     {% endfor %}
+                 </tbody>
+             </table>
+        </div>
     {% else %}
         <div class="no-vacant-container">
             <h3 id="no-vacant">No Vacancy</h3>

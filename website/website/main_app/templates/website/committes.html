@@ -4,7 +4,7 @@
 <div class="table-responsive text-nowrap">
     <table class="table table-bordered">
         <thead class="table-light">
-            <tr>
+            <tr class="table-info">
                 <th scope="col">S.no</th>
                 <th scope="col">Committees</th>
                 <th scope="col">Members</th>
@@ -14,7 +14,7 @@
         {% for committee in committee %}
         {% with members=committee.members.all %}
             <tr>
-                <th scope="row">{{forloop.counter}}</th>
+                <td scope="row">{{forloop.counter}}.</td>
                 <td rowspan="3">{{committee.Committee_name}}</td>
                 <td style="text-align: center;">
                     {% for members in members %}
