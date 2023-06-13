@@ -20,7 +20,6 @@ class principals_message(models.Model):
 
 class Alumni(models.Model):
     name=models.CharField(max_length=64)
-    image=models.ImageField(upload_to='website/images/' ,blank=False ,null=False)
     description_of_acheivement=models.TextField(max_length=128)
     def __str__(self):
         return f"{self.name}"
