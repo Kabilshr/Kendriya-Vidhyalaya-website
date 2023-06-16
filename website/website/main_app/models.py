@@ -68,6 +68,7 @@ class member_list(models.Model):
     name=models.CharField(max_length=32)
     designation=models.CharField(choices=Vacancy_posts,max_length=32)
     origin=models.CharField(choices=[("Local","Local"),("Indian","Indian")],null=False,blank=False,max_length=6)
+    image=models.ImageField(upload_to='website/images/' ,blank=True ,null=True)
     def __str__(self):
         return f"{self.name},{self.designation}"
     class Meta:
