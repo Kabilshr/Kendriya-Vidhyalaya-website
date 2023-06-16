@@ -116,16 +116,16 @@ class Holiday(models.Model):
     def __str__(self):
         return f"{self.name}"
     class Meta:
-        verbose_name = "Add Staff"
-        verbose_name_plural = "Add Staff"
+        verbose_name = "Add Holiday"
+        verbose_name_plural = "Add Holiday"
 class Carousel_image(models.Model):
     image_1=models.ImageField(upload_to='website/images/' ,blank=False ,null=False)
     image_2=models.ImageField(upload_to='website/images/' ,blank=False ,null=False)
     image_3=models.ImageField(upload_to='website/images/' ,blank=False ,null=False)
     image_4=models.ImageField(upload_to='website/images/' ,blank=False ,null=False)
     class Meta:
-        verbose_name = "Add Staff"
-        verbose_name_plural = "Add Staff"
+        verbose_name = "Add Image to Caurosel"
+        verbose_name_plural = "Add Image to Carousel"
 class News_and_Events_GalleryAdmin(admin.ModelAdmin):
     exclude= ('id',)
 class quote(models.Model):
