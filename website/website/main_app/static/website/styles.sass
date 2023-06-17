@@ -269,8 +269,8 @@ main
     &:hover
         background-color: $primary-light//#0a396e
         i
-            font-size: 3.2vw
-            padding-bottom: 0px
+            //font-size: 300%
+            //padding-bottom: 0px
             transform: translateY(-5px)
 
 .facilities
@@ -362,7 +362,30 @@ main
 
 //table
 table
+    margin: auto
     text-transform: capitalize
+
+.data-table
+    $table-color: $secondary //#009879
+    border-collapse: collapse
+    margin: 25px 0
+    font-family: sans-serif
+    min-width: 400px
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2)
+    thead tr
+        background-color: $table-color
+        color: #ffffff
+        text-align: left
+    th, td
+        padding: 0.7rem 1rem
+    tbody tr 
+        border-bottom: 1px solid #dddddd
+        &:nth-of-type(even) 
+            background-color: #f3f3f3
+        &:last-of-type 
+            border-bottom: 2px solid $table-color
+        &:hover
+            color: $table-color
 
 //vacancy page
 .no-vacant-container
@@ -374,7 +397,6 @@ table
     top: 50%
     left: 50%
     transform: translate(-50%)
-
 
 //TC issued
 .input-group

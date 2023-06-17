@@ -163,9 +163,10 @@ def alumni(request):
         phone=request.POST['phone']
         year_passed=request.POST['year']
         describe=request.POST['description']
+        email=request.POST['email']
         send_mail(
             'Alumni form submitted',
-            f"Name: {name} \nPhone Number:  {phone}  \nYear Passes:  {year_passed} \nCurrent Position: {describe} \nAn Alumni form has been submitted to the website please contact the alumnus and add their data to the website \nThis is an auto-generated message",
+            f"Name: {name} \nPhone Number:  {phone}  \nYear Passed:  {year_passed} \nCurrent Position: {describe} \nEmail: {email} \nAn Alumni form has been submitted to the website please contact the alumnus and add their data to the website \nThis is an auto-generated message",
             name,
             ['eoikvkathmandu@gmail.com']
         )

@@ -1,8 +1,8 @@
 {% extends 'website/layout.html' %}
 {% block body %}
 <h1>Newsletter</h1>
-<table class="table table-striped table-hover table-bordered">
-    <thead class="table-light">
+<table class="table data-table">
+    <thead>
         <tr>
             <th scope="col">S.no</th>
             <th scope="col">Date</th>
@@ -12,9 +12,9 @@
         <tbody>
         {% for news in news_letter %}
             <tr>
-                <th scope="row">{{forloop.counter}}</th>
+                <td scope="row">{{forloop.counter}}.</td>
                 <td>{{news.title}}</td>
-                <td><a href="{{news.file.url}}">click here to view...</a></td>
+                <td><a href="{{news.file.url}}" target="_blank">click here to view...</a></td>
             </tr>
             {% endfor %}
         </tbody>
