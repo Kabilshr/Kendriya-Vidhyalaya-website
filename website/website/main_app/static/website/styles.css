@@ -303,8 +303,6 @@ main {
   background-color: #FB9183;
 }
 .stat-card:hover i {
-  font-size: 3.2vw;
-  padding-bottom: 0px;
   transform: translateY(-5px);
 }
 
@@ -406,7 +404,36 @@ main {
 }
 
 table {
+  margin: auto;
   text-transform: capitalize;
+}
+
+.data-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+.data-table thead tr {
+  background-color: #e89209;
+  color: #ffffff;
+  text-align: left;
+}
+.data-table th, .data-table td {
+  padding: 0.7rem 1rem;
+}
+.data-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+.data-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+.data-table tbody tr:last-of-type {
+  border-bottom: 2px solid #e89209;
+}
+.data-table tbody tr:hover {
+  color: #e89209;
 }
 
 .no-vacant-container {
