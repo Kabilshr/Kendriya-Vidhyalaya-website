@@ -2,6 +2,7 @@
 {% block body %}
     <h1>{{event.title}}</h1>
     {% with image=event.images.all %}
+    </div>
     <div id="eventGallery" class="carousel slide" data-bs-ride="carousel">
         {% for image in image %} 
         <div class="carousel-inner">
@@ -17,14 +18,19 @@
         </div>
         {% endfor %}
         <button class="carousel-control-prev" type="button" data-bs-target="#eventGallery" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <div class="carousel-control-btn">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </div>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#eventGallery" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+            <div class="carousel-control-btn">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </div>
         </button>
     </div>
+    <div class="container-lg">
     {% endwith %}
     <p class="event-description my-3 p-3">{{event.description}}</p>
 {% endblock %}

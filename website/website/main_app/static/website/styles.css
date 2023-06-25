@@ -42,6 +42,15 @@ h1, h2, h3 {
   position: relative;
 }
 
+.header {
+  background-color: #FA8072;
+  width: 100%;
+  position: relative;
+  font-size: 1.25rem;
+  min-height: 80px;
+  z-index: 1;
+}
+
 .nav-link {
   position: relative;
   white-space: nowrap;
@@ -62,14 +71,6 @@ h1, h2, h3 {
 }
 .nav-link:hover::after > a {
   color: #fff;
-}
-
-.header {
-  background-color: #FA8072;
-  width: 100%;
-  position: relative;
-  font-size: 1.25rem;
-  min-height: 80px;
 }
 
 .dropdown-menu {
@@ -165,7 +166,6 @@ footer button {
 
 main {
   position: relative;
-  margin-top: 5px;
 }
 
 .home-section {
@@ -207,23 +207,51 @@ main {
 }
 
 #homeGallery, #eventGallery {
-  height: 30vw;
-  background-color: rgba(111, 111, 111, 0.5450980392);
+  height: 80vh;
+  background-color: rgba(111, 111, 111, 0);
 }
 #homeGallery img, #eventGallery img {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  height: 30vw;
+  height: 80vh;
+  object-fit: cover;
+}
+
+.carousel-control-btn {
+  background-color: rgba(0, 0, 0, 0.4196078431);
+  height: 70px;
+  width: 70px;
+  position: relative;
+  border: 3px solid #fff;
+  border-radius: 50%;
+}
+.carousel-control-btn span {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .thought {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.thought-quote {
   font-style: italic;
-  font-size: 1.2rem;
+  font-size: 1.7rem;
 }
 
 .thought-auth {
   font-style: normal;
+  font-size: 1.2rem;
+}
+
+.thought-line {
+  height: 2px;
+  margin: 5%;
 }
 
 .about-section div {
@@ -262,6 +290,17 @@ main {
 }
 .notice-card:hover {
   background-color: #efefef;
+}
+
+.school-goals i {
+  font-size: 2rem;
+  color: #6592e6;
+  margin: 0.25rem;
+  margin-left: 1rem;
+}
+.school-goals li {
+  font-size: 1.2rem;
+  margin: 1rem;
 }
 
 .stat-content {
@@ -502,6 +541,11 @@ table {
   font-size: 1.3rem;
 }
 
+.fade-in-up, .stat-content {
+  animation: fadeInUp 1000ms forwards;
+  transition: ease-in-out 300ms;
+}
+
 @media screen and (max-width: 992px) {
   .footer-logo {
     display: none;
@@ -523,5 +567,17 @@ table {
   100% {
     opacity: 1;
     transform: translateY(0px);
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(150px);
+    transform: translateY(150px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
   }
 }

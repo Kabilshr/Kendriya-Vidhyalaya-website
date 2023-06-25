@@ -12,6 +12,7 @@
     <div class="cbse">CBSE Affiliation Number : 6200001,School code-90225</div>
   </div>
 </section> -->
+</div>
 <section> <!-- Gallery -->
   <div id="homeGallery" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -35,18 +36,31 @@
       </div>
     </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#homeGallery" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
+        <div class="carousel-control-btn">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </div>
       </button>
       <button class="carousel-control-next" type="button" data-bs-target="#homeGallery" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
+        <div class="carousel-control-btn">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </div>
       </button>
   </div>
-  <div class="gallery-link">
-      <a href="{% url 'gallery'%}?page=1">Gallery&#8594;</a>   
-  </div>
 </section>
+<div class="container-lg">
+
+<section class="home-section">
+  <hr class="thought-line">
+  <div class="thought">
+    <p class="thought-quote" id="quote">{{quote}}</p>
+    <p class="thought-auth" id="author">-{{author}}</p>
+  </div>
+  <hr class="thought-line">
+</section>
+
+
 <section class="home-section about-section">
   <div class="row">
     <div class="about col-md-8">
@@ -88,23 +102,19 @@
     </div>
   </div>
 </section>
-<hr>
+
 <section class="home-section">
-  <div>
-    <h3>Thought of the day</h3>
-    <p class="thought" id="quote">{{quote}}</p>
-    <p class="thought-auth" id="author">-{{author}}</p>
-  </div>
   <div class="school-goals">
     <h3>School Goals</h3>
-    <ol type="1">
-      <li>Providing personality building education</li>
-      <li>Provide students with the opportunity for overall development</li>
-      <li>To reinforce the values of life in the society with high moral, social and cultural values.</li>
-      <li>To develop the quality of global citizenship in the students with national ethos</li>
-    </ol>
+    <ul type="none">
+      <li><i class="fa-solid fa-circle-check"></i>Providing personality building education</li>
+      <li><i class="fa-solid fa-circle-check"></i>Provide students with the opportunity for overall development</li>
+      <li><i class="fa-solid fa-circle-check"></i>To reinforce the values of life in the society with high moral, social and cultural values.</li>
+      <li><i class="fa-solid fa-circle-check"></i>To develop the quality of global citizenship in the students with national ethos.</li>
+    </ul>
   </div>
 </section>
+
 <hr>
 <section class="home-section">
   <div class="stat-content">

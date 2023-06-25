@@ -12,9 +12,9 @@
     "watch:sass": "sass --no-source-map --watch main_app/static/website:main_app/static/website",
     "watch": "npm-run-all --parallel watch:*",
     "serve": "browser-sync start --server public --files public",
-    "start": "npm-run-all copy --parallel watch serve",
+    "start": "npm-run-all copy --parallel watch",
     "build": "npm-run-all copy:html build:*",
-    "postbuild": "postcss main_app/static/website/*.css -u autoprefixer cssnano -o main_app/static/website/styles.min.css"
+    "postbuild": "postcss main_app/static/website/styles.css -u autoprefixer cssnano -o main_app/static/website/styles.min.css"
   },
   "dependencies": {
     "autoprefixer": "^10.4.2",
