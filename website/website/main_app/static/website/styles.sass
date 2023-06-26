@@ -103,6 +103,30 @@ h1,h2,h3
     .dropend .dropdown-toggle 
         margin-left: 0em
 
+//to top button
+.scroll-to-top
+    position: fixed
+    height: 60px
+    width: 60px
+    background-color: #717171db
+    z-index: 5000
+    bottom: 30px
+    right: 60px
+    border-radius: 50%
+    font-size: 2rem
+    color: #fff
+    border-color: #fff
+    border: 2px solid
+    i
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+    &:hover
+        background-color: #262222bd
+        cursor: pointer
+
+
 //footer styles
 footer
     position: relative
@@ -353,6 +377,17 @@ main
     padding-top: 0.5rem
     grid-area: 2 / 2 / 3
 
+.event-container
+    display: flex
+    justify-content: space-evenly
+    .card
+        background-color: #f4f4f4
+        box-shadow: none
+        border: none
+        &:hover
+            transform: translate(0)
+            box-shadow: none
+
 .map //homepage bottom map
     display: flex
     justify-content: space-around
@@ -374,10 +409,19 @@ main
         box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5)
         transform: translate3d(-3px, -2px, 0)
 
-.card-title
-    color: $secondary
-    text-transform: capitalize
-    margin: 0.25rem
+    &-title
+        color: $secondary
+        text-transform: capitalize
+        margin: 0.5rem
+        font-size: 1.3em
+
+    &-body
+        margin: 0.2rem
+    
+    a
+        margin: 0.5rem 0 2rem 0.2rem
+        border-radius: 40px
+
 
 .page-nav
     position: relative
@@ -492,8 +536,8 @@ table
         display: none
     .stat-content
         flex-direction: column
-    #homeGallery
-        display: none
+    // #homeGallery
+    //     display: none
 
 //animation keyframes
 @keyframes fade-in

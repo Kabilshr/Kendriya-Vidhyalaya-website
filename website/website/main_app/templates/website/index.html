@@ -114,7 +114,6 @@
     </ul>
   </div>
 </section>
-
 <hr>
 <section class="home-section">
   <div class="stat-content">
@@ -239,6 +238,61 @@
             </div>
           </div>
         </a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="home-section"><!--todo only 4 events visible-->
+  <h3 align="center">Events</h3>
+  <div class="event-container">
+    <!-- {% for events in events %}
+      {% with image=events.images.all %}
+      <div class="card" style="width: 20rem; max-height: rem;">
+        {% for image in image %}
+        {% if forloop.counter == 1 %}
+        <img src="{{image.image.url}}" class="card-img-top" alt="Event Image" style="height: 12rem;">
+        {% endif %}
+        {% endfor %}
+        <div class="card-body">
+          <h5 class="card-title">{{events.title}}</h5>
+          <p class="card-text text-truncate pb-2">
+            {{events.description}}
+          </p>
+          <a href="{% url 'show_event' pk=events.id %}" class="btn btn-primary mt-4">Learn more...</a>
+        </div>
+      </div>
+    {% endwith %}
+    {% endfor %} -->
+    <div class="card" style="width: 20rem; max-height: 23rem;">
+      <img src="{% static 'website/school_building.jpg' %}" class="card-img-top" alt="Event Image" style="height: 12rem;">
+      <div class="card-body">
+        <h5 class="card-title">TEst</h5>
+        <p class="card-text text-truncate pb-2">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam aut cumque corporis eius aperiam voluptate, minima sint earum. Nihil, itaque.
+        </p>
+        <a href="#" class="btn btn-primary mt-4">Learn more ></a>
+      </div>
+    </div>
+    <div class="card" style="width: 20rem; max-height: 23rem;">
+      <img src="{% static 'website/school_building.jpg' %}" class="card-img-top" alt="Event Image" style="height: 12rem;">
+      <div class="card-body">
+        <h5 class="card-title">TEst</h5>
+        <p class="card-text text-truncate pb-2">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam aut cumque corporis eius aperiam voluptate, minima
+          sint earum. Nihil, itaque.
+        </p>
+        <a href="#" class="btn btn-primary mt-4">Learn more ></a>
+      </div>
+    </div>
+    <div class="card" style="width: 20rem; max-height: 23rem;">
+      <img src="{% static 'website/school_building.jpg' %}" class="card-img-top" alt="Event Image" style="height: 12rem;">
+      <div class="card-body">
+        <h5 class="card-title">TEst</h5>
+        <p class="card-text text-truncate pb-2">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam aut cumque corporis eius aperiam voluptate, minima
+          sint earum. Nihil, itaque.
+        </p>
+        <a href="#" class="btn btn-primary mt-4">Learn more ></a>
       </div>
     </div>
   </div>
