@@ -17,7 +17,7 @@
 <body>
     <header>
         <div class="navbar navbar-expand-lg header">
-            
+            <div class="container">
                 <div class="banner navbar-brand mb-0">
                     <a href="{% url 'index' %}">
                         <img defer src="{% static 'website/sitelogo.png' %}" alt="logo" class="d-inline-block align-top">
@@ -26,7 +26,7 @@
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <nav class="nav nav-fill collapse navbar-collapse justify-content-end" id="navbarNav">
+                <nav class="nav nav-fill collapse navbar-collapse justify-content-center" id="navbarNav">
                     <ul class="navbar-nav me-0">
                         <li class="nav-item">
                             <a href="{% url 'index' %}" class="nav-link active">
@@ -90,6 +90,7 @@
                     </ul>
                 </nav>
             </div>
+        </div>
     </header>
     <div id="scroll-to-top" class="scroll-to-top" onclick="scrollTop()" style="display: none;">
         

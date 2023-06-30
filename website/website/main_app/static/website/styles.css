@@ -82,12 +82,8 @@ h1, h2, h3 {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
 }
 
-.banner {
-  padding: 0 3rem;
-}
 .banner img {
   height: 5rem;
-  margin-left: 2rem;
 }
 
 .dropdown-item {
