@@ -133,17 +133,8 @@ class quote(models.Model):
     quote=models.TextField()
     last_updated=models.DateField()
     author=models.TextField()
-class Gallery(models.Model):
-    id=models.IntegerField(primary_key=True,auto_created=True,blank=False,null=False)
-    title=models.TextField(blank=False)
-    def __str__(self):
-        return f"{self.title}"
-    class Meta:
-        verbose_name = "Add Gallery Item"
-        verbose_name_plural = "Add Gallery Item"
 class Images(models.Model):
     event=models.ForeignKey(News_and_Events,on_delete=models.CASCADE,related_name='images',blank=True,null=True)
-    gallery=models.ForeignKey(Gallery,on_delete=models.CASCADE,related_name='images',blank=True,null=True)
     image=models.ImageField(upload_to='website/images/' ,blank=False ,null=False)
     def __str__(self):
         if self.event:
@@ -151,11 +142,40 @@ class Images(models.Model):
         else:
             return f"{self.gallery}"
     class Meta:
-        verbose_name = "Add Image For gallery and event"
-        verbose_name_plural = "Add Image For gallery and event"
+        verbose_name = "Add Image for event"
+        verbose_name_plural = "Add Image for event"
 class Committies(models.Model):
     Committee_name=models.TextField(choices=(('Admissions','Admissions'),('Academic advisory','Academic_Advisory'),('Examination','Examination'),('Transpotation','Transpotation')))
     members=models.ManyToManyField(member_list,related_name='committees')
     class Meta:
         verbose_name = "Update Committee Member"
         verbose_name_plural = "Update Committee Member"
+class Admissions(models.Model):
+    grade=models.ManyToManyField(Class,related_name="vacancy_class",blank=False)
+    vacancy=models.IntegerField(blank=False,null=False)
+    file=models.FileField(upload_to='website/files',default=None)
+    class Meta:
+        verbose_name='Vacancy for Other Classes'
+        verbose_name_plural = 'Vacancy for Other Classes'
+    def __str__(self):
+        return f"Vacancy for class {self.grade.get()}"
+class class1(models.Model):
+    file=models.FileField(upload_to='website/files',blank=False,null=False)
+    def __str__(self):
+        return f"Fee structure for the year {date.today().year}"
+    class Meta:
+        verbose_name = "Add class 1 vacancy file"
+        verbose_name_plural = "Add class 1 vacancy file"
+class class11(models.Model):
+    file=models.FileField(upload_to='website/files',blank=False,null=False)
+    def __str__(self):
+        return f"Fee structure for the year {date.today().year}"
+    class Meta:
+        verbose_name = "Add class 11 vacancy file"
+        verbose_name_plural = "Add class 11 vacancy file"
+class achievement(models.Model):
+    description=models.TextField(blank=False,null=False)
+    image=models.ImageField(upload_to='website/images')
+    class Meta:
+        verbose_name = "Add Achievement"
+        verbose_name_plural = "Add Achievement"

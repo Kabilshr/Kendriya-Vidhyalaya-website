@@ -1,5 +1,3 @@
-
-
 from datetime import date
 from django.shortcuts import render
 from .models import *
@@ -54,14 +52,8 @@ def principal_message(request):
                    })
 def about_kv(request):
     return render(request,"website/about_kv.html")
-def facilities(request):
-    return render(request,"website/facilities.html")
-def milestone(request):
-    return render(request,"website/milestone.html")
 def contact_us(request):
     return render(request,"website/contact_us.html")
-def sport_and_games(request):
-    return render(request,"website/sport_and_games.html")
 def holidays(request):
     holiday=Holiday.objects.filter(category='holiday')
     summer_vacation=Holiday.objects.filter(category='summer_vacation')
@@ -152,11 +144,22 @@ def news_and_events(request):
     else:
         return HttpResponseRedirect(reverse('index'))
 def class_1(request):
-    return render(request,"website/class_1.html")
+    try:
+        fee=class1.objects.get()
+        return HttpResponseRedirect(f'{fee.file.url}')
+    except:
+        return render(request,"website/class_1.html")
 def class_11(request):
-    return render(request,"website/class_11.html")
+    try:
+        fee=class11.objects.get()
+        return HttpResponseRedirect(f'{fee.file.url}')
+    except:
+        return render(request,"website/class_11.html")
 def other_class(request):
-    return render(request,"website/other_class.html")
+    data=Admissions.objects.all()
+    return render(request,"website/other_class.html",{
+        "data":data
+    })
 def alumni(request):
     if request.method == 'POST':
         name=request.POST['name'] 
@@ -176,8 +179,11 @@ def alumni(request):
         return render(request,"website/alumni.html",{
             'alumni_data':alumni_data,
         })
-def achievement(request):
-    return render(request,"website/achievement.html")
+def achievements(request):
+    achive=achievement.objects.all()[::-1][:10]
+    return render(request,"website/achievement.html",{
+        'achievements':achive
+    })
 def newsletter(request):
     news_letter=News_letter.objects.all()[::-1][:20]
     return render(request,"website/newsletter.html",{
@@ -199,7 +205,7 @@ def vacancy(request):
         "vacant":vacany_present
     })
 def gallery(request):
-    gallery = Gallery.objects.all()
+    gallery = News_and_Events.objects.all()
     length=len(gallery)
     page=int(request.GET['page'])
     if page == 1:
