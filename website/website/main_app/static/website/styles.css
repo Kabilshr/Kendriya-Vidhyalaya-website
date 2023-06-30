@@ -43,12 +43,16 @@ h1, h2, h3 {
 }
 
 .header {
-  background-color: #FA8072;
   width: 100%;
   position: relative;
   font-size: 1.25rem;
   min-height: 80px;
   z-index: 1;
+  padding: 0 8rem;
+}
+
+.background-light {
+  background-color: rgba(224, 223, 223, 0.5764705882);
 }
 
 .nav-link {
@@ -95,7 +99,7 @@ h1, h2, h3 {
 }
 
 .dropdown .dropdown-menu {
-  background-color: #FB9183;
+  background-color: #f1f1f1;
 }
 
 .dropdown:hover > .dropdown-menu, .dropend:hover > .dropdown-menu {
@@ -140,12 +144,15 @@ h1, h2, h3 {
 }
 
 footer {
+  background-color: rgba(0, 0, 0, 0.737254902);
   position: relative;
-  color: #474a4d;
+  color: #000000;
   margin-top: auto;
   height: auto;
+}
+footer .background-dark {
   padding: 2rem;
-  background-color: #FA8072;
+  background-color: rgba(116, 116, 116, 0.737254902);
 }
 footer i {
   float: left;
@@ -276,8 +283,25 @@ main {
   margin: 1rem;
 }
 
+.notice {
+  width: 50%;
+}
 .notice h3 {
   text-align: center;
+}
+
+.about-section {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+}
+
+#notice-heading {
+  position: absolute;
+  top: -10%;
+  left: 50%;
 }
 
 .notice-content {
@@ -290,6 +314,11 @@ main {
   text-decoration: none;
   color: #e89209;
   text-transform: capitalize;
+}
+
+.notice-space-img {
+  height: 15vw;
+  opacity: 0.2;
 }
 
 .notice-card {
@@ -312,6 +341,7 @@ main {
   color: #fff;
   padding: 10px;
   border-radius: 15px;
+  margin-bottom: 4rem;
 }
 
 .stat-card {
@@ -540,10 +570,6 @@ table {
 .contact td, .contact th {
   padding: 1rem;
   border: 1px solid;
-}
-
-.notice {
-  width: 50%;
 }
 
 .notice-container {

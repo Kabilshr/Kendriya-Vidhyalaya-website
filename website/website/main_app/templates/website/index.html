@@ -49,7 +49,7 @@
       </button>
   </div>
   <div class="about">
-    <h3 align="center" style="margin: 1rem;">About KV Kathmandu</h3>
+    <h2 align="center" style="margin: 1rem;">About KV Kathmandu</h2>
     <p>
       Kendriya Vidyalaya, Embassy of India, Kathmandu, is one of the three Kendriya Vidyalayas located abroad and the
       other
@@ -65,11 +65,6 @@
       Embassy
       of India, Kathmandu.
     </p>
-    <p>
-      The Ambassador of India to Nepal is its patron and the deputy chief of mission is the ex-offical chairman of the
-      school
-      management committee. It is a single block school and science and commerce education is available at + 2 level.
-    </p>
   </div>
 </section>
 <div class="container-lg">
@@ -83,7 +78,7 @@
 </section>
 <section class="home-section about-section">
   <div class="notice">
-    <h3>Notice</h3>
+    <h2 id="notice-heading">Notice</h2>
     <div class="notice-content">
       {% for notice in notice %}
       <a href="{{notice.file.url}}" target="_blank">
@@ -96,6 +91,7 @@
     </div>
     <img src="{% static 'website/nepal_inida_flag.jpg' %}" alt="">
   </div>
+  <img src="{% static 'website/nepal_india_flag.jpg' %}" alt="" class="notice-space-img">
 </section>
 <hr>
 <section class="home-section">
@@ -226,7 +222,7 @@
   </div>
 </section>
 <section class="home-section"><!--todo only 4 events visible-->
-  <h3 align="center">Events</h3>
+  <h2 align="center">Events</h2>
   <div class="event-container">
     <!-- {% for events in events %}
       {% with image=events.images.all %}
@@ -252,6 +248,39 @@
         <h5 class="card-title">TEst</h5>
         <p class="card-text text-truncate pb-2">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam aut cumque corporis eius aperiam voluptate, minima sint earum. Nihil, itaque.
+        </p>
+        <a href="#" class="btn btn-primary mt-4">Learn more ></a>
+      </div>
+    </div>
+    <div class="card" style="width: 20rem; max-height: 23rem;">
+      <img src="{% static 'website/school_building.jpg' %}" class="card-img-top" alt="Event Image" style="height: 12rem;">
+      <div class="card-body">
+        <h5 class="card-title">TEst</h5>
+        <p class="card-text text-truncate pb-2">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam aut cumque corporis eius aperiam voluptate, minima
+          sint earum. Nihil, itaque.
+        </p>
+        <a href="#" class="btn btn-primary mt-4">Learn more ></a>
+      </div>
+    </div>
+    <div class="card" style="width: 20rem; max-height: 23rem;">
+      <img src="{% static 'website/school_building.jpg' %}" class="card-img-top" alt="Event Image" style="height: 12rem;">
+      <div class="card-body">
+        <h5 class="card-title">TEst</h5>
+        <p class="card-text text-truncate pb-2">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam aut cumque corporis eius aperiam voluptate, minima
+          sint earum. Nihil, itaque.
+        </p>
+        <a href="#" class="btn btn-primary mt-4">Learn more ></a>
+      </div>
+    </div>
+    <div class="card" style="width: 20rem; max-height: 23rem;">
+      <img src="{% static 'website/school_building.jpg' %}" class="card-img-top" alt="Event Image" style="height: 12rem;">
+      <div class="card-body">
+        <h5 class="card-title">TEst</h5>
+        <p class="card-text text-truncate pb-2">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam aut cumque corporis eius aperiam voluptate, minima
+          sint earum. Nihil, itaque.
         </p>
         <a href="#" class="btn btn-primary mt-4">Learn more ></a>
       </div>
