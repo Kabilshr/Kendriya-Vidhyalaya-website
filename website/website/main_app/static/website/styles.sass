@@ -103,6 +103,30 @@ h1,h2,h3
     .dropend .dropdown-toggle 
         margin-left: 0em
 
+//to top button
+.scroll-to-top
+    position: fixed
+    height: 60px
+    width: 60px
+    background-color: #717171db
+    z-index: 5000
+    bottom: 30px
+    right: 60px
+    border-radius: 50%
+    font-size: 2rem
+    color: #fff
+    border-color: #fff
+    border: 2px solid
+    i
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+    &:hover
+        background-color: #262222bd
+        cursor: pointer
+
+
 //footer styles
 footer
     position: relative
@@ -149,37 +173,55 @@ main
     //margin-top: 5px
 
 //home page styles
-.home-section
-    margin: 1rem 0
-    padding: 1.5rem 0
+// .home-section
+//     margin: 1rem 0
+//     padding: 1.5rem 0
 
-.home-banner
-    padding: 0px 15px
-    color: #000
-    position: relative
+// .home-banner
+//     padding: 0px 15px
+//     color: #000
+//     position: relative
+//     display: flex
+
+// .banner-logo
+//     img
+//         height: 10vw
+
+// .banner-title
+//     font-weight: bold
+//     padding: 3rem
+//     text-align: justify
+//     text-justify: inter-word
+//     h5
+//         font-size: 2rem
+//         color: inherit  
+//     h6
+//         color: #c9a740
+
+// .gallery-link
+//     font-size: 1.2rem
+//     font-style: oblique
+//     margin: 1.3rem
+//     padding: 0.5rem
+//     text-align: right
+
+.top-section
     display: flex
+    justify-content: space-evenly
 
-.banner-logo
-    img
-        height: 10vw
+//about us
+.about
+    margin: 1.5rem
+    text-align: left
+    flex-shrink: 1
+    min-width: 300px
+    overflow-wrap: normal
+    padding: 1rem
+    font-size: 1.3rem
 
-.banner-title
-    font-weight: bold
-    padding: 3rem
-    text-align: justify
-    text-justify: inter-word
-    h5
-        font-size: 2rem
-        color: inherit  
-    h6
-        color: #c9a740
-
-.gallery-link
-    font-size: 1.2rem
-    font-style: oblique
-    margin: 1.3rem
-    padding: 0.5rem
-    text-align: right
+#homeGallery
+    flex-shrink: 2
+    width: 100%
 
 #homeGallery, #eventGallery
     $height: 80vh
@@ -223,16 +265,17 @@ main
     height: 2px
     margin: 5%
     
-
-//about us
-.about-section
-    div
-        padding: 10px
-
-.about
-    img
-        width: 100%
-        margin-bottom: 2%
+.school-goals
+    margin: 3rem
+    margin-bottom: 5rem
+    i
+        font-size: 2rem
+        color: #6592e6
+        margin: 0.25rem
+        margin-left: 1rem
+    li
+        font-size: 1.2rem
+        margin: 1rem
 
 .notice
     h3
@@ -259,16 +302,6 @@ main
     //border: thin solid $secondary
     &:hover
         background-color: #efefef
-
-.school-goals
-    i
-        font-size: 2rem
-        color: #6592e6
-        margin: 0.25rem
-        margin-left: 1rem
-    li
-        font-size: 1.2rem
-        margin: 1rem
 
 .stat-content
     display: flex
@@ -312,6 +345,8 @@ main
     //background-color: #eee//#dadada
     button
         border: none
+    margin: 2rem
+    
 
 .faci-item
     position: relative
@@ -353,9 +388,23 @@ main
     padding-top: 0.5rem
     grid-area: 2 / 2 / 3
 
+.event-container
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-evenly
+    margin: 2rem
+    .card
+        background-color: #f4f4f4
+        box-shadow: none
+        border: none
+        &:hover
+            transform: translate(0)
+            box-shadow: none
+
 .map //homepage bottom map
     display: flex
     justify-content: space-around
+    margin: 1rem
 
 //gallery & events
 .gallery
@@ -364,20 +413,34 @@ main
 
 .card
     margin: 1.25rem
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2)
-    transform: translate(0px)
-    transition: ease-out 300ms
+    // box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2)
+    // transform: translate(0px)
+    // transition: ease-out 300ms
+    background-color: #f4f4f4
+    // box-shadow: none
+    border: none
+    &:hover
+        transform: translate(0)
+        box-shadow: none
     p
         margin: 0.2rem
      
-    &:hover
-        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5)
-        transform: translate3d(-3px, -2px, 0)
+    // &:hover
+    //     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5)
+    //     transform: translate3d(-3px, -2px, 0)
 
-.card-title
-    color: $secondary
-    text-transform: capitalize
-    margin: 0.25rem
+    &-title
+        color: $secondary
+        text-transform: capitalize
+        margin: 0.5rem
+        font-size: 1.3em
+
+    &-body
+        margin: 0.2rem
+    
+    a
+        margin: 0.5rem 0 2rem 0.2rem
+        border-radius: 40px
 
 .page-nav
     position: relative
@@ -458,8 +521,12 @@ table
         border: 1px solid
 
 //notice
+.notice
+    width: 50%
+
 .notice-container
     padding: 0 5rem
+
     .notice-card
         height: auto
     a
@@ -492,8 +559,26 @@ table
         display: none
     .stat-content
         flex-direction: column
+        max-width: 50%
+        margin: auto
+    
+    // .event-container
+    //     flex-direction: column
+    //     justify-content: center
+    
+@media screen and (max-width: 1420px)
+    .top-section
+        flex-direction: column
     #homeGallery
-        display: none
+        width: 100%
+        $height-phone: 400px
+        height: $height-phone
+        img
+            height: $height-phone
+            width: 100%
+    .carousel-control-btn
+        height: 40px
+        width: 40px
 
 //animation keyframes
 @keyframes fade-in

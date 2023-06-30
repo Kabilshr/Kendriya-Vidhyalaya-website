@@ -13,7 +13,7 @@
   </div>
 </section> -->
 </div>
-<section> <!-- Gallery -->
+<section class="top-section"> <!-- Gallery and about us -->
   <div id="homeGallery" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#homeGallery" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -48,9 +48,31 @@
         </div>
       </button>
   </div>
+  <div class="about">
+    <h3 align="center" style="margin: 1rem;">About KV Kathmandu</h3>
+    <p>
+      Kendriya Vidyalaya, Embassy of India, Kathmandu, is one of the three Kendriya Vidyalayas located abroad and the
+      other
+      two are Moscow and in Tehran. These schools require the education of the children of employees working in Indian
+      Missions and other bodies. It is a civil sector school.
+    </p>
+    <p>
+      Kendriya Vidyalaya Kathmandu was established in the year 1973 under the Indian Cooperative Mission(ICM). The
+      Embassy of
+      India, Kathmandu has provided land for the school building in the embassy premises, and the building was
+      constructed by
+      the Kendriya Vidyalaya Sangathan. ICM closed down in the year 1980 and after that the school was managed by the
+      Embassy
+      of India, Kathmandu.
+    </p>
+    <p>
+      The Ambassador of India to Nepal is its patron and the deputy chief of mission is the ex-offical chairman of the
+      school
+      management committee. It is a single block school and science and commerce education is available at + 2 level.
+    </p>
+  </div>
 </section>
 <div class="container-lg">
-
 <section class="home-section">
   <hr class="thought-line">
   <div class="thought">
@@ -59,62 +81,22 @@
   </div>
   <hr class="thought-line">
 </section>
-
-
 <section class="home-section about-section">
-  <div class="row">
-    <div class="about col-md-8">
-      <h3>About KV Kathmandu</h3>
-      <img src="{% static 'website/school_building.jpg' %}" alt="">
-      <p>
-        Kendriya Vidyalaya, Embassy of India, Kathmandu, is one of the three Kendriya Vidyalayas located abroad and the
-        other
-        two are Moscow and in Tehran. These schools require the education of the children of employees working in Indian
-        Missions and other bodies. It is a civil sector school.
-      </p>
-      <p>
-        Kendriya Vidyalaya Kathmandu was established in the year 1973 under the Indian Cooperative Mission(ICM). The
-        Embassy of
-        India, Kathmandu has provided land for the school building in the embassy premises, and the building was
-        constructed by
-        the Kendriya Vidyalaya Sangathan. ICM closed down in the year 1980 and after that the school was managed by the
-        Embassy
-        of India, Kathmandu.
-      </p>
-      <p>
-        The Ambassador of India to Nepal is its patron and the deputy chief of mission is the ex-offical chairman of the
-        school
-        management committee. It is a single block school and science and commerce education is available at + 2 level.
-      </p>
+  <div class="notice">
+    <h3>Notice</h3>
+    <div class="notice-content">
+      {% for notice in notice %}
+      <a href="{{notice.file.url}}" target="_blank">
+        <div class="notice-card">
+          <p class="notice-title">{{notice.title}}</p>
+        </div>
+      </a>
+      <br>
+      {% endfor %}
     </div>
-    <div class="notice col-md-4">
-      <h3>Notice</h3>
-      <div class="notice-content">
-        {% for notice in notice %}
-        <a href="{{notice.file.url}}" target="_blank">
-          <div class="notice-card">
-            <p class="notice-title">{{notice.title}}</p>
-          </div>
-        </a>
-        <br>
-        {% endfor %}
-      </div>
-    </div>
+    <img src="{% static 'website/nepal_inida_flag.jpg' %}" alt="">
   </div>
 </section>
-
-<section class="home-section">
-  <div class="school-goals">
-    <h3>School Goals</h3>
-    <ul type="none">
-      <li><i class="fa-solid fa-circle-check"></i>Providing personality building education</li>
-      <li><i class="fa-solid fa-circle-check"></i>Provide students with the opportunity for overall development</li>
-      <li><i class="fa-solid fa-circle-check"></i>To reinforce the values of life in the society with high moral, social and cultural values.</li>
-      <li><i class="fa-solid fa-circle-check"></i>To develop the quality of global citizenship in the students with national ethos.</li>
-    </ul>
-  </div>
-</section>
-
 <hr>
 <section class="home-section">
   <div class="stat-content">
@@ -239,6 +221,61 @@
             </div>
           </div>
         </a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="home-section"><!--todo only 4 events visible-->
+  <h3 align="center">Events</h3>
+  <div class="event-container">
+    <!-- {% for events in events %}
+      {% with image=events.images.all %}
+      <div class="card" style="width: 20rem; max-height: rem;">
+        {% for image in image %}
+        {% if forloop.counter == 1 %}
+        <img src="{{image.image.url}}" class="card-img-top" alt="Event Image" style="height: 12rem;">
+        {% endif %}
+        {% endfor %}
+        <div class="card-body">
+          <h5 class="card-title">{{events.title}}</h5>
+          <p class="card-text text-truncate pb-2">
+            {{events.description}}
+          </p>
+          <a href="{% url 'show_event' pk=events.id %}" class="btn btn-primary mt-4">Learn more...</a>
+        </div>
+      </div>
+    {% endwith %}
+    {% endfor %} -->
+    <div class="card" style="width: 20rem; max-height: 23rem;">
+      <img src="{% static 'website/school_building.jpg' %}" class="card-img-top" alt="Event Image" style="height: 12rem;">
+      <div class="card-body">
+        <h5 class="card-title">TEst</h5>
+        <p class="card-text text-truncate pb-2">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam aut cumque corporis eius aperiam voluptate, minima sint earum. Nihil, itaque.
+        </p>
+        <a href="#" class="btn btn-primary mt-4">Learn more ></a>
+      </div>
+    </div>
+    <div class="card" style="width: 20rem; max-height: 23rem;">
+      <img src="{% static 'website/school_building.jpg' %}" class="card-img-top" alt="Event Image" style="height: 12rem;">
+      <div class="card-body">
+        <h5 class="card-title">TEst</h5>
+        <p class="card-text text-truncate pb-2">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam aut cumque corporis eius aperiam voluptate, minima
+          sint earum. Nihil, itaque.
+        </p>
+        <a href="#" class="btn btn-primary mt-4">Learn more ></a>
+      </div>
+    </div>
+    <div class="card" style="width: 20rem; max-height: 23rem;">
+      <img src="{% static 'website/school_building.jpg' %}" class="card-img-top" alt="Event Image" style="height: 12rem;">
+      <div class="card-body">
+        <h5 class="card-title">TEst</h5>
+        <p class="card-text text-truncate pb-2">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam aut cumque corporis eius aperiam voluptate, minima
+          sint earum. Nihil, itaque.
+        </p>
+        <a href="#" class="btn btn-primary mt-4">Learn more ></a>
       </div>
     </div>
   </div>
