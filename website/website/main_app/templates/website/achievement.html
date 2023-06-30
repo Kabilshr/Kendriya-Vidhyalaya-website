@@ -1,4 +1,8 @@
 {% extends 'website/layout.html' %}
 {% block body %}
 <h1>Achievements</h1>
+{% for achiv in achievements %} 
+    {{achiv.description}} 
+    <img src="{{achiv.image.url}}">
+{% endfor %}
 {% endblock %}
