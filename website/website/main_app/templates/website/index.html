@@ -79,7 +79,7 @@
 <section class="home-section about-section">
   <div class="notice">
     <h2 id="notice-heading">Notice</h2>
-    <div class="notice-content">
+    <div class="notice-content"><!--todo 8 notices visible only-->
       {% for notice in notice %}
       <a href="{{notice.file.url}}" target="_blank">
         <div class="notice-card">
@@ -89,7 +89,6 @@
       <br>
       {% endfor %}
     </div>
-    <img src="{% static 'website/nepal_inida_flag.jpg' %}" alt="">
   </div>
   <img src="{% static 'website/nepal_india_flag.jpg' %}" alt="" class="notice-space-img">
 </section>
@@ -221,7 +220,7 @@
     </div>
   </div>
 </section>
-<section class="home-section"><!--todo only 4 events visible-->
+<section class="home-section"><!--todo only 6 events visible-->
   <h2 align="center">Events</h2>
   <div class="event-container">
     {% for events in events %}

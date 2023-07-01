@@ -284,7 +284,7 @@ main {
 }
 
 .notice {
-  width: 50%;
+  width: 80%;
 }
 .notice h3 {
   text-align: center;
@@ -611,10 +611,16 @@ table {
   .home-banner {
     display: none;
   }
+  .notice-space-img {
+    display: none;
+  }
   .stat-content {
     flex-direction: column;
     max-width: 50%;
     margin: auto;
+  }
+  .header {
+    padding: 0 2rem;
   }
 }
 @media screen and (max-width: 1420px) {
