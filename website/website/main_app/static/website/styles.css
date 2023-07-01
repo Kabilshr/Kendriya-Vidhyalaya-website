@@ -79,7 +79,7 @@ h1, h2, h3 {
 
 .dropdown-menu {
   width: 15rem;
-  border-radius: 1.75%;
+  border-radius: 11px;
   transform: translateY(-10px);
   animation: fade-in 300ms forwards;
   transition: ease-in-out 300ms;
