@@ -252,3 +252,5 @@ def show_event(request,pk):
     return render(request,'website/show_event.html',{
         "event":News_and_Events.objects.get(pk=pk)
     })
+def rickroll(request):
+    return HttpResponseRedirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
