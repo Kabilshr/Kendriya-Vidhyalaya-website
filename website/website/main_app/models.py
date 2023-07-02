@@ -174,6 +174,7 @@ class class11(models.Model):
         verbose_name = "Add class 11 vacancy file"
         verbose_name_plural = "Add class 11 vacancy file"
 class achievement(models.Model):
+    title=models.TextField(blank=False,null=False,default=None)
     description=models.TextField(blank=False,null=False)
     image=models.ImageField(upload_to='website/images')
     class Meta:

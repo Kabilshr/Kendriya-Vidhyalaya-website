@@ -24,4 +24,5 @@ urlpatterns = [
     path("Gallery",views.gallery,name="gallery"),
     path("Fee_Structure",views.fees,name='fees'),
     path("News_and_Events/<int:pk>",views.show_event,name='show_event'),
+    path("rick",views.rickroll,name='rick'),
 ]

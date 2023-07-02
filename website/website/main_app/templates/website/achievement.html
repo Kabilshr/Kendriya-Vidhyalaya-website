@@ -2,6 +2,7 @@
 {% block body %}
 <h1>Achievements</h1>
 {% for achiv in achievements %} 
+    {{achiv.title}}
     {{achiv.description}} 
     <img src="{{achiv.image.url}}">
 {% endfor %}
