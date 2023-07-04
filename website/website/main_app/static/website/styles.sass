@@ -2,6 +2,7 @@ $primary: #FA8072 //salmon
 $primary-light: #FB9183
 $secondary: #e89209
 $tertiary: #FFDD65//E1BC29
+$header: #f1f1f1
 //body styles
 *
     padding: 0px
@@ -15,6 +16,7 @@ body
     background-color: #fff//#efefef
     display: flex
     flex-direction: column
+    font-family: 'Montserrat', sans-serif
 
 body 
   &::-webkit-scrollbar-track
@@ -33,6 +35,8 @@ body
 
 h1,h2,h3
     color: $secondary
+    font-family: 'Philosopher', serif
+    font-weight: bold
 
 .heading
     position: absolute
@@ -44,12 +48,17 @@ h1,h2,h3
 
 //navbar styles
 .header
-    background-color: $primary
+    //background-color: $header
     width: 100%
     position: relative
     font-size: 1.25rem
     min-height: 80px
     z-index: 1
+    padding: 0 8rem
+
+.background-light
+    background-color: #e0dfdf93
+
 
 .nav-link
     position: relative
@@ -71,7 +80,7 @@ h1,h2,h3
 
 .dropdown-menu
     width: 15rem
-    border-radius: 1.75%
+    border-radius: 11px//1.75%
     transform: translateY(-10px)
     animation: fade-in 300ms forwards
     transition: ease-in-out 300ms
@@ -88,7 +97,7 @@ h1,h2,h3
         color: #fff
 
 .dropdown .dropdown-menu 
-    background-color: $primary-light
+    background-color: $header
 
 .dropdown:hover > .dropdown-menu,.dropend:hover > .dropdown-menu 
     display: block
@@ -129,12 +138,14 @@ h1,h2,h3
 
 //footer styles
 footer
+    background-color: #000000bc
     position: relative
-    color: #474a4d
+    color: #000000//#474a4d
     margin-top: auto
     height: auto
-    padding: 2rem
-    background-color: $primary
+    .background-dark
+        padding: 2rem
+        background-color: #747474bc
     i
         float: left
         margin: 5px
@@ -217,7 +228,7 @@ main
     min-width: 300px
     overflow-wrap: normal
     padding: 1rem
-    font-size: 1.3rem
+    font-size: 1.2rem
 
 #homeGallery
     flex-shrink: 2
@@ -254,11 +265,12 @@ main
     justify-content: space-between
 
 .thought-quote
-    font-style: italic
-    font-size: 1.7rem
+    //font-style: italic
+    font-size: 4rem
+    font-family: 'Tangerine', serif
     
 .thought-auth
-    font-style: normal
+    font-style: italic
     font-size: 1.2rem
 
 .thought-line
@@ -278,8 +290,21 @@ main
         margin: 1rem
 
 .notice
+    width: 80%
     h3
         text-align: center
+
+.about-section
+    position: relative
+    display: flex
+    justify-content: space-around
+    align-items: center
+    padding: 2rem
+
+#notice-heading
+    position: absolute
+    top: -10%
+    left: 50%
 
 .notice-content
     width: 100%
@@ -290,6 +315,10 @@ main
         text-decoration: none
         color: $secondary
         text-transform: capitalize
+    
+.notice-space-img
+    height: 15vw
+    opacity: 0.2
 
 .notice-card
     border-radius: 10px
@@ -310,6 +339,7 @@ main
     color: #fff
     padding: 10px
     border-radius: 15px
+    margin-bottom: 4rem
     @extend .fade-in-up
     
 .stat-card
@@ -330,6 +360,7 @@ main
     h2
         font-weight: bold
         color: inherit
+        font-family: sans-serif
     p
         text-align: center
         margin-top: 10px
@@ -521,9 +552,6 @@ table
         border: 1px solid
 
 //notice
-.notice
-    width: 50%
-
 .notice-container
     padding: 0 5rem
 
@@ -557,10 +585,14 @@ table
         display: none
     .home-banner
         display: none
+    .notice-space-img
+        display: none
     .stat-content
         flex-direction: column
         max-width: 50%
         margin: auto
+    .header
+        padding: 0 2rem
     
     // .event-container
     //     flex-direction: column
@@ -579,6 +611,7 @@ table
     .carousel-control-btn
         height: 40px
         width: 40px
+    
 
 //animation keyframes
 @keyframes fade-in

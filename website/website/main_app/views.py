@@ -38,12 +38,14 @@ def index(request):
             quote_to_be_displayed=quotes.quote
             author=quotes.author
         notice=Notice.objects.all()[::-1][:5]
+        events=News_and_Events.objects.all()[::-1][:6]
         carousel_image=Carousel_image.objects.get()
         return render(request,"website/index.html",{
             "notice":notice,
             "carousel_image":carousel_image,
             "quote":quote_to_be_displayed,
-            "author":author
+            "author":author,
+            "events":events
         })
 def principal_message(request):
     message = principals_message.objects.get()
@@ -250,3 +252,5 @@ def show_event(request,pk):
     return render(request,'website/show_event.html',{
         "event":News_and_Events.objects.get(pk=pk)
     })
+def rickroll(request):
+    return HttpResponseRedirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ")

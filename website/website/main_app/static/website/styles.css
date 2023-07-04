@@ -12,6 +12,7 @@ body {
   background-color: #fff;
   display: flex;
   flex-direction: column;
+  font-family: "Montserrat", sans-serif;
 }
 
 body::-webkit-scrollbar-track {
@@ -31,6 +32,8 @@ body::-webkit-scrollbar-thumb {
 
 h1, h2, h3 {
   color: #e89209;
+  font-family: "Philosopher", serif;
+  font-weight: bold;
 }
 
 .heading {
@@ -43,12 +46,16 @@ h1, h2, h3 {
 }
 
 .header {
-  background-color: #FA8072;
   width: 100%;
   position: relative;
   font-size: 1.25rem;
   min-height: 80px;
   z-index: 1;
+  padding: 0 8rem;
+}
+
+.background-light {
+  background-color: rgba(224, 223, 223, 0.5764705882);
 }
 
 .nav-link {
@@ -75,7 +82,7 @@ h1, h2, h3 {
 
 .dropdown-menu {
   width: 15rem;
-  border-radius: 1.75%;
+  border-radius: 11px;
   transform: translateY(-10px);
   animation: fade-in 300ms forwards;
   transition: ease-in-out 300ms;
@@ -95,7 +102,7 @@ h1, h2, h3 {
 }
 
 .dropdown .dropdown-menu {
-  background-color: #FB9183;
+  background-color: #f1f1f1;
 }
 
 .dropdown:hover > .dropdown-menu, .dropend:hover > .dropdown-menu {
@@ -140,12 +147,15 @@ h1, h2, h3 {
 }
 
 footer {
+  background-color: rgba(0, 0, 0, 0.737254902);
   position: relative;
-  color: #474a4d;
+  color: #000000;
   margin-top: auto;
   height: auto;
+}
+footer .background-dark {
   padding: 2rem;
-  background-color: #FA8072;
+  background-color: rgba(116, 116, 116, 0.737254902);
 }
 footer i {
   float: left;
@@ -205,7 +215,7 @@ main {
   min-width: 300px;
   overflow-wrap: normal;
   padding: 1rem;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 #homeGallery {
@@ -247,12 +257,12 @@ main {
 }
 
 .thought-quote {
-  font-style: italic;
-  font-size: 1.7rem;
+  font-size: 4rem;
+  font-family: "Tangerine", serif;
 }
 
 .thought-auth {
-  font-style: normal;
+  font-style: italic;
   font-size: 1.2rem;
 }
 
@@ -276,8 +286,25 @@ main {
   margin: 1rem;
 }
 
+.notice {
+  width: 80%;
+}
 .notice h3 {
   text-align: center;
+}
+
+.about-section {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+}
+
+#notice-heading {
+  position: absolute;
+  top: -10%;
+  left: 50%;
 }
 
 .notice-content {
@@ -290,6 +317,11 @@ main {
   text-decoration: none;
   color: #e89209;
   text-transform: capitalize;
+}
+
+.notice-space-img {
+  height: 15vw;
+  opacity: 0.2;
 }
 
 .notice-card {
@@ -312,6 +344,7 @@ main {
   color: #fff;
   padding: 10px;
   border-radius: 15px;
+  margin-bottom: 4rem;
 }
 
 .stat-card {
@@ -334,6 +367,7 @@ main {
 .stat-card h2 {
   font-weight: bold;
   color: inherit;
+  font-family: sans-serif;
 }
 .stat-card p {
   text-align: center;
@@ -542,10 +576,6 @@ table {
   border: 1px solid;
 }
 
-.notice {
-  width: 50%;
-}
-
 .notice-container {
   padding: 0 5rem;
 }
@@ -585,10 +615,16 @@ table {
   .home-banner {
     display: none;
   }
+  .notice-space-img {
+    display: none;
+  }
   .stat-content {
     flex-direction: column;
     max-width: 50%;
     margin: auto;
+  }
+  .header {
+    padding: 0 2rem;
   }
 }
 @media screen and (max-width: 1420px) {

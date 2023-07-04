@@ -9,15 +9,21 @@ function scrollFunction() {
     }
 }
 
-function scrollTop() {
-    document.body.scrollTop = 0;//Safari
-    document.documentElement.scrollTop = 0;//Chrome, Firefox, Opera
-}
-
 toTopBtn.addEventListener('click', () => {
     window.scrollTo({
         top: 0
     })
+})
+
+window.addEventListener('resize', () => { 
+    var element = document.getElementById('navbarNav');
+    if (window.innerWidth<=992) {
+        element.classList.remove('justify-content-end');
+        element.classList.add('justify-content-center');
+    } else {
+        element.classList.remove('justify-content-center');
+        element.classList.add('justify-content-end');
+    }
 })
 
 //enable popover
