@@ -1,1 +1,4 @@
 .env
+website/website/db.sqlite3
+table_clean.csv
+db_updater.py
