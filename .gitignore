@@ -1,7 +1,4 @@
 .env
-<<<<<<< HEAD
 website/website/db.sqlite3
-=======
->>>>>>> 68fafad94ce38bd6ad11cda4a8023a030d0a5ff5
 table_clean.csv
 db_updater.py
