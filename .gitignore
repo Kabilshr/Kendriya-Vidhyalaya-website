@@ -1,1 +1,3 @@
 .env
+table_clean.csv
+db_updater.py
