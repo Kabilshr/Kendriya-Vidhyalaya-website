@@ -4,3 +4,4 @@ table_clean.csv
 db_updater.py
 admin_no.csv
 add_admin_no.py
+remove_index.py
