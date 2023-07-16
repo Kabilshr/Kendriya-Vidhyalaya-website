@@ -8,6 +8,6 @@ db = pd.read_csv('table_clean.csv')
 
 connection = sqlite3.connect('website\website\db.sqlite3')
 
-db.to_sql('main_app_tc', connection, if_exists= 'replace', index=False)
+db.to_sql('main_app_tc', connection, if_exists= 'append', index=False)
 
 connection.close()

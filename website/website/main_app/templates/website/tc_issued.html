@@ -42,13 +42,13 @@
                 {% for tc in tc_search %} 
                 <tr>
                     <td scope="row">{{forloop.counter}}.</td>
-                    <td>{{tc.name}}</td>
-                    <td>{{tc.parents_name}}</td>
-                    <td>{{tc.date_of_birth}}</td>
-                    <td>{{tc.Admission_number}}</td>
-                    <td>{{tc.Class_left}}</td>
-                    <td>{{tc.TC_no}}</td>
-                    <td>{{tc.issue_date}}</td>
+                    <td>{{tc.Student_Name}}</td>
+                    <td>{{tc.Parent_Name}}</td>
+                    <td>{{tc.Date_Of_Birth}}</td>
+                    <td>{{tc.Adm_No}}</td>
+                    <td>{{tc.Class_Left}}</td>
+                    <td>{{tc.Tc_No}}</td>
+                    <td>{{tc.Date}}</td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -72,16 +72,18 @@
             <tbody>
                 {% for tc in tc %}
                 <tr>
+                    {{tc.Date_Of_Birth}}
                     <td scope="row">{{forloop.counter}}.</td>
-                    <td>{{tc.name}}</td>
-                    <td>{{tc.parents_name}}</td>
-                    <td>{{tc.date_of_birth}}</td>
-                    <td>{{tc.Admission_number}}</td>
-                    <td>{{tc.Class_left}}</td>
-                    <td>{{tc.TC_no}}</td>
-                    <td>{{tc.issue_date}}</td>
+                    <td>{{tc.Student_Name}}</td>
+                    <td>{{tc.Parent_Name}}</td>
+                    <td>{{tc.Date_of_Birth}}</td>
+                    <td>{{tc.Adm_No}}</td>
+                    <td>{{tc.Class_Left}}</td>
+                    <td>{{tc.Tc_No}}</td>
+                    <td>{{tc.Date}}</td>
                 </tr>
                 {% endfor %}
+                
     {% endif %}
             </tbody>
         </table>

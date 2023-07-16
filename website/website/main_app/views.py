@@ -71,12 +71,12 @@ def tc_issued(request):
     if request.method == "POST":
         name=request.POST['name']
         if not name:
-            tcs_issued=TC.objects.all()[::-1][:400]
+            tcs_issued=TC.objects.all()[:200]
             return render(request,"website/tc_issued.html",{
                 'tc':tcs_issued
             })
         try:
-            tcs_issued=TC.objects.filter(name__contains=f'{name}')[::-1][:400]
+            tcs_issued=TC.objects.filter(Student_Name__contains=f'{name}')[:200]
             return render(request,"website/tc_issued.html",{
             'tc_search':tcs_issued
         })
@@ -86,7 +86,7 @@ def tc_issued(request):
                 'tc_search':tcs_issued
                 })
     else:
-        tcs_issued=TC.objects.all()[::-1][:400]
+        tcs_issued=TC.objects.all()[:200]
         return render(request,"website/tc_issued.html",{
             'tc':tcs_issued
         })

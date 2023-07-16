@@ -9,7 +9,6 @@ Vacancy_posts=[('principal','Principal'),('PGT (Physics)','PGT (Physics)'),('PGT
                ('TGT (English)','TGT (English)'),('TGT (Hindi)','TGT (Hindi)'),('PRT','PRT'),('SSA','SSA'),('Lab Attendant','Lab Attendant'),
                ('Sub Staff','Sub Staff'),('JR. Secratariat Assistant','JR. Secratariat Assistant')]
 from django.db import models
-
 class Class(models.Model):
     class_name=models.CharField(max_length=16)
     def __str__(self) :
@@ -41,20 +40,6 @@ class News_letter(models.Model):
     class Meta:
         verbose_name = "Make News Letter Entry"
         verbose_name_plural = "Make News Letter Entry"
-class TC(models.Model):
-    serial_number=models.BigIntegerField(primary_key=True,unique=True)
-    name=models.CharField(max_length=32,blank=False,null=False)
-    parents_name=models.CharField(max_length=32,blank=False,null=False)
-    date_of_birth=models.DateField(blank=False,null=False)
-    Admission_number=models.BigIntegerField(blank=False,null=False)
-    Class_left=models.ForeignKey(Class,related_name='TCs_issued_by_class',blank=False,null=False,on_delete=models.CASCADE)
-    TC_no=models.BigIntegerField(unique=True,blank=False,null=False,)
-    issue_date=models.DateField(blank=False,null=False,)
-    def __str__(self):
-        return f"{self.name}"
-    class Meta:
-        verbose_name = "Add TC"
-        verbose_name_plural = "Add TC"
 class vmc_member(models.Model):
     name=models.CharField(max_length=128)
     post=models.TextField()
@@ -180,3 +165,16 @@ class achievement(models.Model):
     class Meta:
         verbose_name = "Add Achievement"
         verbose_name_plural = "Add Achievement"
+class TC(models.Model):
+    Student_Name=models.TextField(max_length=128,blank=False,default=None)
+    Parent_Name=models.TextField(max_length=128,blank=False,default=None)
+    Date_of_Birth=models.DateField(blank=False,default=None)
+    Adm_No=models.PositiveBigIntegerField(primary_key=True)
+    Class_Left=models.TextField(blank=False,default=None)
+    Tc_No=models.PositiveBigIntegerField(blank=False,default=None)
+    Date=models.DateField(blank=False,default=None)
+    class Meta:
+        verbose_name = "Add TC"
+        verbose_name_plural = "Add TC"
+    def __str__(self):
+        return f"{self.Student_Name}"
