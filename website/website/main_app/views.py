@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 import requests
 from django.urls import reverse
 from django.core.mail import send_mail
+from django.core.paginator import Paginator
 # Create your views here.
 
 def index(request):
@@ -107,44 +108,13 @@ def notice(request):
         'notice_data':notice_data,
     })
 def news_and_events(request):
-    events = News_and_Events.objects.all()
-    length=len(events)
-    page=int(request.GET['page'])
-    if page == 1:
-        if events:
-            events=events[:8]
-            return render(request,"website/news_and_events.html",{
-        'events':events,
-        'length':length,
-        'page':page,
-        'next':page+1,
-        'previous':page-1,})
-        else:
-            return HttpResponseRedirect(reverse('index'))
-    elif page == 2:
-        if events[8:16]:
-            events=events[8:16]
-            return render(request,"website/news_and_events.html",{
-        'events':events,
-        'length':length,
-        'page':page,
-        'next':page+1,
-        'previous':page-1,})
-        else:
-            return HttpResponseRedirect(reverse('index'))
-    elif page == 3:
-        if events[16:24]:
-            events=events[16:24]
-            return render(request,"website/news_and_events.html",{
-        'events':events,
-        'length':length,
-        'page':page,
-        'next':page+1,
-        'previous':page-1,})
-        else:
-            return HttpResponseRedirect(reverse('index'))
-    else:
-        return HttpResponseRedirect(reverse('index'))
+    events = News_and_Events.objects.all()[::-1][:24]
+    paginator=Paginator(events,8)
+    page=request.GET.get("page") 
+    events=paginator.get_page(page)
+    return render(request,"website/news_and_events.html",{
+        "events":events
+    })
 def class_1(request):
     try:
         fee=class1.objects.get()
@@ -208,44 +178,13 @@ def vacancy(request):
         "vacant":vacany_present
     })
 def gallery(request):
-    gallery = News_and_Events.objects.all()
-    length=len(gallery)
-    page=int(request.GET['page'])
-    if page == 1:
-        if gallery:
-            gallery=gallery[:8]
-            return render(request,"website/gallery.html",{
-        'gallery':gallery,
-        'length':length,
-        'page':page,
-        'next':page+1,
-        'previous':page-1,})
-        else:
-            return HttpResponseRedirect(reverse('index'))
-    elif page == 2:
-        if gallery[8:16]:
-            gallery=gallery[8:16]
-            return render(request,"website/gallery.html",{
-        'gallery':gallery,
-        'length':length,
-        'page':page,
-        'next':page+1,
-        'previous':page-1,})
-        else:
-            return HttpResponseRedirect(reverse('index'))
-    elif page == 3:
-        if gallery[16:24]:
-            gallery=gallery[16:24]
-            return render(request,"website/gallery.html",{
-        'gallery':gallery,
-        'length':length,
-        'page':page,
-        'next':page+1,
-        'previous':page-1,})
-        else:
-            return HttpResponseRedirect(reverse('index'))
-    else:
-        return HttpResponseRedirect(reverse('index'))
+    gallery = News_and_Events.objects.all()[::-1][:24]
+    paginator=Paginator(gallery,8)
+    page=request.GET.get("page") 
+    gallery=paginator.get_page(page)
+    return render(request,"website/gallery.html",{
+        'gallery':gallery})
+
 def fees(request):
     fee=Fee_structure.objects.get()
     return HttpResponseRedirect(f'{fee.file.url}')

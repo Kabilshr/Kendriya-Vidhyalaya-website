@@ -7,6 +7,7 @@
             {% with image=events.images.all %}
             <div class="card" style="width: 18rem; max-height: 23rem;">
                 {% for image in image %}
+                <!--This is there so that only the first image is rendered out of the many-->
                     {% if forloop.counter == 1 %}
                         <img src="{{image.image.url}}" class="card-img-top" alt="Event Image" style="height: 12rem;">
                     {% endif %}
@@ -23,131 +24,27 @@
         {% endwith %}
     {% endfor %}
 </div>
-{% if length > 8 %}
-    <nav aria-label="Page navigation page-nav">
-            <ul class="pagination">
-                {% if length < 16 %}
-                    <li class="page-item">
-                        <a class="page-link" href="{% url 'news_and_events'%}?page={{previous}}" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="{% url 'news_and_events'%}?page=1">1</a></li>
-                    <li class="page-item"><a class="page-link" href="{% url 'news_and_events'%}?page=2">2</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="{% url 'news_and_events'%}?page={{next}}" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a> 
-                    </li>
-                {% endif %}
-                {% if length > 16 %}
-                    <li class="page-item">
-                        <a class="page-link" href="{% url 'news_and_events'%}?page={{previous}}" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="{% url 'news_and_events'%}?page=1">1</a></li>
-                    <li class="page-item"><a class="page-link" href="{% url 'news_and_events'%}?page=2">2</a></li>
-                    <li class="page-item"><a class="page-link" href="{% url 'news_and_events'%}?page=3">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="{% url 'news_and_events'%}?page={{next}}" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                {% endif %}
-
-            </ul>
-        </nav>
-{% endif %}
+<nav aria-label="Page navigation page-nav">
+    <ul class="pagination -lg">
+    {% if events.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{events.previous_page_number}}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+    {% endif %}
+    <li class="page-item disabled">
+        <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">Page {{events.number}}  of {{events.paginator.num_pages}}</span>
+        </a>
+    </li>
+    {% if events.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{events.next_page_number}}" aria-label="Previous">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    {% endif %}
+    </ul>
+</nav>    
 {% endblock %}
-<!--<div class="news_and_events row row-cols-1 row-cols-md-2 row-cols-lg-4 g-2">
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src="{{message.image.url}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Event title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p><!--few lines of the details should only be visible
-                <a href="#" class="btn btn-primary">Learn more..</a>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src="{{message.image.url}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Event title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p><!--few lines of the details should only be visible
-                <a href="#" class="btn btn-primary">Learn more..</a>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src="{{message.image.url}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Event title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p><!--few lines of the details should only be visible
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src="{{message.image.url}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Event title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p><!--few lines of the details should only be visible
-                <a href="#" class="btn btn-primary">Learn more..</a>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src="{{message.image.url}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Event title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p><!--few lines of the details should only be visible
-                <a href="#" class="btn btn-primary">Learn more..</a>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src="{{message.image.url}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Event title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p><!--few lines of the details should only be visible
-                <a href="#" class="btn btn-primary">Learn more..</a>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src="{{message.image.url}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Event title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p><!--few lines of the details should only be visible
-                <a href="#" class="btn btn-primary">Learn more..</a>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src="{{message.image.url}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Event title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p><!--few lines of the details should only be visible
-                <a href="#" class="btn btn-primary">Learn more..</a>
-            </div>
-        </div>
-    </div>
-</div>
-
---> 
