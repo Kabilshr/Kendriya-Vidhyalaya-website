@@ -2,12 +2,13 @@ from django.db import models
 from datetime import date
 from django.contrib import admin
 # Create your models here.
-Vacancy_posts=[('principal','Principal'),('PGT (Physics)','PGT (Physics)'),('PGT (Chemistry)','PGT (Chemistry)'),('PGT (Maths)','PGT (Maths)'),
-               ('PGT (Biology)','PGT (Biology)'),('PGT (Computer)','PGT (Computer)'),('PGT (Economics)','PGT (Economics)'), 
-               ('PGT (Commerce)','PGT (Commerce)'),('PGT (English)','PGT (English)'),('PGT (Hindi)','PGT (Hindi)'),('TGT (Science)','TGT (Science)'),
-               ('TGT (Maths)','TGT (Maths)'),('TGT (Sanskrit)','TGT (Sanskrit)'),('TGT (Social Science)','TGT (Social Science)'),
-               ('TGT (English)','TGT (English)'),('TGT (Hindi)','TGT (Hindi)'),('PRT','PRT'),('SSA','SSA'),('Lab Attendant','Lab Attendant'),
-               ('Sub Staff','Sub Staff'),('JR. Secratariat Assistant','JR. Secratariat Assistant')]
+# A B C is for sorting (computername,displayname)
+Vacancy_posts=[('APrincipal','Principal'),('BPGT (Physics)','PGT (Physics)'),('BPGT (Chemistry)','PGT (Chemistry)'),('BPGT (Maths)','BPGT (Maths)'),
+               ('BPGT (Biology)','PGT (Biology)'),('BPGT (Computer)','PGT (Computer)'),('BPGT (Economics)','BPGT (Economics)'), 
+               ('BPGT (Commerce)','PGT (Commerce)'),('BPGT (English)','PGT (English)'),('BPGT (Hindi)','PGT (Hindi)'),('CTGT (Science)','TGT (Science)'),
+               ('CTGT (Maths)','TGT (Maths)'),('CTGT (Sanskrit)','TGT (Sanskrit)'),('CTGT (Social Science)','TGT (Social Science)'),
+               ('CTGT (English)','TGT (English)'),('CTGT (Hindi)','TGT (Hindi)'),('DPRT','PRT'),('ESSA','SSA'),('FLab Attendant','Lab Attendant'),
+               ('GSub Staff','Sub Staff'),('HJR. Secratariat Assistant','JR. Secratariat Assistant')]
 from django.db import models
 class Class(models.Model):
     class_name=models.CharField(max_length=16)
@@ -55,7 +56,7 @@ class member_list(models.Model):
     origin=models.CharField(choices=[("Local","Local"),("Indian","Indian")],null=False,blank=False,max_length=6)
     image=models.ImageField(upload_to='website/images/' ,blank=True ,null=True)
     def __str__(self):
-        return f"{self.name},{self.designation}"
+        return f"{self.name},{self.get_designation_display()}"
     class Meta:
         verbose_name = "Add Staff"
         verbose_name_plural = "Add Staff"

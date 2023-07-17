@@ -192,7 +192,8 @@ def newsletter(request):
         'news_letter':news_letter
     })
 def members_list(request):
-    members_list=member_list.objects.all()
+    # there is ABCD for sorting so Principal is Aprincipal and he comes in the first place
+    members_list=member_list.objects.all().order_by("designation")
     return render(request,"website/members_list.html",{
         'members':members_list
     })
