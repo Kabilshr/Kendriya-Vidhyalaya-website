@@ -2,14 +2,14 @@ from django.db import models
 from datetime import date
 from django.contrib import admin
 # Create your models here.
-Vacancy_posts=[('principal','Principal'),('PGT (Physics)','PGT (Physics)'),('PGT (Chemistry)','PGT (Chemistry)'),('PGT (Maths)','PGT (Maths)'),
-               ('PGT (Biology)','PGT (Biology)'),('PGT (Computer)','PGT (Computer)'),('PGT (Economics)','PGT (Economics)'), 
-               ('PGT (Commerce)','PGT (Commerce)'),('PGT (English)','PGT (English)'),('PGT (Hindi)','PGT (Hindi)'),('TGT (Science)','TGT (Science)'),
-               ('TGT (Maths)','TGT (Maths)'),('TGT (Sanskrit)','TGT (Sanskrit)'),('TGT (Social Science)','TGT (Social Science)'),
-               ('TGT (English)','TGT (English)'),('TGT (Hindi)','TGT (Hindi)'),('PRT','PRT'),('SSA','SSA'),('Lab Attendant','Lab Attendant'),
-               ('Sub Staff','Sub Staff'),('JR. Secratariat Assistant','JR. Secratariat Assistant')]
+# A B C is for sorting (computername,displayname)
+Vacancy_posts=[('APrincipal','Principal'),('BPGT (Physics)','PGT (Physics)'),('BPGT (Chemistry)','PGT (Chemistry)'),('BPGT (Maths)','PGT (Maths)'),
+               ('BPGT (Biology)','PGT (Biology)'),('BPGT (Computer)','PGT (Computer)'),('BPGT (Economics)','PGT (Economics)'), 
+               ('BPGT (Commerce)','PGT (Commerce)'),('BPGT (English)','PGT (English)'),('BPGT (Hindi)','PGT (Hindi)'),('CTGT (Science)','TGT (Science)'),
+               ('CTGT (Maths)','TGT (Maths)'),('CTGT (Sanskrit)','TGT (Sanskrit)'),('CTGT (Social Science)','TGT (Social Science)'),
+               ('CTGT (English)','TGT (English)'),('CTGT (Hindi)','TGT (Hindi)'),('DPRT','PRT'),('ESSA','SSA'),('FLab Attendant','Lab Attendant'),
+               ('GSub Staff','Sub Staff'),('HJR. Secratariat Assistant','JR. Secratariat Assistant')]
 from django.db import models
-
 class Class(models.Model):
     class_name=models.CharField(max_length=16)
     def __str__(self) :
@@ -41,20 +41,6 @@ class News_letter(models.Model):
     class Meta:
         verbose_name = "Make News Letter Entry"
         verbose_name_plural = "Make News Letter Entry"
-class TC(models.Model):
-    serial_number=models.BigIntegerField(primary_key=True,unique=True)
-    name=models.CharField(max_length=32,blank=False,null=False)
-    parents_name=models.CharField(max_length=32,blank=False,null=False)
-    date_of_birth=models.DateField(blank=False,null=False)
-    Admission_number=models.BigIntegerField(blank=False,null=False)
-    Class_left=models.ForeignKey(Class,related_name='TCs_issued_by_class',blank=False,null=False,on_delete=models.CASCADE)
-    TC_no=models.BigIntegerField(unique=True,blank=False,null=False,)
-    issue_date=models.DateField(blank=False,null=False,)
-    def __str__(self):
-        return f"{self.name}"
-    class Meta:
-        verbose_name = "Add TC"
-        verbose_name_plural = "Add TC"
 class vmc_member(models.Model):
     name=models.CharField(max_length=128)
     post=models.TextField()
@@ -68,9 +54,9 @@ class member_list(models.Model):
     name=models.CharField(max_length=32)
     designation=models.CharField(choices=Vacancy_posts,max_length=32)
     origin=models.CharField(choices=[("Local","Local"),("Indian","Indian")],null=False,blank=False,max_length=6)
-    image=models.ImageField(upload_to='website/images/' ,blank=True ,null=True)
+    image=models.ImageField(upload_to='website/images/' ,blank=True ,null=True,default='website/images/PFP.jpg')
     def __str__(self):
-        return f"{self.name},{self.designation}"
+        return f"{self.name},{self.get_designation_display()}"
     class Meta:
         verbose_name = "Add Staff"
         verbose_name_plural = "Add Staff"
@@ -180,3 +166,16 @@ class achievement(models.Model):
     class Meta:
         verbose_name = "Add Achievement"
         verbose_name_plural = "Add Achievement"
+class TC(models.Model):
+    Student_Name=models.TextField(max_length=128,blank=False,default=None)
+    Parent_Name=models.TextField(max_length=128,blank=False,default=None)
+    Date_of_Birth=models.DateField(blank=False,default=None)
+    Adm_No=models.PositiveBigIntegerField(primary_key=True)
+    Class_Left=models.TextField(blank=False,default=None)
+    Tc_No=models.PositiveBigIntegerField(blank=False,default=None)
+    Date=models.DateField(blank=False,default=None)
+    class Meta:
+        verbose_name = "Add TC"
+        verbose_name_plural = "Add TC"
+    def __str__(self):
+        return f"{self.Student_Name}"

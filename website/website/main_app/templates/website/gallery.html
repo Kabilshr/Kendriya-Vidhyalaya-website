@@ -65,42 +65,28 @@
             </script>
         {% endfor %}
     </div>
-{% if length > 8 %}
     <nav aria-label="Page navigation page-nav">
-            <ul class="pagination">
-                {% if length < 16 %}
-                    <li class="page-item">
-                        <a class="page-link" href="{% url 'gallery'%}?page={{previous}}" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="{% url 'gallery'%}?page=1">1</a></li>
-                    <li class="page-item"><a class="page-link" href="{% url 'gallery'%}?page=2">2</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="{% url 'gallery'%}?page={{next}}" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a> 
-                    </li>
-                {% endif %}
-                {% if length > 16 %}
-                    <li class="page-item">
-                        <a class="page-link" href="{% url 'gallery'%}?page={{previous}}" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="{% url 'gallery'%}?page=1">1</a></li>
-                    <li class="page-item"><a class="page-link" href="{% url 'gallery'%}?page=2">2</a></li>
-                    <li class="page-item"><a class="page-link" href="{% url 'gallery'%}?page=3">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="{% url 'gallery'%}?page={{next}}" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                {% endif %}
-
-            </ul>
-        </nav>
-{% endif %}
+        <ul class="pagination -lg">
+        {% if gallery.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{gallery.previous_page_number}}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+        {% endif %}
+        <li class="page-item disabled">
+            <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">Page {{gallery.number}}  of {{gallery.paginator.num_pages}}</span>
+            </a>
+        </li>
+        {% if gallery.has_next %}
+                <a class="page-link" href="?page={{gallery.next_page_number}}" aria-label="Previous">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        {% endif %}
+        </ul>
+    </nav>   
 {% endblock %}
 
 
