@@ -22,8 +22,11 @@ todo order of designatin fixed eg- principal on top always
                     <td>{{members.origin}} </td>
                     <!-- the get_designation_display shows the display name of the choice rather than the computer name of the choice mentioned in models-->
                     <td>{{members.get_designation_display}}</td>
-                    <td>{{members.image}}</td>
+                    
                 </tr>
+                {% if members.image %}
+                    <img src="{{members.image.url}}">
+                {% endif %}
                 {% endfor %}
             </tbody>
     </table>

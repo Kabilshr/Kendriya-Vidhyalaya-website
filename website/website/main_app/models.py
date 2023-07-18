@@ -3,8 +3,8 @@ from datetime import date
 from django.contrib import admin
 # Create your models here.
 # A B C is for sorting (computername,displayname)
-Vacancy_posts=[('APrincipal','Principal'),('BPGT (Physics)','PGT (Physics)'),('BPGT (Chemistry)','PGT (Chemistry)'),('BPGT (Maths)','BPGT (Maths)'),
-               ('BPGT (Biology)','PGT (Biology)'),('BPGT (Computer)','PGT (Computer)'),('BPGT (Economics)','BPGT (Economics)'), 
+Vacancy_posts=[('APrincipal','Principal'),('BPGT (Physics)','PGT (Physics)'),('BPGT (Chemistry)','PGT (Chemistry)'),('BPGT (Maths)','PGT (Maths)'),
+               ('BPGT (Biology)','PGT (Biology)'),('BPGT (Computer)','PGT (Computer)'),('BPGT (Economics)','PGT (Economics)'), 
                ('BPGT (Commerce)','PGT (Commerce)'),('BPGT (English)','PGT (English)'),('BPGT (Hindi)','PGT (Hindi)'),('CTGT (Science)','TGT (Science)'),
                ('CTGT (Maths)','TGT (Maths)'),('CTGT (Sanskrit)','TGT (Sanskrit)'),('CTGT (Social Science)','TGT (Social Science)'),
                ('CTGT (English)','TGT (English)'),('CTGT (Hindi)','TGT (Hindi)'),('DPRT','PRT'),('ESSA','SSA'),('FLab Attendant','Lab Attendant'),
@@ -54,7 +54,7 @@ class member_list(models.Model):
     name=models.CharField(max_length=32)
     designation=models.CharField(choices=Vacancy_posts,max_length=32)
     origin=models.CharField(choices=[("Local","Local"),("Indian","Indian")],null=False,blank=False,max_length=6)
-    image=models.ImageField(upload_to='website/images/' ,blank=True ,null=True)
+    image=models.ImageField(upload_to='website/images/' ,blank=True ,null=True,default='website/images/PFP.jpg')
     def __str__(self):
         return f"{self.name},{self.get_designation_display()}"
     class Meta:
