@@ -1,22 +1,24 @@
 {% extends 'website/layout.html' %}
 {% block body %}
 <h1>Newsletter</h1>
-<table class="table data-table">
-    <thead>
-        <tr>
-            <th scope="col">S.no</th>
-            <th scope="col">Date</th>
-            <th scope="col">Links</th>
-        </tr>
-    </thead>
-        <tbody>
-        {% for news in news_letter %}
+<div class="table-responsive fade-in-up">
+    <table class="table data-table">
+        <thead>
             <tr>
-                <td scope="row">{{forloop.counter}}.</td>
-                <td>{{news.title}}</td>
-                <td><a href="{{news.file.url}}" target="_blank">click here to view...</a></td>
+                <th scope="col">S.no</th>
+                <th scope="col">Date</th>
+                <th scope="col">Links</th>
             </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+        </thead>
+            <tbody>
+            {% for news in news_letter %}
+                <tr>
+                    <td scope="row">{{forloop.counter}}.</td>
+                    <td>{{news.title}}</td>
+                    <td><a href="{{news.file.url}}" target="_blank">click here to view...</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
 {% endblock %}
