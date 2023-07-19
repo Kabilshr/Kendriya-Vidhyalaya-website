@@ -1,12 +1,6 @@
 {% extends 'website/layout.html' %}
 {% block body %}
-<!--
-    todo backwards serial number
-    todo 150 names in a page
-    todo add pagination
-    backend
--->
-    <h1>Transfer Certificate Issued</h1>
+    <h1 class="fade-in">Transfer Certificate Issued</h1>
     <form action="{% url 'tc_issued' %}" method="post" align="right" style="margin: 1rem">
         {% csrf_token %}
         <div class="input-group">
@@ -24,7 +18,7 @@
         </div>
     </form>
     {% if tc_search %}
-    <div class="table-responsive text-nowrap">
+    <div class="table-responsive text-nowrap fade-in-up">
         <table class="table data-table">
             <thead>
                 <tr>
@@ -55,7 +49,7 @@
         </table>
     </div>
     {% else %}
-    <div class="table-responsive text-nowrap">
+    <div class="table-responsive text-nowrap fade-in-up">
         <table class="table data-table">
             <thead>
                 <tr>

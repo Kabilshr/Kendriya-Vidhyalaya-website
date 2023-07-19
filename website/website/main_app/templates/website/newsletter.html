@@ -1,7 +1,7 @@
 {% extends 'website/layout.html' %}
 {% block body %}
-<h1>Newsletter</h1>
-<div class="table-responsive fade-in-up">
+<h1 class="fade-in">Newsletter</h1>
+<div class="table-responsive fade-in-up fade-in-up">
     <table class="table data-table">
         <thead>
             <tr>
@@ -10,15 +10,15 @@
                 <th scope="col">Links</th>
             </tr>
         </thead>
-            <tbody>
-            {% for news in news_letter %}
-                <tr>
-                    <td scope="row">{{forloop.counter}}.</td>
-                    <td>{{news.title}}</td>
-                    <td><a href="{{news.file.url}}" target="_blank">click here to view...</a></td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <tbody>
+        {% for news in news_letter %}
+            <tr>
+                <td scope="row">{{forloop.counter}}.</td>
+                <td>{{news.title}}</td>
+                <td><a href="{{news.file.url}}" target="_blank">click here to view...</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 {% endblock %}
