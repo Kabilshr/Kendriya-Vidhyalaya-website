@@ -9,7 +9,7 @@
 {% endfor %}
 {% endwith %} -->
 {% block body %}
-<h1>Gallery</h1>
+<h1 class="fade-in">Gallery</h1>
     <div class="gallery row row-cols-1 row-cols-md-2 row-cols-lg-4 g-2 py-3">
         {% for gallery in gallery %} 
             {% with image=gallery.images.all %}

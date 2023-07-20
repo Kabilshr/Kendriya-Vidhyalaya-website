@@ -321,16 +321,38 @@ main
     opacity: 0.2
 
 .notice-card
-    border-radius: 10px
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3)
-    font-size: 1.35rem
+    position: relative
+    font-size: 1.2rem
     color: $secondary
-    height: 3.5rem
-    padding: 1.3rem
+    //height: 3.5rem
+    padding: 0 1.3rem
     margin: 0.7rem 0
-    //border: thin solid $secondary
-    &:hover
-        background-color: #efefef
+
+.notice-date
+    position: absolute
+    background-color: $secondary
+    color: white
+    font-size: 1rem
+    text-align: center
+    height: 70px
+    width: 70px
+    padding: 0.5rem
+    transform: translateY(25%)
+    display: grid
+    span:nth-child(1)::after
+        content: ''
+        align-items: center
+        border: 1px solid #fff
+        display: block
+        width: 30px
+        margin: 0 auto
+
+.notice-message
+    margin-left: 35px
+    background-color: #f6f6f6
+    height: 100px
+    padding: 1rem
+    padding-left: 60px
 
 .stat-content
     display: flex
@@ -551,25 +573,24 @@ table
         padding: 1rem
         border: 1px solid
 
-//notice
+//notice page
 .notice-container
     padding: 0 5rem
-
     .notice-card
         height: auto
     a
         text-decoration: none
         color: inherit
         text-transform: capitalize
-        margin: 0 1.2rem
     p
         overflow-wrap: break-word
         color: #000
         margin: 1.2rem 2rem
         font-size: 1rem
+    .notice-title
+        margin: 0 2rem
+    
 
-.notice-title
-    margin: 0 2rem
 
 //event
 .event-description
@@ -578,6 +599,9 @@ table
 .fade-in-up
     animation: fadeInUp 1000ms forwards
     transition: ease-in-out 300ms
+
+.fade-in
+    animation: fade-in 1000ms ease-in 300ms forwards
 
 
 @media screen and ( max-width: 992px)
@@ -624,8 +648,8 @@ table
 @keyframes fadeInUp 
   from
     opacity: 0
-    -webkit-transform: translateY(150px)
-    transform: translateY(150px)
+    -webkit-transform: translateY(120px)
+    transform: translateY(120px)
   to
     opacity: 1
     -webkit-transform: translateY(0)

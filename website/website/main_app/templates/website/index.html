@@ -42,15 +42,15 @@
           <span class="visually-hidden">Previous</span>
         </div>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#homeGallery" data-bs-slide="next">
-        <div class="carousel-control-btn">
+      <div class="carousel-control-next">
+        <div class="carousel-control-btn" type="button" data-bs-target="#homeGallery" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </div>
-      </button>
+      </div>
   </div>
   <div class="about">
-    <h2 align="center" style="margin: 1rem;">KV Kathmandu</h2>
+    <h2 align="center" style="margin: 1rem;" class="fade-in">KV Kathmandu</h2>
     <p>
       Kendriya Vidyalaya, Embassy of India, Kathmandu, is one of the three Kendriya Vidyalayas located abroad and the
       other
@@ -79,15 +79,20 @@
 </section>
 <section class="home-section about-section">
   <div class="notice">
-    <h2 id="notice-heading">Notice</h2>
-    <div class="notice-content"><!--todo 8 notices visible only-->
+    <h2 id="notice-heading" class="fade-in">Notice</h2>
+    <div class="notice-content"><!--todo 8 notices visible only|| add date to notice-->
       {% for notice in notice %}
       <a href="{{notice.file.url}}" target="_blank">
         <div class="notice-card">
-          <p class="notice-title">{{notice.title}}</p>
+          <div class="notice-date">
+            <span>05</span>
+            <span>May</span>
+          </div>
+          <div class="notice-message">
+            <p class="notice-title"  style="margin: 0;">{{notice.title}}</p>
+          </div>
         </div>
       </a>
-      <br>
       {% endfor %}
     </div>
   </div>
@@ -221,7 +226,7 @@
   </div>
 </section>
 <section class="home-section"><!--todo only 6 events visible-->
-  <h2 align="center">Events</h2>
+  <h2 align="center" class="fade-in">Events</h2>
   <div class="event-container">
     {% for events in events %}
       {% with image=events.images.all %}

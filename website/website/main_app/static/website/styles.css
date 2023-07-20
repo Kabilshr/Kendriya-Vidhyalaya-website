@@ -325,16 +325,40 @@ main {
 }
 
 .notice-card {
-  border-radius: 10px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
-  font-size: 1.35rem;
+  position: relative;
+  font-size: 1.2rem;
   color: #e89209;
-  height: 3.5rem;
-  padding: 1.3rem;
+  padding: 0 1.3rem;
   margin: 0.7rem 0;
 }
-.notice-card:hover {
-  background-color: #efefef;
+
+.notice-date {
+  position: absolute;
+  background-color: #e89209;
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+  height: 70px;
+  width: 70px;
+  padding: 0.5rem;
+  transform: translateY(25%);
+  display: grid;
+}
+.notice-date span:nth-child(1)::after {
+  content: "";
+  align-items: center;
+  border: 1px solid #fff;
+  display: block;
+  width: 30px;
+  margin: 0 auto;
+}
+
+.notice-message {
+  margin-left: 35px;
+  background-color: #f6f6f6;
+  height: 100px;
+  padding: 1rem;
+  padding-left: 60px;
 }
 
 .stat-content {
@@ -586,7 +610,6 @@ table {
   text-decoration: none;
   color: inherit;
   text-transform: capitalize;
-  margin: 0 1.2rem;
 }
 .notice-container p {
   overflow-wrap: break-word;
@@ -594,8 +617,7 @@ table {
   margin: 1.2rem 2rem;
   font-size: 1rem;
 }
-
-.notice-title {
+.notice-container .notice-title {
   margin: 0 2rem;
 }
 
@@ -606,6 +628,10 @@ table {
 .fade-in-up, .stat-content {
   animation: fadeInUp 1000ms forwards;
   transition: ease-in-out 300ms;
+}
+
+.fade-in {
+  animation: fade-in 1000ms ease-in 300ms forwards;
 }
 
 @media screen and (max-width: 992px) {
@@ -656,8 +682,8 @@ table {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    -webkit-transform: translateY(150px);
-    transform: translateY(150px);
+    -webkit-transform: translateY(120px);
+    transform: translateY(120px);
   }
   to {
     opacity: 1;
