@@ -80,13 +80,12 @@
 <section class="home-section about-section">
   <div class="notice">
     <h2 id="notice-heading" class="fade-in">Notice</h2>
-    <div class="notice-content"><!--todo 8 notices visible only|| add date to notice-->
+    <div class="notice-content"><!--todo 8 notices visible only-->
       {% for notice in notice %}
       <a href="{{notice.file.url}}" target="_blank">
         <div class="notice-card">
           <div class="notice-date">
-            <span>05</span>
-            <span>May</span>
+              <span>{{notice.date}}</span>
           </div>
           <div class="notice-message">
             <p class="notice-title"  style="margin: 0;">{{notice.title}}</p>

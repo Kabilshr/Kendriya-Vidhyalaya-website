@@ -150,14 +150,14 @@ class Admissions(models.Model):
 class class1(models.Model):
     file=models.FileField(upload_to='website/files',blank=False,null=False)
     def __str__(self):
-        return f"Fee structure for the year {date.today().year}"
+        return f"Class 1 vacancy for year {date.today().year}"
     class Meta:
         verbose_name = "Add class 1 vacancy file"
         verbose_name_plural = "Add class 1 vacancy file"
 class class11(models.Model):
     file=models.FileField(upload_to='website/files',blank=False,null=False)
     def __str__(self):
-        return f"Fee structure for the year {date.today().year}"
+        return f"Class 11 vacancy for year {date.today().year}"
     class Meta:
         verbose_name = "Add class 11 vacancy file"
         verbose_name_plural = "Add class 11 vacancy file"

@@ -38,7 +38,7 @@ def index(request):
         else:
             quote_to_be_displayed=quotes.quote
             author=quotes.author
-        notice=Notice.objects.all()[::-1][:5]
+        notice=Notice.objects.all()[::-1][:8]
         events=News_and_Events.objects.all()[::-1][:6]
         carousel_image=Carousel_image.objects.get()
         return render(request,"website/index.html",{
@@ -117,14 +117,14 @@ def news_and_events(request):
     })
 def class_1(request):
     try:
-        fee=class1.objects.get()
-        return HttpResponseRedirect(f'{fee.file.url}')
+        file=class1.objects.get()
+        return HttpResponseRedirect(f'{file.file.url}')
     except:
         return render(request,"website/class_1.html")
 def class_11(request):
     try:
-        fee=class11.objects.get()
-        return HttpResponseRedirect(f'{fee.file.url}')
+        file=class11.objects.get()
+        return HttpResponseRedirect(f'{file.file.url}')
     except:
         return render(request,"website/class_11.html")
 def other_class(request):
