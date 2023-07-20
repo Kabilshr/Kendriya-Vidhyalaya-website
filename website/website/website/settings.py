@@ -107,10 +107,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Katmandu'
 
 USE_I18N = True
-
+# makes it so that the date and time is set according to the location of the host
 USE_TZ = True
 
 

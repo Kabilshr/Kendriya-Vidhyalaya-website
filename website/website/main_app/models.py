@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import date
 from django.contrib import admin
+from django.utils import timezone
 # Create your models here.
 # A B C is for sorting (computername,displayname)
 Vacancy_posts=[('APrincipal','Principal'),('BPGT (Physics)','PGT (Physics)'),('BPGT (Chemistry)','PGT (Chemistry)'),('BPGT (Maths)','PGT (Maths)'),
@@ -72,6 +73,7 @@ class Notice(models.Model):
     file=models.FileField(upload_to='website/files',blank=False,null=False)
     title=models.TextField(blank=False)
     description=models.TextField(blank=False)
+    date=models.DateField(default=timezone.localdate())
     def __str__(self):
         return f"{self.title}"
     class Meta:
@@ -113,7 +115,7 @@ class Carousel_image(models.Model):
     class Meta:
         verbose_name = "Add Image to Caurosel"
         verbose_name_plural = "Add Image to Carousel"
-class News_and_Events_GalleryAdmin(admin.ModelAdmin):
+class News_and_Events_Admin(admin.ModelAdmin):
     exclude= ('id',)
 class quote(models.Model):
     quote=models.TextField()
@@ -179,3 +181,5 @@ class TC(models.Model):
         verbose_name_plural = "Add TC"
     def __str__(self):
         return f"{self.Student_Name}"
+class Notice_Admin(admin.ModelAdmin):
+    exclude= ('date',)
