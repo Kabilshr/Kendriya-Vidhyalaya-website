@@ -1,0 +1,71 @@
+{% extends 'website/layout.html' %}
+-->
+{% block body %}
+<!--
+    TODO captcha 
+    TODO fill missing data of backend of form and list and remove picture
+-->
+<h1 class="fade-in">Alumni</h1>
+<div class="table-responsive text-nowrap fade-in-up">
+    <table class="table data-table">
+        <thead>
+            <tr>
+                <th scope="col">S.no</th>
+                <th scope="col">Name</th>
+                <th scope="col">Current Position</th>
+                <th scope="col">Year Passed</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for alumni in alumni_data %}
+            <!-- <img src="{{alumni.image.url}}"> -->
+                <tr>
+                    <td scope="row">{{forloop.counter}}.</td>
+                    <td>{{alumni.name}}</td>
+                    <td>curret position</td>
+                    <td>year passed</td>
+                    <td>{{alumni.description}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+<div class="alumni_form" style="width: 50%; margin: 2rem;">
+    <h3>Alumni Regestration Form</h3>
+    <form id="simpleContactForm" data-request="simpleContact::onFormSubmit" action="{% url 'alumni' %}" method="post">
+        {% csrf_token %}
+        <div id="simple_contact_flash_message"></div>
+        <div class="form-group">
+            <input type="text" id="email" name="name" class="form-control" placeholder="Name" required>
+        </div>
+        <div class="form-group">
+            <textarea id="message" name="description" class="form-control" placeholder="Current Position" required></textarea>
+        </div>
+        <div class="form-group">
+            <input type="email" id="email" name="email" class="form-control" placeholder="E-mail" required>
+        </div>
+        <div class="form-group">
+            <input type="number" id="phone" name="phone" class="form-control" placeholder="Phone">
+        </div>
+        <div class="form-group">
+            <input type="number" id="phone" name="year" class="form-control" placeholder="Year Passed" required>
+        </div>
+        <div class="form-group">
+            <label for="message"></label><!--todo make captcha work-->
+            <div class="g-recaptcha" data-sitekey="6Lc1xGQUAAAAAC8MyTuRvwyErv53of4wk0tE5IXM"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lc1xGQUAAAAAC8MyTuRvwyErv53of4wk0tE5IXM&amp;co=aHR0cHM6Ly93d3cubWlza3RtLmVkdS5ucDo0NDM.&amp;hl=en&amp;v=FFtxPnbuZxq6kkeHkQJR2MNQ&amp;size=normal&amp;cb=ubkqw8lyjzdt" width="304" height="78" role="presentation" name="a-chrjrx5nbato" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div>
+        </div>
+        <button id=".." type="submit" class="btn btn-default btn-primary">
+            Submit
+        </button>
+        <button class="btn btn-primary" type="reset">
+            <i class="fa-solid fa-rotate-right"></i>
+        </button>
+    </form>
+</div>
+     
+        
+    
+        
+
+{% endblock %}

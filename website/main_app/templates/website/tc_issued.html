@@ -1,0 +1,110 @@
+{% extends 'website/layout.html' %}
+{% block body %}
+    <h1 class="fade-in">Transfer Certificate Issued</h1>
+    <form action="{% url 'tc_issued' %}" method="post" align="right" style="margin: 1rem">
+        {% csrf_token %}
+        <div class="input-group">
+            <div class="form-outline">
+                <input id="search-input" type="search" id="form1" class="form-control" name="name" placeholder="Search Using Name">
+            </div>
+            <button id="search-button" type="submit" value="submit" class="btn btn-primary">
+                <i class="fas fa-search"></i>
+            </button>
+            <a href="{% url 'tc_issued' %}" id="tc-reload">
+                <button class="btn btn-primary">
+                    <i class="fa-solid fa-rotate-right"></i>
+                </button>
+            </a>
+        </div>
+    </form>
+    {% if tc_search %}
+    <div class="table-responsive text-nowrap fade-in-up">
+        <table class="table data-table">
+            <thead>
+                <tr>
+                    <th scope="col">S.no</th>
+                    <th scope="col">Student Name</th>
+                    <th scope="col">Parents Name</th>
+                    <th scope="col">Date of Birth</th>
+                    <th scope="col">Adm.No</th>
+                    <th scope="col">Class Left</th>
+                    <th scope="col">Tc No.</th>
+                    <th scope="col">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tc in tc_search %} 
+                <tr>
+                    <td scope="row">{{forloop.counter}}.</td>
+                    <td>{{tc.Student_Name}}</td>
+                    <td>{{tc.Parent_Name}}</td>
+                    <td>{{tc.Date_Of_Birth}}</td>
+                    <td>{{tc.Adm_No}}</td>
+                    <td>{{tc.Class_Left}}</td>
+                    <td>{{tc.Tc_No}}</td>
+                    <td>{{tc.Date}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="table-responsive text-nowrap fade-in-up">
+        <table class="table data-table">
+            <thead>
+                <tr>
+                    <th scope="col">S.no</th>
+                    <th scope="col">Student Name</th>
+                    <th scope="col">Parents Name</th>
+                    <th scope="col">Date of Birth</th>
+                    <th scope="col">Adm.No</th>
+                    <th scope="col">Class Left</th>
+                    <th scope="col">Tc No.</th>
+                    <th scope="col">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tc in tc %}
+                <tr>
+                    {{tc.Date_Of_Birth}}
+                    <td scope="row">{{forloop.counter}}.</td>
+                    <td>{{tc.Student_Name}}</td>
+                    <td>{{tc.Parent_Name}}</td>
+                    <td>{{tc.Date_of_Birth}}</td>
+                    <td>{{tc.Adm_No}}</td>
+                    <td>{{tc.Class_Left}}</td>
+                    <td>{{tc.Tc_No}}</td>
+                    <td>{{tc.Date}}</td>
+                </tr>
+                {% endfor %}
+                
+    {% endif %}
+            </tbody>
+        </table>
+    </div>
+    <script>
+        const searchFocus = document.getElementById('search-focus');
+            const keys = [
+                { keyCode: 'AltLeft', isTriggered: false },
+                { keyCode: 'ControlLeft', isTriggered: false },
+            ];
+            window.addEventListener('keydown', (e) => {
+                keys.forEach((obj) => {
+                    if (obj.keyCode === e.code) {
+                        obj.isTriggered = true;
+                    }
+                });
+                const shortcutTriggered = keys.filter((obj) => obj.isTriggered).length === keys.length;
+                if (shortcutTriggered) {
+                    searchFocus.focus();
+                }
+            });
+            window.addEventListener('keyup', (e) => {
+                keys.forEach((obj) => {
+                    if (obj.keyCode === e.code) {
+                        obj.isTriggered = false;
+                    }
+                });
+            });
+    </script>
+{% endblock %}
