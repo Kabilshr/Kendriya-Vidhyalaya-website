@@ -263,6 +263,7 @@ main
     flex-direction: column
     align-items: center
     justify-content: space-between
+    text-align: justify
 
 .thought-quote
     //font-style: italic
@@ -271,7 +272,7 @@ main
     
 .thought-auth
     font-style: italic
-    font-size: 1.2rem
+    font-size: 1.6rem
 
 .thought-line
     height: 2px
@@ -498,6 +499,7 @@ main
 .page-nav
     position: relative
     bottom: -1px
+    right: -1px
 
 .about-container
     margin: 3rem 0px
@@ -511,6 +513,20 @@ main
    transform: translateX(-50%)
    margin: 10px
 
+//principal's message
+.principal-img
+    height: 30vw
+    position: relative
+    left: 50%
+    transform: translateX(-50%)
+    margin: 10px
+
+.principal-msg
+    margin: 3rem 0px
+    padding: 1.2rem
+    font-size: 1.3rem
+
+    
 //table
 table
     margin: auto
@@ -590,7 +606,26 @@ table
     .notice-title
         margin: 0 2rem
     
+//achievements
+.achievement
+    margin: 2rem 0
+    padding: 1.5rem
+    width: 100%
+    h2
+        text-transform: capitalize
+    div
+        display: flex
+    img
+        width: 30rem
+        margin: 1rem
+    p
+        margin: 1rem 0
 
+    &:nth-child(odd)
+        div
+            flex-direction: row-reverse
+            justify-content: space-between
+        
 
 //event
 .event-description

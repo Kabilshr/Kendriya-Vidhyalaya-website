@@ -254,6 +254,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  text-align: justify;
 }
 
 .thought-quote {
@@ -263,7 +264,7 @@ main {
 
 .thought-auth {
   font-style: italic;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
 }
 
 .thought-line {
@@ -512,6 +513,7 @@ main {
 .page-nav {
   position: relative;
   bottom: -1px;
+  right: -1px;
 }
 
 .about-container {
@@ -526,6 +528,20 @@ main {
   left: 50%;
   transform: translateX(-50%);
   margin: 10px;
+}
+
+.principal-img {
+  height: 30vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 10px;
+}
+
+.principal-msg {
+  margin: 3rem 0px;
+  padding: 1.2rem;
+  font-size: 1.3rem;
 }
 
 table {
@@ -619,6 +635,29 @@ table {
 }
 .notice-container .notice-title {
   margin: 0 2rem;
+}
+
+.achievement {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  width: 100%;
+}
+.achievement h2 {
+  text-transform: capitalize;
+}
+.achievement div {
+  display: flex;
+}
+.achievement img {
+  width: 30rem;
+  margin: 1rem;
+}
+.achievement p {
+  margin: 1rem 0;
+}
+.achievement:nth-child(odd) div {
+  flex-direction: row-reverse;
+  justify-content: space-between;
 }
 
 .event-description {

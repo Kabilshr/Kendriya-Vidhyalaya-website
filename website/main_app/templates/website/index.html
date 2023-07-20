@@ -42,8 +42,8 @@
           <span class="visually-hidden">Previous</span>
         </div>
       </button>
-      <div class="carousel-control-next">
-        <div class="carousel-control-btn" type="button" data-bs-target="#homeGallery" data-bs-slide="next">
+      <div class="carousel-control-next" type="button" data-bs-target="#homeGallery" data-bs-slide="next">
+        <div class="carousel-control-btn">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </div>
@@ -80,7 +80,7 @@
 <section class="home-section about-section">
   <div class="notice">
     <h2 id="notice-heading" class="fade-in">Notice</h2>
-    <div class="notice-content"><!--todo 8 notices visible only-->
+    <div class="notice-content"><!--todo 5 notices visible only-->
       {% for notice in notice %}
       <a href="{{notice.file.url}}" target="_blank">
         <div class="notice-card">
