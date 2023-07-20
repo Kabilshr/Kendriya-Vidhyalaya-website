@@ -1,4 +1,4 @@
-{% extends 'website/layout.html' %}
+ {% extends 'website/layout.html' %}
 {% load static %}
 {% block body %}
 <!--TODO notice card redesign-->
@@ -85,7 +85,9 @@
       <a href="{{notice.file.url}}" target="_blank">
         <div class="notice-card">
           <div class="notice-date">
-              <span>{{notice.date}}</span>
+              <!-- <span>{{notice.date}}</span> -->
+              <span>15</span>
+              <span>Jul</span>
           </div>
           <div class="notice-message">
             <p class="notice-title"  style="margin: 0;">{{notice.title}}</p>
