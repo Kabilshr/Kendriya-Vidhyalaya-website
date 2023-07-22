@@ -207,6 +207,11 @@ main {
   position: relative;
 }
 
+.home-section {
+  margin: 3rem 0;
+  padding: 1.5rem 0;
+}
+
 .top-section {
   display: flex;
   justify-content: space-evenly;
@@ -219,7 +224,7 @@ main {
   min-width: 300px;
   overflow-wrap: normal;
   padding: 1rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 #homeGallery {
@@ -228,14 +233,14 @@ main {
 }
 
 #homeGallery, #eventGallery {
-  height: 80vh;
+  height: 70%;
   background-color: rgba(111, 111, 111, 0);
 }
 #homeGallery img, #eventGallery img {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  height: 80vh;
+  height: 70%;
   object-fit: cover;
 }
 
@@ -253,22 +258,26 @@ main {
   transform: translateY(-50%);
 }
 
+.thought-section {
+  margin: 10rem 0;
+}
+
 .thought {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: 2rem;
+  font-size: 1.2rem;
 }
 
 .thought-quote {
-  font-size: 3.5rem;
+  font-size: 2.5em;
   font-family: "Tangerine", serif;
 }
 
 .thought-auth {
   font-style: italic;
-  font-size: 1.2rem;
 }
 
 .thought-line {
@@ -304,6 +313,7 @@ main {
   justify-content: space-around;
   align-items: center;
   padding: 2rem;
+  margin: 5rem 0;
 }
 
 #notice-heading {
@@ -667,6 +677,9 @@ table {
     flex-direction: column;
     width: 80%;
     margin: auto;
+  }
+  .thought {
+    font-size: 1rem;
   }
 }
 @media screen and (max-width: 1420px) {

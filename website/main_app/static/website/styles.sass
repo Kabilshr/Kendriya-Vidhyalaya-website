@@ -188,9 +188,9 @@ main
     //margin-top: 5px
 
 //home page styles
-// .home-section
-//     margin: 1rem 0
-//     padding: 1.5rem 0
+.home-section
+    margin: 3rem 0
+    padding: 1.5rem 0
 
 // .home-banner
 //     padding: 0px 15px
@@ -213,12 +213,6 @@ main
 //     h6
 //         color: #c9a740
 
-// .gallery-link
-//     font-size: 1.2rem
-//     font-style: oblique
-//     margin: 1.3rem
-//     padding: 0.5rem
-//     text-align: right
 
 .top-section
     display: flex
@@ -232,14 +226,14 @@ main
     min-width: 300px
     overflow-wrap: normal
     padding: 1rem
-    font-size: 1.2rem
+    font-size: 1rem
 
 #homeGallery
     flex-shrink: 2
     width: 100%
 
 #homeGallery, #eventGallery
-    $height: 80vh
+    $height: 70%
     height: $height
     background-color: #6f6f6f00
     img
@@ -262,21 +256,24 @@ main
         transform: translateY(-50%)
 
 //thought
+.thought-section
+    margin: 10rem 0
+
 .thought
     display: flex
     flex-direction: column
     align-items: center
     justify-content: space-between
     padding: 2rem
+    font-size: 1.2rem
 
 .thought-quote
     //font-style: italic
-    font-size: 3.5rem
+    font-size: 2.5em
     font-family: 'Tangerine', serif
     
 .thought-auth
     font-style: italic
-    font-size: 1.2rem
 
 .thought-line
     height: 2px
@@ -306,6 +303,7 @@ main
     justify-content: space-around
     align-items: center
     padding: 2rem
+    margin: 5rem 0
 
 #notice-heading
     position: absolute
@@ -632,7 +630,8 @@ table
         flex-direction: column
         width: 80%
         margin: auto
-    
+    .thought
+        font-size: 1rem
     
     // .event-container
     //     flex-direction: column
