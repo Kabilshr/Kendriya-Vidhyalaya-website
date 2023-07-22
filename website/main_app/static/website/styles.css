@@ -8,7 +8,6 @@ html, body {
 }
 
 body {
-  font-size: 16px;
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -182,6 +181,7 @@ footer button {
 .form_group {
   margin: 5px 10px;
   padding: 5px 5px;
+  margin: auto;
 }
 
 .g-recaptcha {
@@ -193,6 +193,10 @@ footer button {
 
 .footer-contact {
   padding: 5px 10px;
+}
+
+.footer-mail {
+  word-wrap: break-word;
 }
 
 .form-group {
@@ -254,10 +258,11 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  padding: 2rem;
 }
 
 .thought-quote {
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-family: "Tangerine", serif;
 }
 
@@ -282,8 +287,8 @@ main {
   margin-left: 1rem;
 }
 .school-goals li {
-  font-size: 1.2rem;
-  margin: 1rem;
+  font-size: 1rem;
+  margin: 0.5rem;
 }
 
 .notice {
@@ -312,6 +317,7 @@ main {
   height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 .notice-content a {
   text-decoration: none;
@@ -328,7 +334,6 @@ main {
   position: relative;
   font-size: 1.2rem;
   color: #e89209;
-  padding: 0 1.3rem;
   margin: 0.7rem 0;
 }
 
@@ -355,10 +360,11 @@ main {
 
 .notice-message {
   margin-left: 35px;
-  background-color: #f6f6f6;
+  background-color: #efefef;
   height: 100px;
   padding: 1rem;
   padding-left: 60px;
+  word-wrap: break-word;
 }
 
 .stat-content {
@@ -483,6 +489,12 @@ main {
   display: flexbox;
 }
 
+.page-nav {
+  display: flex;
+  justify-content: end;
+  margin: 1rem;
+}
+
 .card {
   margin: 1.25rem;
   background-color: #f4f4f4;
@@ -517,11 +529,11 @@ main {
 .about-container {
   margin: 3rem 0px;
   padding: 1.2rem;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 
 .about-img {
-  height: 30vw;
+  width: 80%;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -621,6 +633,13 @@ table {
   margin: 0 2rem;
 }
 
+.alumni_form {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 2rem;
+}
+
 .event-description {
   font-size: 1.3rem;
 }
@@ -646,11 +665,8 @@ table {
   }
   .stat-content {
     flex-direction: column;
-    max-width: 50%;
+    width: 80%;
     margin: auto;
-  }
-  .header {
-    padding: 0 2rem;
   }
 }
 @media screen and (max-width: 1420px) {
@@ -659,15 +675,21 @@ table {
   }
   #homeGallery {
     width: 100%;
-    height: 400px;
+    height: 65%;
   }
   #homeGallery img {
-    height: 400px;
+    height: 65%;
     width: 100%;
   }
   .carousel-control-btn {
     height: 40px;
     width: 40px;
+  }
+  .notice-card {
+    width: 100%;
+  }
+  .header {
+    padding: 0 2rem;
   }
 }
 @keyframes fade-in {

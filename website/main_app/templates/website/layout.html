@@ -107,9 +107,9 @@
             {% endblock %}
         </div>
     </main>
-    <footer style="background-image: url({% static 'website/background5.jpg' %}); background-color: #48484888;background-repeat:no-repeat; background-size: 100%;">
+    <footer style="background-image: url({% static 'website/background5.jpg' %}); background-color: #48484888;background-repeat:no-repeat; background-size: 100% 100%;">
         <div class="background-dark">
-            <div class="container-md">
+            <div class="container-lg justify-content-end">
                 <div class="row g-2">
                     <div class="col-md-4 footer-logo my-auto">
                         <a href="{% url 'index' %}"><img src="{% static 'website/sitelogo.png' %}" height="200"></a>
@@ -140,7 +140,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-5 col-md-4 my-auto">
+                    <div class="col-sm-5 col-md-4 g-2 my-auto">
                         <div class="form_group">
                             <h3>Feedback Form</h3>
                             <form id="simpleContactForm" data-request="simpleContact::onFormSubmit" action="{% url 'index' %}" method="post">
