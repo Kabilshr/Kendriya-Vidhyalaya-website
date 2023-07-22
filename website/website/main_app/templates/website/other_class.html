@@ -1,8 +1,0 @@
-{% extends 'website/layout.html' %}
-{% block body %}
-{% for vacancy in data %}
-    {{vacancy.vacancy}} 
-    {% for class in vacancy.grade.all %} {{class.class_name}}{% endfor %}
-    <a href="{{vacancy.file.url}}">hi </a>
-{% endfor %}
-{% endblock %}
