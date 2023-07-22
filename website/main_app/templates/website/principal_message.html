@@ -1,0 +1,145 @@
+{% extends 'website/layout.html' %}
+{% block body %}
+<h1 class="fade-in">Principal's Message</h1>
+{{message.message}}
+<img src={{message.image.url}}>
+{{message.image.url}}
+
+<!-- gallery card -->
+<a class="card" style="width: 18rem;" data-bs-toggle="modal" data-bs-target="#exampleModal"><!-- opens gallery carousel -->
+  <div>
+    <img src={{message.image.url}} class="card-img-top" alt="card title">
+    <div class="card-body">
+      <h5 class="card-title">Demo Card</h5>
+    </div>
+  </div>
+</a>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div id="carouselExampleControls" class="carousel slide">
+        <div class="carousel-inner overflow-hidden">
+          <div class="carousel-item active">
+            <img
+              src="{{message.image.url}}"
+              alt="">
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://images.unsplash.com/photo-1622227614434-a7a26021879f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+              class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://images.unsplash.com/photo-1622115168398-af384a2b4d85?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80"
+              class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- event card -->
+<div class="card" style="width: 18rem;">
+  <img src="{{message.image.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Event title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p><!--few lines of the details should only be visible-->
+    <a href="#" class="btn btn-primary">Learn more..</a>
+  </div>
+</div>
+
+
+
+<div class="container-fluid">
+  <main class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+      <a data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-slide-to="0">
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1622222298089-042b5e973333?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=632&q=80"
+            alt="">
+        </div>
+      </a>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+      <a data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-slide-to="1">
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1622227614434-a7a26021879f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+            class="d-block w-100" alt="...">
+        </div>
+      </a>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+      <a data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-slide-to="2">
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1622115168398-af384a2b4d85?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80"
+            class="d-block w-100" alt="...">
+        </div>
+      </a>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+            <div class="carousel-inner overflow-hidden">
+              <div class="carousel-item active">
+                <img
+                  src="https://images.unsplash.com/photo-1622222298089-042b5e973333?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=632&q=80"
+                  alt="">
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://images.unsplash.com/photo-1622227614434-a7a26021879f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                  class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://images.unsplash.com/photo-1622115168398-af384a2b4d85?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80"
+                  class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+  var myCarousel = document.querySelector('#carouselExampleControls')
+    var myModalEl = document.getElementById('exampleModal')
+
+    myModalEl.addEventListener('show.bs.modal', function (event) {
+      const trigger = event.relatedTarget
+      var bsCarousel = bootstrap.Carousel.getInstance(myCarousel)
+      bsCarousel.to(trigger.dataset.bsSlideTo)
+    })
+</script>
+
+{% endblock %}

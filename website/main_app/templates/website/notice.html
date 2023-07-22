@@ -1,0 +1,25 @@
+{% extends 'website/layout.html' %}
+{% block body %}
+<h1 class="fade-in">Notice</h1>
+{% for notice in notice_data %}
+    <div class="notice-container">
+        <!-- <a href="{{notice.file.url}}" target="_blank">
+            <div class="notice-card">
+                <h3 class="notice-title">{{notice.title}}</h3>
+                <p>{{notice.description}}</p>
+            </div>
+        </a> -->
+        <a href="{{notice.file.url}}" target="_blank">
+            <div class="notice-card">
+                <div class="notice-date">
+                    <span>05</span>
+                    <span>May</span>
+                </div>
+                <div class="notice-message">
+                    <p class="notice-title" style="margin: 0; font-size: 1.3rem;">{{notice.title}}</p>
+                </div>
+            </div>
+        </a>
+    </div>
+{% endfor %}
+{% endblock %}

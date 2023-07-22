@@ -1,0 +1,26 @@
+{% extends 'website/layout.html' %}
+{% block body %}
+<h1 class="fade-in">Vidyalaya Management Committee Members</h1>
+<div class="table-responsive fade-in-up">
+    <table class="table data-table">
+        <thead>
+            <tr>
+                <th scope="col">S.no</th>
+                <th scope="col">Name</th>
+                <th scope="col">Post</th>
+                <th scope="col">Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for members in members %}
+            <tr>
+                <td scope="row">{{forloop.counter}}.</td>
+                <td>{{members.name}}</td>
+                <td>{{members.post}}</td>
+                <td style="overflow-wrap: break-word;">{{members.address}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
