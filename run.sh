@@ -1,3 +1,3 @@
 #!/bin/bash
-cd website/website
+cd website
 py manage.py runserver

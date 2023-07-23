@@ -1,18 +1,6 @@
 {% extends 'website/layout.html' %}
 {% load static %}
 {% block body %}
-<!--TODO notice card redesign-->
-<!-- <section class="home-banner">
-  <div class="banner-logo">
-    <img src="{% static 'website/bannerlogo.png' %}" alt="logo">
-  </div>
-  <div class="banner-title">
-    <h5>केन्द्रीय विद्यालय काठमांडू </h5>
-    <h5>Kendriya Vidyalaya Kathmandu</h5>
-    <h6>An Autonomous body under Ministry of Education Government of India</h6>
-    <div class="cbse">CBSE Affiliation Number : 6200001,School code-90225</div>
-  </div>
-</section> -->
 </div>
 <section class="top-section"> <!-- Gallery and about us -->
   <div id="homeGallery" class="carousel slide" data-bs-ride="carousel">
@@ -36,8 +24,8 @@
         <img src="{{carousel_image.image_4.url}}" class="d-block" alt="...">
       </div>
     </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#homeGallery" data-bs-slide="prev">
-        <div class="carousel-control-btn">
+      <button class="carousel-control-prev">
+        <div class="carousel-control-btn" type="button" data-bs-target="#homeGallery" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </div>
@@ -69,7 +57,7 @@
   </div>
 </section>
 <div class="container-lg">
-<section class="home-section">
+<section class="home-section thought-section">
   <hr class="thought-line">
   <div class="thought">
     <p class="thought-quote" id="quote">{{quote}}</p>
@@ -85,7 +73,9 @@
       <a href="{{notice.file.url}}" target="_blank">
         <div class="notice-card">
           <div class="notice-date">
-              <span>{{notice.date}}</span>
+              <!-- <span>{{notice.date}}</span> -->
+              <span>15</span>
+              <span>Jul</span>
           </div>
           <div class="notice-message">
             <p class="notice-title"  style="margin: 0;">{{notice.title}}</p>
