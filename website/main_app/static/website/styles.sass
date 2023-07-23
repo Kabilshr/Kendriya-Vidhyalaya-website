@@ -12,7 +12,7 @@ html, body
   height: 100%
 
 body
-    font-size: 16px
+    //font-size: 16px
     background-color: #fff//#efefef
     display: flex
     flex-direction: column
@@ -165,6 +165,7 @@ footer
 .form_group
     margin: 5px 10px
     padding: 5px 5px
+    margin: auto
 
 .g-recaptcha
     margin: 0
@@ -175,6 +176,9 @@ footer
 .footer-contact
     padding: 5px 10px
 
+.footer-mail
+    word-wrap: break-word
+
 .form-group
     margin-bottom: 15px
 
@@ -184,9 +188,9 @@ main
     //margin-top: 5px
 
 //home page styles
-// .home-section
-//     margin: 1rem 0
-//     padding: 1.5rem 0
+.home-section
+    margin: 3rem 0
+    padding: 1.5rem 0
 
 // .home-banner
 //     padding: 0px 15px
@@ -209,12 +213,6 @@ main
 //     h6
 //         color: #c9a740
 
-// .gallery-link
-//     font-size: 1.2rem
-//     font-style: oblique
-//     margin: 1.3rem
-//     padding: 0.5rem
-//     text-align: right
 
 .top-section
     display: flex
@@ -228,14 +226,14 @@ main
     min-width: 300px
     overflow-wrap: normal
     padding: 1rem
-    font-size: 1.2rem
+    font-size: 1rem
 
 #homeGallery
     flex-shrink: 2
     width: 100%
 
 #homeGallery, #eventGallery
-    $height: 80vh
+    $height: 70%
     height: $height
     background-color: #6f6f6f00
     img
@@ -258,20 +256,24 @@ main
         transform: translateY(-50%)
 
 //thought
+.thought-section
+    margin: 10rem 0
+
 .thought
     display: flex
     flex-direction: column
     align-items: center
     justify-content: space-between
+    padding: 2rem
+    font-size: 1.2rem
 
 .thought-quote
     //font-style: italic
-    font-size: 4rem
+    font-size: 2.5em
     font-family: 'Tangerine', serif
     
 .thought-auth
     font-style: italic
-    font-size: 1.2rem
 
 .thought-line
     height: 2px
@@ -286,8 +288,9 @@ main
         margin: 0.25rem
         margin-left: 1rem
     li
-        font-size: 1.2rem
-        margin: 1rem
+        font-size: 1rem
+        margin: 0.5rem
+        
 
 .notice
     width: 80%
@@ -300,6 +303,7 @@ main
     justify-content: space-around
     align-items: center
     padding: 2rem
+    margin: 5rem 0
 
 #notice-heading
     position: absolute
@@ -311,6 +315,7 @@ main
     height: 100%
     display: flex
     flex-direction: column
+    justify-content: center
     a
         text-decoration: none
         color: $secondary
@@ -325,7 +330,7 @@ main
     font-size: 1.2rem
     color: $secondary
     //height: 3.5rem
-    padding: 0 1.3rem
+    //padding: 0 1.3rem
     margin: 0.7rem 0
 
 .notice-date
@@ -349,10 +354,11 @@ main
 
 .notice-message
     margin-left: 35px
-    background-color: #f6f6f6
+    background-color: #efefef
     height: 100px
     padding: 1rem
     padding-left: 60px
+    word-wrap: break-word
 
 .stat-content
     display: flex
@@ -464,6 +470,11 @@ main
     position: relative
     display: flexbox
 
+.page-nav
+    display: flex
+    justify-content: end
+    margin: 1rem
+
 .card
     margin: 1.25rem
     // box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2)
@@ -502,10 +513,10 @@ main
 .about-container
     margin: 3rem 0px
     padding: 1.2rem
-    font-size: 1.3rem
+    font-size: 1.1rem
 
 .about-img
-   height: 30vw
+   width: 80%
    position: relative
    left: 50%
    transform: translateX(-50%)
@@ -590,7 +601,11 @@ table
     .notice-title
         margin: 0 2rem
     
-
+.alumni_form
+    position: relative
+    left: 50%
+    transform: translateX(-50%)
+    margin: 2rem
 
 //event
 .event-description
@@ -613,10 +628,10 @@ table
         display: none
     .stat-content
         flex-direction: column
-        max-width: 50%
+        width: 80%
         margin: auto
-    .header
-        padding: 0 2rem
+    .thought
+        font-size: 1rem
     
     // .event-container
     //     flex-direction: column
@@ -627,7 +642,7 @@ table
         flex-direction: column
     #homeGallery
         width: 100%
-        $height-phone: 400px
+        $height-phone: 65%
         height: $height-phone
         img
             height: $height-phone
@@ -635,7 +650,10 @@ table
     .carousel-control-btn
         height: 40px
         width: 40px
-    
+    .notice-card
+        width: 100%
+    .header
+        padding: 0 2rem
 
 //animation keyframes
 @keyframes fade-in
