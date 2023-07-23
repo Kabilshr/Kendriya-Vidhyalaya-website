@@ -12,8 +12,8 @@
         <a href="{{notice.file.url}}" target="_blank">
             <div class="notice-card">
                 <div class="notice-date">
-                    <span>05</span>
-                    <span>May</span>
+                    <span>{{notice.date|date:"d"}}</span>
+                    <span>{{notice.date|date:"F"}}</span>
                 </div>
                 <div class="notice-message">
                     <p class="notice-title" style="margin: 0; font-size: 1.3rem;">{{notice.title}}</p>
