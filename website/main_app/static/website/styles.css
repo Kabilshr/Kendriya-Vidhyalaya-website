@@ -543,7 +543,7 @@ main {
 }
 
 .about-img {
-  width: 80%;
+  height: 30vw;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -680,6 +680,10 @@ table {
   }
   .thought {
     font-size: 1rem;
+  }
+  .about-img {
+    width: 80%;
+    height: auto;
   }
 }
 @media screen and (max-width: 1420px) {
