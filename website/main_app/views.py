@@ -194,3 +194,4 @@ def show_event(request,pk):
     })
 def rickroll(request):
     return HttpResponseRedirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+
