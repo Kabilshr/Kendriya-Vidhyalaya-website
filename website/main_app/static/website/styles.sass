@@ -257,7 +257,7 @@ main
 
 //thought
 .thought-section
-    margin: 10rem 0
+    margin: 8rem 0
 
 .thought
     display: flex
@@ -448,14 +448,34 @@ main
     grid-area: 2 / 2 / 3
 
 .event-container
+    //margin: 2rem
+    position: relative
     display: flex
-    flex-wrap: wrap
-    justify-content: space-evenly
-    margin: 2rem
+    width: 100%
+    overflow-x: hidden
+    overflow-y: hidden
+    overscroll-behavior-inline: contain
+    //scroll-snap-type: inline mandatory
+    white-space: nowrap
+    transition: all 0.2s ease-in-out
+    transform: scale(0.98)
+    cursor: grab
+    gap: 1rem
+    &:active
+        cursor: grabbing
     .card
+        display: grid
+        margin: 1rem
+        padding: 1rem
+        grid-template-rows: min-content
         background-color: #f4f4f4
         box-shadow: none
         border: none
+        scroll-snap-align: start
+        scroll-padding-inline: 2rem
+        flex-shrink: 0
+        
+
         &:hover
             transform: translate(0)
             box-shadow: none
@@ -549,6 +569,13 @@ table
         &:hover
             color: $table-color
 
+.no-effects
+    tbody tr
+        &:hover
+            color: inherit
+        &:nth-of-type(even) 
+            background-color: #ffffff
+
 //vacancy page
 .no-vacant-container
     height: 10vh
@@ -606,6 +633,27 @@ table
     left: 50%
     transform: translateX(-50%)
     margin: 2rem
+
+.achievement
+    margin: 2rem 0
+    padding: 1.5rem
+    width: 100%
+    h2
+        text-transform: capitalize
+    div
+        display: flex
+    img
+        width: 30rem
+        margin: 1rem
+    p
+        margin: 1rem 0
+
+    &:nth-child(odd)
+        div
+            flex-direction: row-reverse
+            justify-content: space-between
+        
+
 
 //event
 .event-description

@@ -2,7 +2,7 @@
 {% block body %}
 <h1 class="fade-in">Committes</h1>
 <div class="table-responsive text-nowrap fade-in-up">
-    <table class="table data-table">
+    <table class="table data-table no-effects">
         <thead>
             <tr>
                 <th scope="col">S.no</th>
@@ -16,12 +16,12 @@
             <tr>
                 <td scope="row">{{forloop.counter}}.</td>
                 <td>{{committee.Committee_name}}</td>
-                <td style="text-align: center;">
+                <td style="text-align: center; line-height: 200%;">
                     {% for members in members %}
                 
                     
                         {{members.name}}
-                        <hr style="margin: 5px;">
+                        <br>
                         
                  
                     {% endfor %}

@@ -224,7 +224,7 @@ main {
   min-width: 300px;
   overflow-wrap: normal;
   padding: 1rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 #homeGallery {
@@ -233,14 +233,14 @@ main {
 }
 
 #homeGallery, #eventGallery {
-  height: 70%;
+  height: 60%;
   background-color: rgba(111, 111, 111, 0);
 }
 #homeGallery img, #eventGallery img {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  height: 70%;
+  height: 60%;
   object-fit: cover;
 }
 
@@ -259,7 +259,7 @@ main {
 }
 
 .thought-section {
-  margin: 10rem 0;
+  margin: 8rem 0;
 }
 
 .thought {
@@ -473,15 +473,32 @@ main {
 }
 
 .event-container {
+  position: relative;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin: 2rem;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  white-space: nowrap;
+  transition: all 0.2s ease-in-out;
+  transform: scale(0.98);
+  cursor: grab;
+  gap: 1rem;
+}
+.event-container:active {
+  cursor: grabbing;
 }
 .event-container .card {
+  display: grid;
+  margin: 1rem;
+  padding: 1rem;
+  grid-template-rows: min-content;
   background-color: #f4f4f4;
   box-shadow: none;
   border: none;
+  scroll-snap-align: start;
+  scroll-padding-inline: 2rem;
+  flex-shrink: 0;
 }
 .event-container .card:hover {
   transform: translate(0);
@@ -583,6 +600,13 @@ table {
   color: #e89209;
 }
 
+.no-effects tbody tr:hover {
+  color: inherit;
+}
+.no-effects tbody tr:nth-of-type(even) {
+  background-color: #ffffff;
+}
+
 .no-vacant-container {
   height: 10vh;
   position: relative;
@@ -648,6 +672,29 @@ table {
   left: 50%;
   transform: translateX(-50%);
   margin: 2rem;
+}
+
+.achievement {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  width: 100%;
+}
+.achievement h2 {
+  text-transform: capitalize;
+}
+.achievement div {
+  display: flex;
+}
+.achievement img {
+  width: 30rem;
+  margin: 1rem;
+}
+.achievement p {
+  margin: 1rem 0;
+}
+.achievement:nth-child(odd) div {
+  flex-direction: row-reverse;
+  justify-content: space-between;
 }
 
 .event-description {
