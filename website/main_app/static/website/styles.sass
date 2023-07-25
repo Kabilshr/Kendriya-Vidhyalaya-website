@@ -182,6 +182,20 @@ footer
 .form-group
     margin-bottom: 15px
 
+.credit
+    position: relative
+    background-color: #484747
+    color: #fff
+    display: grid
+    justify-content: center
+    p
+        margin: 0.5rem
+        
+    button
+        position: absolute
+        right: 10%
+        margin: 0.5rem
+
 //body styles
 main
     position: relative
@@ -455,9 +469,9 @@ main
     overflow-x: hidden
     overflow-y: hidden
     overscroll-behavior-inline: contain
-    //scroll-snap-type: inline mandatory
+    scroll-snap-type: inline mandatory
     white-space: nowrap
-    transition: all 0.2s ease-in-out
+    transition: transform 0.2s ease-in-out
     transform: scale(0.98)
     cursor: grab
     gap: 1rem
