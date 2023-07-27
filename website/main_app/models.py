@@ -183,3 +183,5 @@ class TC(models.Model):
         return f"{self.Student_Name}"
 class Notice_Admin(admin.ModelAdmin):
     exclude= ('date',)
+
+

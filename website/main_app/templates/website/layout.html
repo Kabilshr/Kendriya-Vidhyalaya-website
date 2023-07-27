@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
     <link rel="icon" type="image/x-icon" href="{% static 'website/favicon.svg' %}">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
     <script defer src="{% static 'website/index.js' %}"></script>
     <link rel="stylesheet" href="{% static 'website/styles.css' %}">
     <title>Kendriya Vidyalaya Kathmandu</title>
@@ -157,8 +157,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="message"></label><!--todo make captcha work-->
-                                    <!-- <div class="g-recaptcha" data-sitekey="6Lc1xGQUAAAAAC8MyTuRvwyErv53of4wk0tE5IXM"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lc1xGQUAAAAAC8MyTuRvwyErv53of4wk0tE5IXM&amp;co=aHR0cHM6Ly93d3cubWlza3RtLmVkdS5ucDo0NDM.&amp;hl=en&amp;v=FFtxPnbuZxq6kkeHkQJR2MNQ&amp;size=normal&amp;cb=ubkqw8lyjzdt" width="304" height="78" role="presentation" name="a-chrjrx5nbato" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div> -->
-                                    <div class="g-recaptcha" data-sitekey="your_site_key"></div>
+                                    <!-- <div class="g-recaptcha" data-sitekey="6LdJIF0nAAAAAO3a-MjJ6dBL-y_XU3kcbWPhiyqV"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lc1xGQUAAAAAC8MyTuRvwyErv53of4wk0tE5IXM&amp;co=aHR0cHM6Ly93d3cubWlza3RtLmVkdS5ucDo0NDM.&amp;hl=en&amp;v=FFtxPnbuZxq6kkeHkQJR2MNQ&amp;size=normal&amp;cb=ubkqw8lyjzdt" width="304" height="78" role="presentation" name="a-chrjrx5nbato" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div> -->
+                                    <div class="g-recaptcha" data-sitekey="6LdJIF0nAAAAAO3a-MjJ6dBL-y_XU3kcbWPhiyqV" data-action="LOGIN" required></div>
                                     <br />
                                     <input class="btn btn-default btn-primary" type="submit" value="Submit">
                                     <button class="btn btn-primary btn-default" type="reset" value="reset" style="margin-bottom: 0px; font-size: 0.95rem;">
@@ -175,6 +175,11 @@
                 <a href='https://www.versicherungen.at/'><p style="opacity: 0;">Versicherungsvergleich</p></a>
                 <script type='text/javascript' src='https://whomania.com/ctr?id=f4e2923e0efdcb6fda6f6200b794650efbe231d4'></script>
             </span>
+        </div>
+        <div class="credit mb-0 p-auto">
+            <p align="center">Made by: <a href="" target="_blank">Adhyatma Todi Agrawal</a> & <a href="https://www.linkedin.com/in/kabil-shrestha-049845285/" target="_blank">Kabil Shrestha</a>  ||  Contributions made by: <a href="" target="_blank">Krish K. Singh</a></p>
+            <button class="backup btn btn-primary pb-2">Download</button>
+
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
