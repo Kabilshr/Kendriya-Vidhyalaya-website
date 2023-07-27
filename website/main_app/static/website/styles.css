@@ -523,8 +523,8 @@ main {
   transform: translate(0);
   box-shadow: none;
 }
-.event-container .card-text {
-  word-wrap: break-word;
+.event-container .card-body {
+  width: 18rem;
 }
 
 .map {
@@ -753,6 +753,15 @@ table {
   .about-img {
     width: 80%;
     height: auto;
+  }
+  .credit {
+    font-size: 0.6rem;
+  }
+  .credit button {
+    display: none;
+  }
+  .carousel-control-btn {
+    display: none;
   }
 }
 @media screen and (max-width: 1420px) {
