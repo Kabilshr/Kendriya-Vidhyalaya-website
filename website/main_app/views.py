@@ -39,7 +39,7 @@ def index(request):
             quote_to_be_displayed=quotes.quote
             author=quotes.author
         notice=Notice.objects.all()[::-1][:8]
-        events=News_and_Events.objects.all()[::-1][:6]
+        events=News_and_Events.objects.all()[::-1][:20]
         carousel_image=Carousel_image.objects.get()
         return render(request,"website/index.html",{
             "notice":notice,

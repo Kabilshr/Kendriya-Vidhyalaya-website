@@ -188,6 +188,7 @@ footer
     color: #fff
     display: grid
     justify-content: center
+    height: 50px
     p
         margin: 0.5rem
         
@@ -195,6 +196,9 @@ footer
         position: absolute
         right: 10%
         margin: 0.5rem
+    a
+        text-decoration: underline
+        color: #7676fb
 
 //body styles
 main
@@ -469,7 +473,7 @@ main
     overflow-x: hidden
     overflow-y: hidden
     overscroll-behavior-inline: contain
-    scroll-snap-type: inline mandatory
+    //scroll-snap-type: inline mandatory
     white-space: nowrap
     transition: transform 0.2s ease-in-out
     transform: scale(0.98)
@@ -485,14 +489,15 @@ main
         background-color: #f4f4f4
         box-shadow: none
         border: none
-        scroll-snap-align: start
-        scroll-padding-inline: 2rem
+        //scroll-snap-align: start
+        //scroll-padding-inline: 2rem
         flex-shrink: 0
-        
-
         &:hover
             transform: translate(0)
             box-shadow: none
+    .card-text
+        word-wrap: break-word
+
 
 .map //homepage bottom map
     display: flex

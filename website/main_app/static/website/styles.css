@@ -209,6 +209,7 @@ footer button {
   color: #fff;
   display: grid;
   justify-content: center;
+  height: 50px;
 }
 .credit p {
   margin: 0.5rem;
@@ -217,6 +218,10 @@ footer button {
   position: absolute;
   right: 10%;
   margin: 0.5rem;
+}
+.credit a {
+  text-decoration: underline;
+  color: #7676fb;
 }
 
 main {
@@ -495,7 +500,6 @@ main {
   overflow-x: hidden;
   overflow-y: hidden;
   overscroll-behavior-inline: contain;
-  scroll-snap-type: inline mandatory;
   white-space: nowrap;
   transition: transform 0.2s ease-in-out;
   transform: scale(0.98);
@@ -513,13 +517,14 @@ main {
   background-color: #f4f4f4;
   box-shadow: none;
   border: none;
-  scroll-snap-align: start;
-  scroll-padding-inline: 2rem;
   flex-shrink: 0;
 }
 .event-container .card:hover {
   transform: translate(0);
   box-shadow: none;
+}
+.event-container .card-text {
+  word-wrap: break-word;
 }
 
 .map {

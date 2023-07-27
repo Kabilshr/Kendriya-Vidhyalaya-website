@@ -221,7 +221,7 @@
       <div class="card" style="width: 20rem;">
         {% for image in image %}
         {% if forloop.counter == 1 %}
-        <img src="{{image.image.url}}" class="card-img-top" alt="Event Image" style="height: 12rem;">
+        <img src="{{image.image.url}}" class="card-img-top" alt="Event Image" style="height: 12rem; width: auto;">
         {% endif %}
         {% endfor %}
         <div class="card-body">
@@ -241,6 +241,58 @@
   <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3531.7653678506645!2d85.3217764!3d27.7245298!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1919099d583b%3A0xec53ba3468ef10b7!2sKendriya%20Vidyalaya%20Kathmandu!5e0!3m2!1sen!2snp!4v1685198837897!5m2!1sen!2snp" width="80%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </section>
 <script>
+  const slider = document.getElementById('event-container');
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  });
+
+  slider.addEventListener('mouseleave', () => {
+    isDown = false;
+  });
+
+  slider.addEventListener('mouseup', () => {
+    isDown = false;
+    snapToNearestSlide();
+  });
+
+  slider.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 3; // Adjust scroll speed as needed
+    slider.scrollLeft = scrollLeft - walk;
+  });
+
+  slider.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    slider.scrollLeft += e.deltaY;
+  });
+
+  function snapToNearestSlide() {
+    const slideWidth = slider.offsetWidth;
+    const slideIndex = Math.round(slider.scrollLeft / slideWidth);
+    const scrollToX = slideIndex * slideWidth;
+    slider.scrollTo({
+      left: scrollToX,
+      behavior: 'smooth'
+    });
+  }
+</script>
+
+
+
+
+
+
+
+
+<!-- <script>
   const slider = document.getElementById('event-container');
     let isDown = false;
     let startX;
@@ -268,5 +320,14 @@
       slider.scrollLeft = scrollLeft - walk;
       console.log(walk);
     });
-</script>
+    // Smooth scrolling
+      const scrollContainer = document.getElementById('event-container');
+      scrollContainer.addEventListener("wheel", (e) => {
+        e.preventDefault();
+        scrollContainer.scrollLeft += e.deltaY;
+      });
+
+</script> -->
+
+
 {% endblock %}
