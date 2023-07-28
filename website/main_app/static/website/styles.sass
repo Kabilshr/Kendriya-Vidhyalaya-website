@@ -604,7 +604,8 @@ table
     $width: 12vw
     width: $width
     height: $width
-    padding: 1vw
+    padding: auto
+    padding: 5px
     border: solid 1px $secondary
     position: absolute
     left: 3%
@@ -612,6 +613,14 @@ table
     img
         width: $width - 2vw
         height: $width - 2vw
+        position: relative
+        left: 50%
+        transform: translate(-50%)
+
+@for $i from 2 through 10 //upper limit till total members through data attribute and get total number by django
+    .member-img:nth-child(#{$i})
+        transform: translateY((calc( 100 * i ))px)
+     
 
 
 

@@ -636,7 +636,8 @@ table {
 .member-img {
   width: 12vw;
   height: 12vw;
-  padding: 1vw;
+  padding: auto;
+  padding: 5px;
   border: solid 1px #e89209;
   position: absolute;
   left: 3%;
@@ -645,6 +646,45 @@ table {
 .member-img img {
   width: 10vw;
   height: 10vw;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.member-img:nth-child(2) {
+  transform: translateY(calc(100 * i) px);
+}
+
+.member-img:nth-child(3) {
+  transform: translateY(calc(100 * i) px);
+}
+
+.member-img:nth-child(4) {
+  transform: translateY(calc(100 * i) px);
+}
+
+.member-img:nth-child(5) {
+  transform: translateY(calc(100 * i) px);
+}
+
+.member-img:nth-child(6) {
+  transform: translateY(calc(100 * i) px);
+}
+
+.member-img:nth-child(7) {
+  transform: translateY(calc(100 * i) px);
+}
+
+.member-img:nth-child(8) {
+  transform: translateY(calc(100 * i) px);
+}
+
+.member-img:nth-child(9) {
+  transform: translateY(calc(100 * i) px);
+}
+
+.member-img:nth-child(10) {
+  transform: translateY(calc(100 * i) px);
 }
 
 .no-vacant-container {
