@@ -570,6 +570,10 @@ main {
   border-radius: 40px;
 }
 
+.event-description {
+  font-size: 1.3rem;
+}
+
 .page-nav {
   position: relative;
   bottom: -1px;
@@ -627,6 +631,20 @@ table {
 }
 .no-effects tbody tr:nth-of-type(even) {
   background-color: #ffffff;
+}
+
+.member-img {
+  width: 12vw;
+  height: 12vw;
+  padding: 1vw;
+  border: solid 1px #e89209;
+  position: absolute;
+  left: 3%;
+  background-color: #fff;
+}
+.member-img img {
+  width: 10vw;
+  height: 10vw;
 }
 
 .no-vacant-container {
@@ -719,8 +737,14 @@ table {
   justify-content: space-between;
 }
 
-.event-description {
-  font-size: 1.3rem;
+.reveal {
+  position: relative;
+  opacity: 0;
+  transform: translateY(150px);
+}
+
+.reveal .active {
+  opacity: 1;
 }
 
 .fade-in-up, .stat-content {
@@ -730,6 +754,10 @@ table {
 
 .fade-in {
   animation: fade-in 1000ms ease-in 300ms forwards;
+}
+
+.float-up {
+  animation: FloatUp 100ms ease forwards;
 }
 
 @media screen and (max-width: 992px) {
@@ -806,5 +834,13 @@ table {
     opacity: 1;
     -webkit-transform: translateY(0);
     transform: translateY(0);
+  }
+}
+@keyframes FloatUp {
+  0% {
+    transform: translateY(100px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }

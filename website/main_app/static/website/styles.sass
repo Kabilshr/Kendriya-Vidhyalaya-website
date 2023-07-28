@@ -545,6 +545,9 @@ main
         margin: 0.5rem 0 2rem 0.2rem
         border-radius: 40px
 
+.event-description
+    font-size: 1.3rem
+
 .page-nav
     position: relative
     bottom: -1px
@@ -594,6 +597,23 @@ table
             color: inherit
         &:nth-of-type(even) 
             background-color: #ffffff
+
+//member list image
+//.member-list-body
+.member-img
+    $width: 12vw
+    width: $width
+    height: $width
+    padding: 1vw
+    border: solid 1px $secondary
+    position: absolute
+    left: 3%
+    background-color: #fff
+    img
+        width: $width - 2vw
+        height: $width - 2vw
+
+
 
 //vacancy page
 .no-vacant-container
@@ -672,18 +692,27 @@ table
             flex-direction: row-reverse
             justify-content: space-between
         
+//home page animations
+.reveal
+    position: relative
+    opacity: 0
+    transform: translateY(150px)
+
+.reveal .active
+    opacity: 1
 
 
-//event
-.event-description
-    font-size: 1.3rem
-
+//animation class
 .fade-in-up
     animation: fadeInUp 1000ms forwards
     transition: ease-in-out 300ms
 
 .fade-in
     animation: fade-in 1000ms ease-in 300ms forwards
+
+.float-up
+    animation: FloatUp 100ms ease forwards
+
 
 
 @media screen and ( max-width: 992px)
@@ -708,9 +737,6 @@ table
             display: none
     .carousel-control-btn
         display: none
-    // .event-container
-    //     flex-direction: column
-    //     justify-content: center
     
 @media screen and (max-width: 1420px)
     .top-section
@@ -748,3 +774,9 @@ table
     opacity: 1
     -webkit-transform: translateY(0)
     transform: translateY(0)
+
+@keyframes FloatUp 
+    0%
+        transform: translateY(100px)
+    100%
+        transform: translateY(0px)
