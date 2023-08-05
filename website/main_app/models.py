@@ -125,10 +125,7 @@ class Images(models.Model):
     event=models.ForeignKey(News_and_Events,on_delete=models.CASCADE,related_name='images',blank=True,null=True)
     image=models.ImageField(upload_to='website/images/' ,blank=False ,null=False)
     def __str__(self):
-        if self.event:
-            return f"{self.event}"
-        else:
-            return f"{self.gallery}"
+        return f"{self.event}"
     class Meta:
         verbose_name = "Add Image for event"
         verbose_name_plural = "Add Image for event"
