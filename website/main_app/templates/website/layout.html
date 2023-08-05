@@ -177,8 +177,9 @@
         </div>
         <div class="credit mb-0 p-auto">
             <p align="center">Made by: <a href="" target="_blank">Adhyatma Todi Agrawal</a> & <a href="https://www.linkedin.com/in/kabil-shrestha-049845285/" target="_blank">Kabil Shrestha</a>  ||  Contributions made by: <a href="https://l.instagram.com/?u=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fkrish-kumar-singh-86a417285%2F&e=AT2PS2ewWtKEMZjhxwaPcjcSRAECZPtYpAO7KJc8ad21pE2eIXOMiPih1BK1eSqbc7sbDwY5IZyY9U7V55WfFYgCnsVa7FRhodg2e3jpvH48eKEhi6duB2r0Cm-dTdfauQ-Lg9IAad6A2cC5nt0ZIg" target="_blank">Krish K. Singh</a></p>
-            <button class="backup btn btn-primary pb-2">Download</button>
-
+            {% if user.is_superuser %}
+                <button class="backup btn btn-primary pb-2">Download</button>
+            {% endif %}
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>

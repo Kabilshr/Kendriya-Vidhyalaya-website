@@ -1,14 +1,16 @@
 from datetime import date
 from django.shortcuts import render
 from .models import *
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect,HttpResponse
 import requests
 from django.urls import reverse
 from django.core.mail import send_mail
 from django.core.paginator import Paginator
+from django.conf import settings
+import shutil
 # Create your views here.
-
 def index(request):
+    # if a mail is submitted use send_mail to send it to kvkathmandueoi@gmail.com
     if request.method == 'POST':
         email=request.POST['email'] 
         phone=request.POST['phone']
@@ -20,7 +22,9 @@ def index(request):
             ['eoikvkathmandu@gmail.com']
         )
         return HttpResponseRedirect(reverse('index'))
+    # return normal page
     else:
+        # get a quote from db and check if it was last updated today if not make an API call and update the database 
         quotes=quote.objects.get()
         if date.today() != quotes.last_updated:
             api_url = 'https://api.api-ninjas.com/v1/quotes?category=inspirational'
@@ -36,8 +40,10 @@ def index(request):
             else:
                 print("Error:", response.status_code, response.text)
         else:
+            # if date was updated today then send in carousel image and all the necessary data
             quote_to_be_displayed=quotes.quote
             author=quotes.author
+            # send only the first 8 or 20 iamges and only one set of carousel images
             notice=Notice.objects.all()[::-1][:8]
             events=News_and_Events.objects.all()[::-1][:20]
             carousel_image=Carousel_image.objects.get()
@@ -58,6 +64,7 @@ def about_kv(request):
 def contact_us(request):
     return render(request,"website/contact_us.html")
 def holidays(request):
+    # get holidays according to their category
     holiday=Holiday.objects.filter(category='holiday')
     summer_vacation=Holiday.objects.filter(category='summer_vacation')
     winter_vacation=Holiday.objects.filter(category='winter_vacation')
@@ -69,6 +76,7 @@ def holidays(request):
                       'autum_vacation':autum_vacation,
                   })
 def tc_issued(request):
+    # if a search request is sent
     if request.method == "POST":
         name=request.POST['name']
         if not name:
@@ -77,10 +85,12 @@ def tc_issued(request):
                 'tc':tcs_issued
             })
         try:
+            # try getting the Student_Name,name of field that is used to search,that contains the search name and return 200
             tcs_issued=TC.objects.filter(Student_Name__contains=f'{name}')[:200]
             return render(request,"website/tc_issued.html",{
             'tc_search':tcs_issued
         })
+            # if no objects are returned error is sent and a empty table is returned 
         except:
             tcs_issued=None  
             return render(request,"website/tc_issued.html",{
@@ -115,6 +125,7 @@ def news_and_events(request):
     return render(request,"website/news_and_events.html",{
         "events":events
     })
+# if a class admission link is pressed check if there is vacancy if  yes return the file if no return empty page with no vancany written
 def class_1(request):
     try:
         file=class1.objects.get()
@@ -133,6 +144,7 @@ def other_class(request):
         "data":data
     })
 def alumni(request):
+    # get form data and send email to request to add the alumnis data
     if request.method == 'POST':
         name=request.POST['name'] 
         phone=request.POST['phone']
@@ -184,7 +196,6 @@ def gallery(request):
     gallery=paginator.get_page(page)
     return render(request,"website/gallery.html",{
         'gallery':gallery})
-
 def fees(request):
     fee=Fee_structure.objects.get()
     return HttpResponseRedirect(f'{fee.file.url}')
@@ -193,5 +204,27 @@ def show_event(request,pk):
         "event":News_and_Events.objects.get(pk=pk)
     })
 def rickroll(request):
+    # for people who get to into the weeds of the page
     return HttpResponseRedirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+def download(request):
+    # check if super user is accessing the download page
+    if request.user.is_authenticated:
+        if request.user.is_superuser:
+            shutil.make_archive("backup/media",'zip',f'{settings.BASE_DIR}/media')
+            shutil.make_archive("backup/main_app",'zip',f'{settings.BASE_DIR}/main_app')
+            shutil.make_archive("backup/website",'zip',f'{settings.BASE_DIR}/website')
+            shutil.copyfile(f'{settings.BASE_DIR}/db.sqlite3', 'backup/db.sqlite3')
+            shutil.copyfile(f'{settings.BASE_DIR}/manage.py', 'backup/manage.py')
+            shutil.copyfile(f'{settings.BASE_DIR}/package-lock.json', 'backup/package-lock.json')
+            shutil.copyfile(f'{settings.BASE_DIR}/package.json','backup/package.json')
+            shutil.make_archive("backup",'zip',f'{settings.BASE_DIR}/backup')
+            # rb is to make sure that everything is read 
+            zip_file = open(f'{settings.BASE_DIR}/backup.zip', 'rb')
+            response = HttpResponse(zip_file, content_type='application/force-download')
+            response['Content-Disposition'] = 'attachment; filename="%s"' % 'foo.zip'
+            return response
+        else:
+            return HttpResponseRedirect(reverse("rick"))
+    else:
+        return HttpResponseRedirect(reverse("rick"))
 

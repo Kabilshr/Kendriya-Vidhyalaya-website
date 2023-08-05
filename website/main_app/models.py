@@ -11,6 +11,7 @@ Vacancy_posts=[('APrincipal','Principal'),('BPGT (Physics)','PGT (Physics)'),('B
                ('CTGT (English)','TGT (English)'),('CTGT (Hindi)','TGT (Hindi)'),('DPRT','PRT'),('ESSA','SSA'),('FLab Attendant','Lab Attendant'),
                ('GSub Staff','Sub Staff'),('HJR. Secratariat Assistant','JR. Secratariat Assistant')]
 from django.db import models
+# declaring classes that can be selected in the TC part
 class Class(models.Model):
     class_name=models.CharField(max_length=16)
     def __str__(self) :
