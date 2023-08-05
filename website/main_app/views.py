@@ -221,7 +221,7 @@ def download(request):
             # rb is to make sure that everything is read 
             zip_file = open(f'{settings.BASE_DIR}/backup.zip', 'rb')
             response = HttpResponse(zip_file, content_type='application/force-download')
-            response['Content-Disposition'] = 'attachment; filename="%s"' % 'foo.zip'
+            response['Content-Disposition'] = 'attachment; filename="%s"' % 'backup.zip'
             return response
         else:
             return HttpResponseRedirect(reverse("rick"))
