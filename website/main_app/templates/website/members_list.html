@@ -1,9 +1,9 @@
 {% extends 'website/layout.html' %}
 {% block body %}
-
-<h1 class="fade-in">Staff Members</h1>
+</div>
+<h1 class="fade-in" style="margin-left: 20rem;">Staff Members</h1>
 <div class="table-responsive text-nowrap fade-in-up">
-    <table class="table data-table table-hover">
+    <table class="table data-table table-hover" style="margin-left: 20rem; width: 80rem;">
         <thead>
             <tr>
                 <th scope="col">S.no</th>
@@ -12,21 +12,59 @@
                 <th scope="col">Designation</th>
             </tr>
         </thead>
-            <tbody>
-                {% for members in members %}
-                {% if members.image %}
-                
-                <tr tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="left"  data-bs-content="{{members.image.url}}">
-                    <td scope="row">{{forloop.counter}}.</td>
-                    <td>{{members.name}}</td>
-                    <td>{{members.origin}} </td>
-                    <td>{{members.get_designation_display}}</td><!-- the get_designation_display shows the display name of the choice rather than the computer name of the choice mentioned in models-->
-                    
-                </tr>
-                    <img src="{{members.image.url}}">
-                {% endif %}
-                
-                {% endfor %}
-            </tbody>
+        <tbody class="member-list-body">
+            {% for members in members %}
+            {% if members.image %}
+            <div class="member-img" id="member-img_{{forloop.counter}}" style="display: none;">
+                <img src="{{members.image.url}}">
+            </div>
+            
+            <tr id='{{forloop.counter}}'>
+                <td scope="row">{{forloop.counter}}.</td>
+                <td>{{members.name}}</td>
+                <td>{{members.origin}} </td>
+                <td>{{members.get_designation_display}}</td><!-- the get_designation_display shows the display name of the choice rather than the computer name of the choice mentioned in models-->
+            </tr>
+            <script>
+                // ✅ Show hidden DIV on hover
+                document.getElementById('{{forloop.counter}}').addEventListener('mouseover', function handleMouseOver() {
+                    document.getElementById('member-img_{{forloop.counter}}').style.display = 'block';
+
+                    // 👇️ if you used visibility property to hide the div
+                    // hiddenDiv.style.visibility = 'visible';
+                });
+
+                // ✅ (optionally) Hide DIV on mouse out
+                document.getElementById('{{forloop.counter}}').addEventListener('mouseout', function handleMouseOut() {
+                    document.getElementById('member-img_{{forloop.counter}}').style.display = 'none';
+
+                    // 👇️ if you used visibility property to hide the div
+                    // hiddenDiv.style.visibility = 'hidden';
+                });
+            </script>
+            {% endif %}
+            {% endfor %}
+        </tbody>
     </table>
+<!-- <script>
+    const el = document.getElementById();
+
+    const hiddenDiv = document.getElementById('member-img');
+
+    // ✅ Show hidden DIV on hover
+    el.addEventListener('mouseover', function handleMouseOver() {
+        hiddenDiv.style.display = 'block';
+
+        // 👇️ if you used visibility property to hide the div
+        // hiddenDiv.style.visibility = 'visible';
+    });
+
+    // ✅ (optionally) Hide DIV on mouse out
+    el.addEventListener('mouseout', function handleMouseOut() {
+        hiddenDiv.style.display = 'none';
+
+        // 👇️ if you used visibility property to hide the div
+        // hiddenDiv.style.visibility = 'hidden';
+    });
+</script> -->
 {% endblock %}
