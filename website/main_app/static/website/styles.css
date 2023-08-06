@@ -572,6 +572,7 @@ main {
 
 .event-description {
   font-size: 1.3rem;
+  margin: 2rem;
 }
 
 .page-nav {
@@ -614,6 +615,7 @@ table {
   padding: 0.7rem 1rem;
 }
 .data-table tbody tr {
+  position: relative;
   border-bottom: 1px solid #dddddd;
 }
 .data-table tbody tr:nth-of-type(even) {
@@ -634,18 +636,18 @@ table {
 }
 
 .member-img {
-  width: 12vw;
-  height: 12vw;
+  width: 15vw;
+  height: 15vw;
   padding: auto;
   padding: 5px;
   border: solid 1px #e89209;
-  position: absolute;
+  position: relative;
   left: 3%;
   background-color: #fff;
 }
 .member-img img {
-  width: 10vw;
-  height: 10vw;
+  width: 13vw;
+  height: 13vw;
   position: relative;
   left: 50%;
   transform: translate(-50%);
@@ -853,6 +855,9 @@ table {
   }
   .header {
     padding: 0 2rem;
+  }
+  .event-description {
+    margin: 0.5rem;
   }
 }
 @keyframes fade-in {
