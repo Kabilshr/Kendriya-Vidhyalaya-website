@@ -214,9 +214,10 @@ footer button {
 .credit p {
   margin: 0.5rem;
 }
-.credit button {
+.credit form > button {
   position: absolute;
   right: 10%;
+  top: 0;
   margin: 0.5rem;
 }
 .credit a {
