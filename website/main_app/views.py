@@ -39,6 +39,7 @@ def index(request):
                 quotes.save()
             else:
                 print("Error:", response.status_code, response.text)
+                return response
         else:
             # if date was updated today then send in carousel image and all the necessary data
             quote_to_be_displayed=quotes.quote

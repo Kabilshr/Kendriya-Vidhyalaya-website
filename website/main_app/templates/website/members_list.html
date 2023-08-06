@@ -15,11 +15,11 @@
         <tbody class="member-list-body">
             {% for members in members %}
             {% if members.image %}
-            <div class="member-img" id="member-img_{{forloop.counter}}" style="display: none;">
-                <img src="{{members.image.url}}">
-            </div>
             
             <tr id='{{forloop.counter}}'>
+                <!-- <span >
+                </span> -->
+                    <img src="{{members.image.url}}" class="member-img" id="member-img_{{forloop.counter}}" style="display: none;">
                 <td scope="row">{{forloop.counter}}.</td>
                 <td>{{members.name}}</td>
                 <td>{{members.origin}} </td>

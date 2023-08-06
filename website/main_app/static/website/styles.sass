@@ -192,9 +192,10 @@ footer
     p
         margin: 0.5rem
         
-    button
+    form>button
         position: absolute
         right: 10%
+        top: 0
         margin: 0.5rem
     a
         text-decoration: underline
@@ -547,6 +548,7 @@ main
 
 .event-description
     font-size: 1.3rem
+    margin: 2rem
 
 .page-nav
     position: relative
@@ -583,6 +585,7 @@ table
     th, td
         padding: 0.7rem 1rem
     tbody tr 
+        position: relative
         border-bottom: 1px solid #dddddd
         &:nth-of-type(even) 
             background-color: #f3f3f3
@@ -601,13 +604,13 @@ table
 //member list image
 //.member-list-body
 .member-img
-    $width: 12vw
+    $width: 15vw
     width: $width
     height: $width
     padding: auto
     padding: 5px
     border: solid 1px $secondary
-    position: absolute
+    position: relative
     left: 3%
     background-color: #fff
     img
@@ -764,6 +767,8 @@ table
         width: 100%
     .header
         padding: 0 2rem
+    .event-description
+        margin: 0.5rem
     
 
 //animation keyframes
