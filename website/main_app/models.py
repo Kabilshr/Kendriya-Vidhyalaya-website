@@ -22,8 +22,9 @@ class Class(models.Model):
 class principals_message(models.Model):
     message=models.TextField()
     image=models.ImageField(upload_to='website/images/' ,blank=False ,null=False)
+    name=models.TextField()
     def __str__(self):
-        return "Principals Message"
+        return f"{self.name}'s Message"
     class Meta:
         verbose_name = "Add  Principals message"
         verbose_name_plural = "Add Principals message"
