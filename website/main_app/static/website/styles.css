@@ -500,10 +500,7 @@ main {
   width: 100%;
   overflow-x: hidden;
   overflow-y: hidden;
-  overscroll-behavior-inline: contain;
   white-space: nowrap;
-  transition: transform 0.2s ease-in-out;
-  transform: scale(0.98);
   cursor: grab;
   gap: 1rem;
 }
@@ -515,7 +512,7 @@ main {
   margin: 1rem;
   padding: 1rem;
   grid-template-rows: min-content;
-  background-color: #f4f4f4;
+  background-color: #f5f5f5;
   box-shadow: none;
   border: none;
   flex-shrink: 0;
@@ -598,6 +595,7 @@ main {
 table {
   margin: auto;
   text-transform: capitalize;
+  position: relative;
 }
 
 .data-table {
@@ -616,7 +614,6 @@ table {
   padding: 0.7rem 1rem;
 }
 .data-table tbody tr {
-  position: relative;
   border-bottom: 1px solid #dddddd;
 }
 .data-table tbody tr:nth-of-type(even) {
@@ -634,60 +631,6 @@ table {
 }
 .no-effects tbody tr:nth-of-type(even) {
   background-color: #ffffff;
-}
-
-.member-img {
-  width: 15vw;
-  height: 15vw;
-  padding: auto;
-  padding: 5px;
-  border: solid 1px #e89209;
-  position: relative;
-  left: 3%;
-  background-color: #fff;
-}
-.member-img img {
-  width: 13vw;
-  height: 13vw;
-  position: relative;
-  left: 50%;
-  transform: translate(-50%);
-}
-
-.member-img:nth-child(2) {
-  transform: translateY(calc(100 * i) px);
-}
-
-.member-img:nth-child(3) {
-  transform: translateY(calc(100 * i) px);
-}
-
-.member-img:nth-child(4) {
-  transform: translateY(calc(100 * i) px);
-}
-
-.member-img:nth-child(5) {
-  transform: translateY(calc(100 * i) px);
-}
-
-.member-img:nth-child(6) {
-  transform: translateY(calc(100 * i) px);
-}
-
-.member-img:nth-child(7) {
-  transform: translateY(calc(100 * i) px);
-}
-
-.member-img:nth-child(8) {
-  transform: translateY(calc(100 * i) px);
-}
-
-.member-img:nth-child(9) {
-  transform: translateY(calc(100 * i) px);
-}
-
-.member-img:nth-child(10) {
-  transform: translateY(calc(100 * i) px);
 }
 
 .no-vacant-container {
@@ -796,7 +739,7 @@ table {
 }
 
 .fade-in {
-  animation: fade-in 1000ms ease-in 300ms forwards;
+  animation: fade-in 500ms ease-in forwards;
 }
 
 .float-up {
