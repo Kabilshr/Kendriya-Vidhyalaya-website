@@ -1,9 +1,8 @@
 {% extends 'website/layout.html' %}
 {% block body %}
-</div>
-<h1 class="fade-in" style="margin-left: 20rem;">Staff Members</h1>
+<h1 class="fade-in" >Staff Members</h1><!--style="margin-left: 25vw;"-->
 <div class="table-responsive text-nowrap fade-in-up">
-    <table class="table data-table table-hover" style="margin-left: 20rem; width: 80rem;">
+    <table class="table data-table"><!--table-hover   style="margin-left: 20vw; width: 80rem; position: static;"-->
         <thead>
             <tr>
                 <th scope="col">S.no</th>
@@ -15,56 +14,43 @@
         <tbody class="member-list-body">
             {% for members in members %}
             {% if members.image %}
+            <!-- <div class="member-img" id="member-img_{{forloop.counter}}" style="display: none;">
+                <img src="{{members.image.url}}">
+            </div>  -->
             
             <tr id='{{forloop.counter}}'>
-                <!-- <span >
-                </span> -->
-                    <img src="{{members.image.url}}" class="member-img" id="member-img_{{forloop.counter}}" style="display: none;">
                 <td scope="row">{{forloop.counter}}.</td>
                 <td>{{members.name}}</td>
                 <td>{{members.origin}} </td>
                 <td>{{members.get_designation_display}}</td><!-- the get_designation_display shows the display name of the choice rather than the computer name of the choice mentioned in models-->
             </tr>
-            <script>
-                // ✅ Show hidden DIV on hover
-                document.getElementById('{{forloop.counter}}').addEventListener('mouseover', function handleMouseOver() {
-                    document.getElementById('member-img_{{forloop.counter}}').style.display = 'block';
+            <!-- <script>
+                if (window.innerWidth > 1420){
+                    var item = document.getElementById('{{forloop.counter}}');
+                    var image = document.getElementById('member-img_{{forloop.counter}}');
 
-                    // 👇️ if you used visibility property to hide the div
-                    // hiddenDiv.style.visibility = 'visible';
-                });
+                    // ✅ Show hidden DIV on hover
+                    item.addEventListener('mouseover', function handleMouseOver() {
+                        image.style.display = 'block';
+                        
+                        // 👇️ if you used visibility property to hide the div
+                        // hiddenDiv.style.visibility = 'visible';
+                    });
+                    
+                    // ✅ (optionally) Hide DIV on mouse out
+                    item.addEventListener('mouseout', function handleMouseOut() {
+                        image.style.display = 'none';
 
-                // ✅ (optionally) Hide DIV on mouse out
-                document.getElementById('{{forloop.counter}}').addEventListener('mouseout', function handleMouseOut() {
-                    document.getElementById('member-img_{{forloop.counter}}').style.display = 'none';
+                        // 👇️ if you used visibility property to hide the div
+                        // hiddenDiv.style.visibility = 'hidden';
+                    });
 
-                    // 👇️ if you used visibility property to hide the div
-                    // hiddenDiv.style.visibility = 'hidden';
-                });
-            </script>
+                }
+
+            </script> -->
             {% endif %}
             {% endfor %}
         </tbody>
     </table>
-<!-- <script>
-    const el = document.getElementById();
-
-    const hiddenDiv = document.getElementById('member-img');
-
-    // ✅ Show hidden DIV on hover
-    el.addEventListener('mouseover', function handleMouseOver() {
-        hiddenDiv.style.display = 'block';
-
-        // 👇️ if you used visibility property to hide the div
-        // hiddenDiv.style.visibility = 'visible';
-    });
-
-    // ✅ (optionally) Hide DIV on mouse out
-    el.addEventListener('mouseout', function handleMouseOut() {
-        hiddenDiv.style.display = 'none';
-
-        // 👇️ if you used visibility property to hide the div
-        // hiddenDiv.style.visibility = 'hidden';
-    });
-</script> -->
+</div>
 {% endblock %}

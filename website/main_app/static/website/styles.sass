@@ -473,11 +473,11 @@ main
     width: 100%
     overflow-x: hidden
     overflow-y: hidden
-    overscroll-behavior-inline: contain
+    //overscroll-behavior-inline: contain
     //scroll-snap-type: inline mandatory
     white-space: nowrap
-    transition: transform 0.2s ease-in-out
-    transform: scale(0.98)
+    //transition: transform 0.2s ease-in-out
+    //transform: scale(0.98)
     cursor: grab
     gap: 1rem
     &:active
@@ -487,7 +487,7 @@ main
         margin: 1rem
         padding: 1rem
         grid-template-rows: min-content
-        background-color: #f4f4f4
+        background-color: #f5f5f5
         box-shadow: none
         border: none
         //scroll-snap-align: start
@@ -570,6 +570,7 @@ main
 table
     margin: auto
     text-transform: capitalize
+    position: relative
 
 .data-table
     $table-color: $secondary //#009879
@@ -585,7 +586,7 @@ table
     th, td
         padding: 0.7rem 1rem
     tbody tr 
-        position: relative
+        //position: relative
         border-bottom: 1px solid #dddddd
         &:nth-of-type(even) 
             background-color: #f3f3f3
@@ -601,28 +602,28 @@ table
         &:nth-of-type(even) 
             background-color: #ffffff
 
-//member list image
-//.member-list-body
-.member-img
-    $width: 15vw
-    width: $width
-    height: $width
-    padding: auto
-    padding: 5px
-    border: solid 1px $secondary
-    position: relative
-    left: 3%
-    background-color: #fff
-    img
-        width: $width - 2vw
-        height: $width - 2vw
-        position: relative
-        left: 50%
-        transform: translate(-50%)
+// //member list image
+// //.member-list-body
+// .member-img
+//     $width: 15rem
+//     position: fixed
+//     left: 3%
+//     top: 5px
+//     width: $width
+//     height: $width
+//     padding: 5px
+//     border: solid 1px $secondary
+//     background-color: #fff
+//     img
+//         width: $width - 2rem
+//         height: $width - 2rem
+//         position: relative
+//         left: 50%
+//         transform: translate(-50%)
 
-@for $i from 2 through 10 //upper limit till total members through data attribute and get total number by django
-    .member-img:nth-child(#{$i})
-        transform: translateY((calc( 100 * i ))px)
+// @for $i from 2 through 10 //upper limit till total members through data attribute and get total number by django
+//     .member-img:nth-child(#{$i})
+//         transform: translateY((calc( 100 * i ))px)
      
 
 
@@ -720,7 +721,7 @@ table
     transition: ease-in-out 300ms
 
 .fade-in
-    animation: fade-in 1000ms ease-in 300ms forwards
+    animation: fade-in 500ms ease-in forwards
 
 .float-up
     animation: FloatUp 100ms ease forwards
