@@ -203,6 +203,11 @@ footer button {
   margin-bottom: 15px;
 }
 
+.links {
+  display: grid;
+  justify-content: center;
+}
+
 .credit {
   position: relative;
   background-color: #484747;
@@ -223,11 +228,6 @@ footer button {
 .credit a {
   text-decoration: underline;
   color: #7676fb;
-}
-
-.links {
-  display: grid;
-  justify-content: center;
 }
 
 main {
