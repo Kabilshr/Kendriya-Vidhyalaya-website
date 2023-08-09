@@ -225,6 +225,11 @@ footer button {
   color: #7676fb;
 }
 
+.links {
+  display: grid;
+  justify-content: center;
+}
+
 main {
   position: relative;
 }
@@ -232,6 +237,32 @@ main {
 .home-section {
   margin: 3rem 0;
   padding: 1.5rem 0;
+}
+
+.home-banner {
+  color: #000;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.banner-logo img {
+  height: 15rem;
+}
+
+.banner-title {
+  font-weight: bold;
+  padding: 3rem;
+  text-align: justify;
+  text-justify: inter-word;
+}
+.banner-title h5 {
+  font-size: 2rem;
+  color: inherit;
+}
+.banner-title h6 {
+  color: #c9a740;
 }
 
 .top-section {
