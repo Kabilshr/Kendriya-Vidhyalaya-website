@@ -765,8 +765,8 @@ table {
 }
 
 .fade-in-up {
-  animation: fadeInUp 1000ms forwards;
-  transition: ease-in-out 500ms;
+  animation: fadeInUp 800ms forwards;
+  transition: opacity ease-in-out, transform ease;
 }
 
 .fade-in {
@@ -847,8 +847,8 @@ table {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    -webkit-transform: translateY(120px);
-    transform: translateY(120px);
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
   }
   to {
     opacity: 1;
