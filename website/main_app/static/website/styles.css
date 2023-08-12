@@ -764,9 +764,9 @@ table {
   opacity: 1;
 }
 
-.fade-in-up, .stat-content {
+.fade-in-up {
   animation: fadeInUp 1000ms forwards;
-  transition: ease-in-out 300ms;
+  transition: ease-in-out 500ms;
 }
 
 .fade-in {

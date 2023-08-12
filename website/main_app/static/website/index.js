@@ -1,3 +1,4 @@
+// center nav bar content according to screen size
 function navAlign() {
     var element = document.getElementById('navbarNav');
     if (window.innerWidth <= 992) {
@@ -21,6 +22,7 @@ window.addEventListener('resize', () => {
 })
 window.onload = navAlign();
 
+//scroll to top button
 let toTopBtn = document.getElementById('scroll-to-top');
 window.onscroll = function() {scrollFunction()};
 
@@ -42,7 +44,7 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         console.log(entry);
         if (entry.isIntersecting) {
-            entry.target.classList.add('show');
+            entry.target.classList.add('fade-in-up');
         }
     });
 });
@@ -50,6 +52,7 @@ const observer = new IntersectionObserver((entries) => {
 const hiddenElements = document.querySelectorAll('.hidden'); // Corrected selector
 hiddenElements.forEach((el) => observer.observe(el));
 
+//event scroll
 const slider = document.getElementById('event-container');
 let isDown = false;
 let startX;
@@ -97,10 +100,11 @@ slider.addEventListener('touchmove', (e) => { // Touchmove event
     slider.scrollLeft = scrollLeft - walk;
 });
 
-slider.addEventListener('wheel', (e) => {
-    e.preventDefault();
-    slider.scrollLeft += e.deltaY;
-});
+//use scroll wheel to navigate events
+// slider.addEventListener('wheel', (e) => {
+//     e.preventDefault();
+//     slider.scrollLeft += e.deltaY;
+// });
 
 function snapToNearestSlide() {
     const slideWidth = slider.offsetWidth;
@@ -111,6 +115,30 @@ function snapToNearestSlide() {
         behavior: 'smooth',
     });
 }
+
+// scroll animation
+// const boxes = document.querySelectorAll('.scroll');
+// const observerOptions = {
+//     root: null,
+//     rootMargin: '0px',
+//     threshold: 0.5 // When 50% of the element is visible
+// };
+
+// function handleIntersect(entries, observer) {
+//     entries.forEach(entry => {
+//         if (entry.isIntersecting) {
+//             entry.target.classList.add('fade-in-up');
+//             observer.unobserve(entry.target);
+//         }
+//     });
+// }
+
+// const animateObserver = new IntersectionObserver(handleIntersect, observerOptions);
+
+// boxes.forEach(box => {
+//     observer.observe(box);
+// });
+
 
 //enable popover
 const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
