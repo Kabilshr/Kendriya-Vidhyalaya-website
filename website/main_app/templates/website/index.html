@@ -2,6 +2,7 @@
 {% load static %}
 {% block body %}
 
+</div>
 <section class="home-banner">
   <div class="banner-logo">
     <img src="{% static 'website/bannerlogo.png' %}" alt="logo">
@@ -14,7 +15,6 @@
   </div>
 </section>
 
-</div>
 <section class="top-section"> <!-- Gallery and about us -->
   <div id="homeGallery" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -81,7 +81,7 @@
 <section class="home-section about-section">
   <div class="notice">
     <h2 id="notice-heading" class="hidden">Notice</h2>
-    <div class="notice-content">
+    <div class="notice-content hidden">
       {% for notice in notice %}
       <a href="{{notice.file.url}}" target="_blank">
         <div class="notice-card hidden">
@@ -118,6 +118,7 @@
     </div>
   </div>
 <!-- Facilities -->
+  <h2 class="fade-in">Facilites</h2>
   <div class="facilities hidden">
     <div class="row row-cols-1 row-cols-md-2 g-3 mb-1">
       <div class="col">
@@ -253,60 +254,4 @@
 <section class="home-section map">
   <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3531.7653678506645!2d85.3217764!3d27.7245298!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1919099d583b%3A0xec53ba3468ef10b7!2sKendriya%20Vidyalaya%20Kathmandu!5e0!3m2!1sen!2snp!4v1685198837897!5m2!1sen!2snp" width="80%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </section>
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entries => {
-      console.log(entry)
-      if(entry.isIntersecting){
-        entry.target.classList.add('show');
-      }
-    });
-  });
-
-  const hiddenElement = document.querySelectorAll("hidden");
-  hiddenElement.forEach((el) => observer.observe(el));
-
-  const slider = document.getElementById('event-container');
-  let isDown = false;
-  let startX;
-  let scrollLeft;
-
-  slider.addEventListener('mousedown', (e) => {
-    isDown = true;
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
-  });
-
-  slider.addEventListener('mouseleave', () => {
-    isDown = false;
-  });
-
-  slider.addEventListener('mouseup', () => {
-    isDown = false;
-    snapToNearestSlide();
-  });
-
-  slider.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 3; // Adjust scroll speed as needed
-    slider.scrollLeft = scrollLeft - walk;
-  });
-
-  slider.addEventListener('wheel', (e) => {
-    e.preventDefault();
-    slider.scrollLeft += e.deltaY;
-  });
-
-  function snapToNearestSlide() {
-    const slideWidth = slider.offsetWidth;
-    const slideIndex = Math.round(slider.scrollLeft / slideWidth);
-    const scrollToX = slideIndex * slideWidth;
-    slider.scrollTo({
-      left: scrollToX,
-      behavior: 'smooth'
-    });
-  }
-</script>
 {% endblock %}

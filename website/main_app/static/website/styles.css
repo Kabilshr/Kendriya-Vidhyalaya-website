@@ -203,6 +203,11 @@ footer button {
   margin-bottom: 15px;
 }
 
+.links {
+  display: grid;
+  justify-content: center;
+}
+
 .credit {
   position: relative;
   background-color: #484747;
@@ -225,11 +230,6 @@ footer button {
   color: #7676fb;
 }
 
-.links {
-  display: grid;
-  justify-content: center;
-}
-
 main {
   position: relative;
 }
@@ -243,7 +243,7 @@ main {
   color: #000;
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   margin: 10px;
 }
 
@@ -764,9 +764,9 @@ table {
   opacity: 1;
 }
 
-.fade-in-up, .stat-content {
+.fade-in-up {
   animation: fadeInUp 1000ms forwards;
-  transition: ease-in-out 300ms;
+  transition: ease-in-out 500ms;
 }
 
 .fade-in {
