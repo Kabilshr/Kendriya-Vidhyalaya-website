@@ -63,7 +63,13 @@ def principal_message(request):
 def about_kv(request):
     return render(request,"website/about_kv.html")
 def contact_us(request):
-    return render(request,"website/contact_us.html")
+    principal = member_list.objects.get(designation='APrincipal').name
+    chairman= vmc_member.objects.get(post__iexact='chairman,vmc')
+    print(chairman)
+    return render(request,"website/contact_us.html",{
+        'principal': principal,
+        'chairman':chairman,
+    })
 def holidays(request):
     # get holidays according to their category
     holiday=Holiday.objects.filter(category='holiday')
