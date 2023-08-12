@@ -38,6 +38,80 @@ toTopBtn.addEventListener('click', () => {
     })
 })
 
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        console.log(entry);
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+});
+
+const hiddenElements = document.querySelectorAll('.hidden'); // Corrected selector
+hiddenElements.forEach((el) => observer.observe(el));
+
+const slider = document.getElementById('event-container');
+let isDown = false;
+let startX;
+let scrollLeft;
+
+slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener('touchstart', (e) => { // Touchstart event
+    isDown = true;
+    startX = e.touches[0].pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener('mouseleave', () => {
+    isDown = false;
+});
+
+slider.addEventListener('mouseup', () => {
+    isDown = false;
+    snapToNearestSlide();
+});
+
+slider.addEventListener('touchend', () => { // Touchend event
+    isDown = false;
+    snapToNearestSlide();
+});
+
+slider.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 3; // Adjust scroll speed as needed
+    slider.scrollLeft = scrollLeft - walk;
+});
+
+slider.addEventListener('touchmove', (e) => { // Touchmove event
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.touches[0].pageX - slider.offsetLeft;
+    const walk = (x - startX) * 3; // Adjust scroll speed as needed
+    slider.scrollLeft = scrollLeft - walk;
+});
+
+slider.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    slider.scrollLeft += e.deltaY;
+});
+
+function snapToNearestSlide() {
+    const slideWidth = slider.offsetWidth;
+    const slideIndex = Math.round(slider.scrollLeft / slideWidth);
+    const scrollToX = slideIndex * slideWidth;
+    slider.scrollTo({
+        left: scrollToX,
+        behavior: 'smooth',
+    });
+}
+
 //enable popover
 const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
 const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
