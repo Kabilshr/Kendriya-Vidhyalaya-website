@@ -40,13 +40,17 @@ toTopBtn.addEventListener('click', () => {
     })
 })
 
+// scroll animations
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         console.log(entry);
         if (entry.isIntersecting) {
             entry.target.classList.add('fade-in-up');
+            observer.unobserve(entry.target);
         }
     });
+},{
+    threshold: 0.7 // animate after 50% of element is visible
 });
 
 const hiddenElements = document.querySelectorAll('.hidden'); // Corrected selector
