@@ -37,6 +37,7 @@ def index(request):
                 quotes.quote=quote_to_be_displayed
                 quotes.last_updated=date.today()
                 quotes.save()
+                return HttpResponseRedirect(reverse('index'))
             else:
                 print("Error:", response.status_code, response.text)
                 return response
@@ -234,4 +235,3 @@ def download(request):
             return HttpResponseRedirect(reverse("rick"))
     else:
         return HttpResponseRedirect(reverse("rick"))
-
