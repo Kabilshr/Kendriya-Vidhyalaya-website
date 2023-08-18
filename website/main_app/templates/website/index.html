@@ -90,7 +90,7 @@
             <span>{{notice.date|date:"F"}}</span>
           </div>
           <div class="notice-message">
-            <p class="notice-title"  style="margin: 0;">{{notice.title}}</p>
+            <p class="notice-title text-wrap"  style="margin: 0;">{{notice.title}}</p>
           </div>
         </div>
       </a>
@@ -239,7 +239,7 @@
         {% endif %}
         {% endfor %}
         <div class="card-body">
-          <h5 class="card-title">{{events.title}}</h5>
+          <h5 class="card-title text-wrap">{{events.title}}</h5>
           <p class="card-text text-truncate pb-2">
             {{events.description}}
           </p>
