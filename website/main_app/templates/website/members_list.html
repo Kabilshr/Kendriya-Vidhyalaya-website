@@ -13,7 +13,6 @@
         </thead>
         <tbody class="member-list-body">
             {% for members in members %}
-            {% if members.image %}
             <!-- <div class="member-img" id="member-img_{{forloop.counter}}" style="display: none;">
                 <img src="{{members.image.url}}">
             </div>  -->
@@ -48,7 +47,6 @@
                 }
 
             </script> -->
-            {% endif %}
             {% endfor %}
         </tbody>
     </table>
