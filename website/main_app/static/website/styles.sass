@@ -214,11 +214,12 @@ main
 
 //home page styles
 .home-section
-    margin: 3rem 0
-    padding: 1.5rem 0
+    margin: 2rem 0
+    padding: 1.2rem 0
 
 .home-banner
     //padding: 0px 15px
+    //height: 13rem
     color: #000
     position: relative
     display: flex
@@ -227,11 +228,11 @@ main
 
 .banner-logo
     img
-        height: 15rem
+        height: 13rem
 
 .banner-title
     font-weight: bold
-    padding: 3rem
+    padding: 2rem
     text-align: justify
     text-justify: inter-word
     h5
@@ -713,19 +714,23 @@ table
             justify-content: space-between
         
 //home page animations
-.reveal
-    position: relative
+// .reveal
+//     position: relative
+//     opacity: 0
+//     transform: translateY(150px)
+
+// .reveal .active
+//     opacity: 1
+
+.hidden
     opacity: 0
-    transform: translateY(150px)
-
-.reveal .active
-    opacity: 1
-
+    transform: translateY(100px)
 
 //animation class
 .fade-in-up
+    opacity: 0
     animation: fadeInUp 800ms forwards
-    transition: opacity ease-in-out, transform ease
+    //transition: opacity ease-in-out, transform ease
 
 
 .fade-in
@@ -740,7 +745,16 @@ table
     .footer-logo //remove footer logo for smaller screens
         display: none
     .home-banner
-        display: none
+        height: 10rem
+        margin: 0px
+        font-size: 10px
+        padding: 5px
+        h5, h6
+            font-size: 1.2em
+
+    .banner-logo
+        img
+            height: 9rem
     .notice-space-img
         display: none
     .stat-content
@@ -789,14 +803,16 @@ table
         transform: translateY(0px)
 
 @keyframes fadeInUp 
-  from
-    opacity: 0
-    -webkit-transform: translateY(100px)
-    transform: translateY(100px)
-  to
-    opacity: 1
-    -webkit-transform: translateY(0)
-    transform: translateY(0)
+    0%
+        opacity: 0
+        -webkit-transform: translateY(100px)
+        transform: translateY(100px)
+
+
+    100%
+        opacity: 1
+        -webkit-transform: translateY(0)
+        transform: translateY(0)
 
 @keyframes FloatUp 
     0%
