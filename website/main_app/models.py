@@ -82,7 +82,7 @@ class Notice(models.Model):
         verbose_name_plural = "Add Notice"
 class News_and_Events(models.Model):
     id=models.IntegerField(primary_key=True,auto_created=True,blank=False,null=False)
-    title=models.TextField(blank=False)
+    title=models.TextField(blank=False, max_length=64)
     description=models.TextField(blank=False)
     def __str__(self):
         return f"{self.title}"
@@ -131,11 +131,16 @@ class Images(models.Model):
         verbose_name = "Add Image for event"
         verbose_name_plural = "Add Image for event"
 class Committies(models.Model):
-    Committee_name=models.TextField(choices=(('Admissions','Admissions'),('Academic advisory','Academic_Advisory'),('Examination','Examination'),('Transpotation','Transpotation')))
+    Committee_name=models.TextField(choices=(('Admissions','Admissions'),('Academic Advisory','Academic Advisory'),
+                                             ('Examination','Examination'),('Transportation','Transportation'),("Accommodation","Accommodation"),
+                                             ("Guidance","Guidance"),("Alumni","Alumni"),("Suggestions","Suggestions"),("Discipline","Discipline"),
+                                             ("Computer Infrastructure","Computer Infrastructure")))
     members=models.ManyToManyField(member_list,related_name='committees')
     class Meta:
         verbose_name = "Update Committee Member"
         verbose_name_plural = "Update Committee Member"
+    def __str__(self) :
+        return f"{self.Committee_name}"
 class Admissions(models.Model):
     grade=models.ManyToManyField(Class,related_name="vacancy_class",blank=False)
     vacancy=models.IntegerField(blank=False,null=False)
