@@ -81,7 +81,7 @@
 <section class="home-section about-section">
   <div class="notice">
     <h2 id="notice-heading" class="hidden">Notice</h2>
-    <div class="notice-content hidden">
+    <div class="notice-content">
       {% for notice in notice %}
       <a href="{{notice.file.url}}" target="_blank">
         <div class="notice-card hidden">
@@ -118,14 +118,14 @@
     </div>
   </div>
 <!-- Facilities -->
-  <h2 class="fade-in">Facilites</h2>
-  <div class="facilities hidden">
+  <h2 class="hidden">Facilites</h2>
+  <div class="facilities">
     <div class="row row-cols-1 row-cols-md-2 g-3 mb-1">
       <div class="col">
         <a tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="right"
           data-bs-title="Physics Lab"
           data-bs-content="The Physics department of KV, Kathmandu is fully equipped with scientific instruments and facilities for experiments, projects, and innovative work. Students can learn physics concepts through hands-on activities, and a small library offers science and physics books for reference.">
-          <div class="faci-item">
+          <div class="faci-item hidden">
             <div class="faci-icon">
               <i class="fa-solid fa-compass-drafting"></i>
             </div>
@@ -142,7 +142,7 @@
         <a tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="right"
           data-bs-title="Chemistry Lab"
           data-bs-content="In our well-equipped chemistry lab, the main objective is to equip our students with the necessary skills to pursue chemistry in higher academic and professional courses. Through practicals and projects, students develop problem-solving abilities, gain exposure to industrial processes and technological applications, and cultivate a genuine interest in chemistry.">
-          <div class="faci-item">
+          <div class="faci-item hidden">
             <div class="faci-icon">
               <i class="fa-solid fa-flask"></i>
             </div>
@@ -159,7 +159,7 @@
         <a tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="right"
           data-bs-title="Biology Lab"
           data-bs-content="KV Kathmandu's Biology lab is fully equipped with scientific instruments, chemicals, a human skeleton, and an ample number of specimens. It provides all necessary facilities for conducting experiments in secondary and senior secondary classes. The lab also features a computer with internet connectivity to cater to the students' needs.">
-          <div class="faci-item">
+          <div class="faci-item hidden">
             <div class="faci-icon">
               <i class="fa-solid fa-dna"></i>
             </div>
@@ -176,7 +176,7 @@
         <a tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="right"
           data-bs-title="Computer Lab"
           data-bs-content="Our Vidyalaya boasts two computer labs: the Junior Computer Lab and the Senior Computer Lab. These labs are equipped with a total of 62 computers, along with essential peripherals such as an LCD projector, scanner, and UPSs.">
-          <div class="faci-item">
+          <div class="faci-item hidden">
             <div class="faci-icon">
               <i class="fa-solid fa-computer"></i>
             </div>
@@ -193,7 +193,7 @@
         <a tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="right"
           data-bs-title="Library"
           data-bs-content="The school library has more than 15,000 books varying from text books, reference books, dictionaries, children’s books, fiction and non-fiction. All the students of the school are members of the library. Two books can be borrowed at a time. It has a computer too.">
-          <div class="faci-item">
+          <div class="faci-item hidden">
             <div class="faci-icon">
               <i class="fa-solid fa-book-open"></i>
             </div>
@@ -210,7 +210,7 @@
         <a tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="right"
           data-bs-title="e-Class Rooms"
           data-bs-content="Seven Classrooms are well equipped with LCD Projectors,Desktop Computers and Display Screen">
-          <div class="faci-item">
+          <div class="faci-item hidden">
             <div class="faci-icon">
               <i class="fa-solid fa-chalkboard"></i><!--supposed to be a smart board-->
             </div>
