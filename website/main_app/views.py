@@ -37,6 +37,7 @@ def index(request):
                 quotes.quote=quote_to_be_displayed
                 quotes.last_updated=date.today()
                 quotes.save()
+                return HttpResponseRedirect(reverse('index'))
             else:
                 print("Error:", response.status_code, response.text)
                 return response
@@ -44,8 +45,8 @@ def index(request):
             # if date was updated today then send in carousel image and all the necessary data
             quote_to_be_displayed=quotes.quote
             author=quotes.author
-            # send only the first 8 or 20 iamges and only one set of carousel images
-            notice=Notice.objects.all()[::-1][:8]
+            # send only the first 8 notices or 20 images and only one set of carousel images
+            notice=Notice.objects.all()[::-1][:5]
             events=News_and_Events.objects.all()[::-1][:20]
             carousel_image=Carousel_image.objects.get()
             return render(request,"website/index.html",{
@@ -126,7 +127,7 @@ def notice(request):
     })
 def news_and_events(request):
     events = News_and_Events.objects.all()[::-1][:24]
-    paginator=Paginator(events,9)
+    paginator=Paginator(events,8)
     page=request.GET.get("page") 
     events=paginator.get_page(page)
     return render(request,"website/news_and_events.html",{
@@ -234,4 +235,3 @@ def download(request):
             return HttpResponseRedirect(reverse("rick"))
     else:
         return HttpResponseRedirect(reverse("rick"))
-
