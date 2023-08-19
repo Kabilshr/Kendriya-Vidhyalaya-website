@@ -575,8 +575,10 @@ main {
 
 .card {
   margin: 1.25rem;
+  position: relative;
   background-color: #f4f4f4;
   border: none;
+  user-select: none;
 }
 .card:hover {
   transform: translate(0);
@@ -595,6 +597,8 @@ main {
   margin: 0.2rem;
 }
 .card a {
+  position: absolute;
+  bottom: 10px;
   margin: 0.5rem 0 2rem 0.2rem;
   border-radius: 40px;
 }

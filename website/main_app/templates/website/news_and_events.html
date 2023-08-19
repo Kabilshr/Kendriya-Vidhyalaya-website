@@ -5,7 +5,7 @@
     {% for events in events %}
         <div class="col">
             {% with image=events.images.all %}
-            <div class="card" style="width: 18rem; max-height: 23rem;">
+            <div class="card" style="width: 18rem; height: 28rem;">
                 {% for image in image %}
                 <!--This is there so that only the first image is rendered out of the many-->
                     {% if forloop.counter == 1 %}
