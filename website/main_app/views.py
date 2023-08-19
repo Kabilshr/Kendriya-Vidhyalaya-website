@@ -198,7 +198,7 @@ def vacancy(request):
         "vacant":vacany_present
     })
 def gallery(request):
-    gallery = News_and_Events.objects.all()[::-1][:24]
+    gallery = News_and_Events.objects.all()[::-1][:27]
     paginator=Paginator(gallery,9)
     page=request.GET.get("page") 
     gallery=paginator.get_page(page)
