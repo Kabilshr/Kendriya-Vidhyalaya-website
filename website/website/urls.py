@@ -23,3 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('main_app.urls'))
 ] + static(settings.MEDIA_URL , document_root=settings.MEDIA_ROOT)
+
+admin.site.site_header = "KV Admin"
+admin.site.site_title = "KV Admin Portal"
+admin.site.index_title = "Welcome to KV Portal"
