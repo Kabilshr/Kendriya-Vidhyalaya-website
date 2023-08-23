@@ -133,19 +133,6 @@ def news_and_events(request):
     return render(request,"website/news_and_events.html",{
         "events":events
     })
-# if a class admission link is pressed check if there is vacancy if  yes return the file if no return empty page with no vancany written
-def class_1(request):
-    try:
-        file=class1.objects.get()
-        return HttpResponseRedirect(f'{file.file.url}')
-    except:
-        return render(request,"website/class_1.html")
-def class_11(request):
-    try:
-        file=class11.objects.get()
-        return HttpResponseRedirect(f'{file.file.url}')
-    except:
-        return render(request,"website/class_11.html")
 def other_class(request):
     data=Admissions.objects.all()
     return render(request,"website/other_class.html",{
@@ -235,3 +222,47 @@ def download(request):
             return HttpResponseRedirect(reverse("rick"))
     else:
         return HttpResponseRedirect(reverse("rick"))
+def disclosure(request):
+    try:
+        file=Disclosure.objects.get()
+        return HttpResponseRedirect(f'{file.file.url}')
+    except:
+        return HttpResponseRedirect(reverse('index'))
+
+def report(request):
+    try:
+        file=Affiliation.objects.get()
+        return HttpResponseRedirect(f'{file.file.url}')
+    except:
+        return HttpResponseRedirect(reverse('index'))
+
+def result(request):
+    try:
+        file=Result_Analysis.objects.get()
+        return HttpResponseRedirect(f'{file.file.url}')
+    except:
+        return HttpResponseRedirect(reverse('index'))
+def activity_calender(request):
+    try:
+        file=Calender_of_Activities.objects.get()
+        return HttpResponseRedirect(f'{file.file.url}')
+    except:
+        return HttpResponseRedirect(reverse('index'))
+def enrollment(request):
+    try:
+        file=Enrollment.objects.get()
+        return HttpResponseRedirect(f'{file.file.url}')
+    except:
+        return HttpResponseRedirect(reverse('index'))
+def teacher_achievement(request):
+    achive=teachers_achievement.objects.all()[::-1][:10]
+    return render(request,"website/achievement.html",{
+        'achievements':achive
+    })
+def video_gallery(request):
+    video_gallery = Video_gallery.objects.all()[::-1][:27]
+    paginator=Paginator(video_gallery,9)
+    page=request.GET.get("page") 
+    video_gallery=paginator.get_page(page)
+    return render(request,"website/gallery.html",{
+        'video_gallery':gallery})
