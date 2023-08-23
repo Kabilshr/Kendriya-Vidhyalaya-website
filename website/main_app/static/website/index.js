@@ -50,7 +50,7 @@ const observer = new IntersectionObserver((entries) => {
         }
     });
 },{
-    threshold: 0.7 // animate after 50% of element is visible
+    threshold: 0.3 // animate after 30% of element is visible
 });
 
 const hiddenElements = document.querySelectorAll('.hidden'); // Corrected selector
@@ -110,15 +110,15 @@ slider.addEventListener('touchmove', (e) => { // Touchmove event
 //     slider.scrollLeft += e.deltaY;
 // });
 
-function snapToNearestSlide() {
-    const slideWidth = slider.offsetWidth;
-    const slideIndex = Math.round(slider.scrollLeft / slideWidth);
-    const scrollToX = slideIndex * slideWidth;
-    slider.scrollTo({
-        left: scrollToX,
-        behavior: 'smooth',
-    });
-}
+// function snapToNearestSlide() {
+//     const slideWidth = slider.offsetWidth;
+//     const slideIndex = Math.round(slider.scrollLeft / slideWidth);
+//     const scrollToX = slideIndex * slideWidth;
+//     // slider.scrollTo({
+//     //     left: scrollToX,
+//     //     behavior: 'smooth',
+//     // });
+// }
 
 // scroll animation
 // const boxes = document.querySelectorAll('.scroll');
