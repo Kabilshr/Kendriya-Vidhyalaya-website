@@ -1,0 +1,30 @@
+{% extends 'website/layout.html' %}
+{% block body %}
+    {% for link in video_gallery %}
+        {{link.link}}
+        {{link.description}}
+    {% endfor %}
+    <nav aria-label="Page navigation" class="page-nav">
+        <ul class="pagination">
+            {% if video_gallery.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{video_gallery.previous_page_number}}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            {% endif %}
+            <li class="page-item disabled">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">Page {{video_gallery.number}}  of {{video_gallery.paginator.num_pages}}</span>
+                </a>
+            </li>
+            {% if video_gallery.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{video_gallery.next_page_number}}" aria-label="Previous">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>   
+{% endblock %}
