@@ -31,4 +31,5 @@ urlpatterns = [
     path("Video_Gallery", views.video_gallery, name='video_gallery'),
     path("Calender_Of_Activity",views.activity_calender,name="activity_calender"),
     path("Enrollment_Statics",views.enrollment,name="enrollment"),
+    path("Archive",views.archive,name="archive"),
 ]

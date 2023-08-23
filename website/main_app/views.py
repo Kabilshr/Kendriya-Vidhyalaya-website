@@ -256,7 +256,7 @@ def enrollment(request):
         return HttpResponseRedirect(reverse('index'))
 def teacher_achievement(request):
     achive=teachers_achievement.objects.all()[::-1][:10]
-    return render(request,"website/achievement.html",{
+    return render(request,"website/teachers_achievement.html",{
         'achievements':achive
     })
 def video_gallery(request):
@@ -264,5 +264,13 @@ def video_gallery(request):
     paginator=Paginator(video_gallery,9)
     page=request.GET.get("page") 
     video_gallery=paginator.get_page(page)
-    return render(request,"website/gallery.html",{
-        'video_gallery':gallery})
+    return render(request,"website/video_gallery.html",{
+        'video_gallery':video_gallery})
+
+def archive(request):
+    archive = News_and_Events.objects.all()
+    paginator=Paginator(archive,9)
+    page=request.GET.get("page") 
+    archive=paginator.get_page(page)
+    return render(request,"website/archive.html",{
+        'gallery':archive})
