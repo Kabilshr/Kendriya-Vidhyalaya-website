@@ -4,14 +4,29 @@
 
 </div>
 <section class="home-banner">
-  <div class="banner-logo">
+  <!-- <div class="banner-logo">
     <img src="{% static 'website/bannerlogo.png' %}" alt="logo">
-  </div>
+  </div> -->
   <div class="banner-title">
     <h5>केन्द्रीय विद्यालय काठमांडू </h5>
     <h5>Kendriya Vidyalaya Kathmandu</h5>
     <h6>An Autonomous body under Ministry of Education Government of India</h6>
-    <div class="cbse">CBSE Affiliation Number : 6200001,School code-90225</div>
+    <p class="cbse">CBSE Affiliation Number : 6200001,School code-90225</p>
+  </div>
+  <div class="logos-container">
+    <div class="banner-logo">
+      <img src="{% static 'website/azadi-logo.png' %}" alt="azadi-logo">
+    </div>
+    <div class="banner-logo">
+      <img src="{% static 'website/G20.png' %}" alt="G20-logo">
+    </div>
+    <div class="banner-logo">
+      <img src="{% static 'website/digital-india.png' %}" alt="digital-india-logo">
+    </div>
+    </div>
+    <div class="banner-logo">
+      <img src="{% static 'website/swach-bharat.jpg' %}" alt="swach-bharat-logo">
+    </div>
   </div>
 </section>
 
@@ -232,7 +247,7 @@
   <div id="event-container" class="event-container">
     {% for events in events %}
       {% with image=events.images.all %}
-      <div class="card hidden" style="width: 20rem;">
+      <div class="card hidden" style="width: 20rem; height: 28rem;">
         {% for image in image %}
         {% if forloop.counter == 1 %}
         <img src="{{image.image.url}}" class="card-img-top" alt="Event Image" style="height: 12rem; width: auto;">
