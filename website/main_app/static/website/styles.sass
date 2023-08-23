@@ -219,26 +219,32 @@ main
 
 .home-banner
     //padding: 0px 15px
-    //height: 13rem
+    height: 8rem
     color: #000
     position: relative
     display: flex
     justify-content: start
     margin: 10px
 
+.logos-container
+    margin-left: auto
+    display: flex
+
 .banner-logo
+    margin: 10px
     img
-        height: 13rem
+        height: 5rem
 
 .banner-title
     font-weight: bold
-    padding: 2rem
+    padding: 0.5rem 1rem
     text-align: justify
     text-justify: inter-word
     h5
-        font-size: 2rem
+        font-size: 1.5rem
         color: inherit  
     h6
+        font-size: 1rem
         color: #c9a740
 
 
@@ -748,14 +754,6 @@ table
 @media screen and ( max-width: 992px)
     .footer-logo //remove footer logo for smaller screens
         display: none
-    .home-banner
-        height: 10rem
-        margin: 0px
-        font-size: 10px
-        padding: 5px
-        h5, h6
-            font-size: 1.2em
-
     .banner-logo
         img
             height: 9rem
@@ -776,6 +774,18 @@ table
             display: none
     .carousel-control-btn
         display: none
+    .home-banner
+        height: 6rem
+        margin: 0px
+        font-size: 10px
+        padding: 5px
+        text-justify: auto
+        h5
+            font-size: 1.2rem
+        img
+            &:nth-child(3)
+                display: none
+            display: none
     
 @media screen and (max-width: 1420px)
     .top-section
@@ -796,6 +806,14 @@ table
         padding: 0 2rem
     .event-description
         margin: 0.5rem
+    .home-banner
+        text-justify: initial
+        word-wrap: none
+        h6
+            display: none
+        img:nth-of-type(even)
+            display: none
+    
     
 
 //animation keyframes

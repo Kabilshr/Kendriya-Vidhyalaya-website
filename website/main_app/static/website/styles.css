@@ -240,6 +240,7 @@ main {
 }
 
 .home-banner {
+  height: 8rem;
   color: #000;
   position: relative;
   display: flex;
@@ -247,21 +248,30 @@ main {
   margin: 10px;
 }
 
+.logos-container {
+  margin-left: auto;
+  display: flex;
+}
+
+.banner-logo {
+  margin: 10px;
+}
 .banner-logo img {
-  height: 13rem;
+  height: 5rem;
 }
 
 .banner-title {
   font-weight: bold;
-  padding: 2rem;
+  padding: 0.5rem 1rem;
   text-align: justify;
   text-justify: inter-word;
 }
 .banner-title h5 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: inherit;
 }
 .banner-title h6 {
+  font-size: 1rem;
   color: #c9a740;
 }
 
@@ -780,15 +790,6 @@ table {
   .footer-logo {
     display: none;
   }
-  .home-banner {
-    height: 10rem;
-    margin: 0px;
-    font-size: 10px;
-    padding: 5px;
-  }
-  .home-banner h5, .home-banner h6 {
-    font-size: 1.2em;
-  }
   .banner-logo img {
     height: 9rem;
   }
@@ -816,6 +817,22 @@ table {
   .carousel-control-btn {
     display: none;
   }
+  .home-banner {
+    height: 6rem;
+    margin: 0px;
+    font-size: 10px;
+    padding: 5px;
+    text-justify: auto;
+  }
+  .home-banner h5 {
+    font-size: 1.2rem;
+  }
+  .home-banner img {
+    display: none;
+  }
+  .home-banner img:nth-child(3) {
+    display: none;
+  }
 }
 @media screen and (max-width: 1420px) {
   .top-section {
@@ -841,6 +858,16 @@ table {
   }
   .event-description {
     margin: 0.5rem;
+  }
+  .home-banner {
+    text-justify: initial;
+    word-wrap: none;
+  }
+  .home-banner h6 {
+    display: none;
+  }
+  .home-banner img:nth-of-type(even) {
+    display: none;
   }
 }
 @keyframes fade-in {
