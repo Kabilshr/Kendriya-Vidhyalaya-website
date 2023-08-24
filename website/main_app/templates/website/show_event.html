@@ -3,7 +3,7 @@
     <h1 class="fade-in">{{event.title}}</h1>
     {% with image=event.images.all %}
     </div>
-    <div id="eventGallery" class="carousel slide" data-bs-ride="carousel" style="max-height: 80%;">
+    <div id="eventGallery" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             {% for image in image %} 
             {% if forloop.counter == 1 %}
@@ -17,14 +17,14 @@
             {% endif %}
             {% endfor %}
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#eventGallery" data-bs-slide="prev">
-            <div class="carousel-control-btn">
+        <button class="carousel-control-prev">
+            <div class="carousel-control-btn" type="button" data-bs-target="#eventGallery" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </div>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#eventGallery" data-bs-slide="next">
-            <div class="carousel-control-btn">
+        <button class="carousel-control-next">
+            <div class="carousel-control-btn" type="button" data-bs-target="#eventGallery" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </div>
