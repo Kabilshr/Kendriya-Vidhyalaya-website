@@ -873,6 +873,7 @@ table {
   }
   .home-banner .logos-container {
     margin-right: auto;
+    width: 80%;
     justify-content: space-evenly;
   }
   .home-banner h6 {

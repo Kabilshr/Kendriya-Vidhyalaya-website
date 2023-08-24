@@ -1,7 +1,7 @@
 // center nav bar content according to screen size
 function navAlign() {
     var element = document.getElementById('navbarNav');
-    if (window.innerWidth <= 992) {
+    if (window.innerWidth <= 1400) {
         element.classList.remove('justify-content-end');
         element.classList.add('justify-content-center');
     } else {
@@ -12,7 +12,7 @@ function navAlign() {
 
 window.addEventListener('resize', () => {
     var element = document.getElementById('navbarNav');
-    if (window.innerWidth <= 992) {
+    if (window.innerWidth <= 1200) {
         element.classList.remove('justify-content-end');
         element.classList.add('justify-content-center');
     } else {
