@@ -268,9 +268,9 @@ def video_gallery(request):
         'video_gallery':video_gallery})
 
 def archive(request):
-    archive = News_and_Events.objects.all()
+    archive = News_and_Events.objects.all()[::-1]
     paginator=Paginator(archive,9)
     page=request.GET.get("page") 
     archive=paginator.get_page(page)
     return render(request,"website/archive.html",{
-        'gallery':archive})
+        'archive':archive})

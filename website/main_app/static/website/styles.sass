@@ -219,7 +219,7 @@ main
 
 .home-banner
     //padding: 0px 15px
-    height: 8rem
+    min-height: 8rem
     color: #000
     position: relative
     display: flex
@@ -229,6 +229,7 @@ main
 .logos-container
     margin-left: auto
     display: flex
+    
 
 .banner-logo
     margin: 10px
@@ -238,8 +239,8 @@ main
 .banner-title
     font-weight: bold
     padding: 0.5rem 1rem
-    text-align: justify
-    text-justify: inter-word
+    // text-align: justify
+    // text-justify: inter-word
     h5
         font-size: 1.5rem
         color: inherit  
@@ -262,20 +263,26 @@ main
     padding: 1rem
     font-size: 1.2rem
 
-#homeGallery
-    flex-shrink: 2
-    width: 100%
 
 #homeGallery, #eventGallery
     $height: 60%
     height: $height
     background-color: #6f6f6f00
     img
-        position: relative
-        left: 50%
-        transform: translateX(-50%)
+        // position: relative
+        // display: block
+        margin: 0 auto
         height: $height
-        object-fit: cover
+        // object-fit: cover
+
+#homeGallery
+    flex-shrink: 2
+    width: 100%
+
+// #eventGallery
+//     //height: 60%
+//     .carousel-item img
+//         height: 60%
 
 .carousel-control-btn
     background-color: #0000006b
@@ -597,6 +604,10 @@ table
     font-family: sans-serif
     min-width: 400px
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2)
+    th
+        text-align: center
+        &:nth-child(1)
+            text-align: left
     thead tr
         background-color: $table-color
         color: #ffffff
@@ -705,6 +716,7 @@ table
     margin: 2rem
 
 .achievement
+    background-color: #f4f4f4
     margin: 2rem 0
     padding: 1.5rem
     width: 100%
@@ -742,14 +754,11 @@ table
     animation: fadeInUp 800ms forwards
     //transition: opacity ease-in-out, transform ease
 
-
 .fade-in
     animation: fade-in 500ms ease-in forwards
 
 .float-up
     animation: FloatUp 100ms ease forwards
-
-
 
 @media screen and ( max-width: 992px)
     .footer-logo //remove footer logo for smaller screens
@@ -775,7 +784,6 @@ table
     .carousel-control-btn
         display: none
     .home-banner
-        height: 6rem
         margin: 0px
         font-size: 10px
         padding: 5px
@@ -783,9 +791,19 @@ table
         h5
             font-size: 1.2rem
         img
-            &:nth-child(3)
-                display: none
-            display: none
+            height: 3rem
+            // &:nth-child(3)
+            //     display: none
+            // display: none
+    .achievement
+        div
+            display: flex
+            flex-direction: column
+            img
+                align-self: center
+        &:nth-child(odd)
+            div
+                flex-direction: column
     
 @media screen and (max-width: 1420px)
     .top-section
@@ -807,14 +825,16 @@ table
     .event-description
         margin: 0.5rem
     .home-banner
-        text-justify: initial
+        flex-direction: column
         word-wrap: none
+        .logos-container
+            margin-right: auto
+            width: 80%
+            justify-content: space-evenly
         h6
             display: none
         img:nth-of-type(even)
             display: none
-    
-    
 
 //animation keyframes
 @keyframes fade-in

@@ -240,7 +240,7 @@ main {
 }
 
 .home-banner {
-  height: 8rem;
+  min-height: 8rem;
   color: #000;
   position: relative;
   display: flex;
@@ -263,8 +263,6 @@ main {
 .banner-title {
   font-weight: bold;
   padding: 0.5rem 1rem;
-  text-align: justify;
-  text-justify: inter-word;
 }
 .banner-title h5 {
   font-size: 1.5rem;
@@ -290,21 +288,18 @@ main {
   font-size: 1.2rem;
 }
 
-#homeGallery {
-  flex-shrink: 2;
-  width: 100%;
-}
-
 #homeGallery, #eventGallery {
   height: 60%;
   background-color: rgba(111, 111, 111, 0);
 }
 #homeGallery img, #eventGallery img {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
+  margin: 0 auto;
   height: 60%;
-  object-fit: cover;
+}
+
+#homeGallery {
+  flex-shrink: 2;
+  width: 100%;
 }
 
 .carousel-control-btn {
@@ -650,6 +645,12 @@ table {
   min-width: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
+.data-table th {
+  text-align: center;
+}
+.data-table th:nth-child(1) {
+  text-align: left;
+}
 .data-table thead tr {
   background-color: #e89209;
   color: #ffffff;
@@ -746,6 +747,7 @@ table {
 }
 
 .achievement {
+  background-color: #f4f4f4;
   margin: 2rem 0;
   padding: 1.5rem;
   width: 100%;
@@ -818,7 +820,6 @@ table {
     display: none;
   }
   .home-banner {
-    height: 6rem;
     margin: 0px;
     font-size: 10px;
     padding: 5px;
@@ -828,10 +829,17 @@ table {
     font-size: 1.2rem;
   }
   .home-banner img {
-    display: none;
+    height: 3rem;
   }
-  .home-banner img:nth-child(3) {
-    display: none;
+  .achievement div {
+    display: flex;
+    flex-direction: column;
+  }
+  .achievement div img {
+    align-self: center;
+  }
+  .achievement:nth-child(odd) div {
+    flex-direction: column;
   }
 }
 @media screen and (max-width: 1420px) {
@@ -860,8 +868,13 @@ table {
     margin: 0.5rem;
   }
   .home-banner {
-    text-justify: initial;
+    flex-direction: column;
     word-wrap: none;
+  }
+  .home-banner .logos-container {
+    margin-right: auto;
+    width: 80%;
+    justify-content: space-evenly;
   }
   .home-banner h6 {
     display: none;

@@ -15,7 +15,7 @@
         {% with members=committee.members.all %}
             <tr>
                 <td scope="row">{{forloop.counter}}.</td>
-                <td>{{committee.Committee_name}}</td>
+                <td style="text-align: center;">{{committee.Committee_name}}</td>
                 <td style="text-align: center; line-height: 200%;">
                     {% for members in members %}
                 
