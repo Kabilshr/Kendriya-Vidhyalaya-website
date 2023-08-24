@@ -650,6 +650,12 @@ table {
   min-width: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
+.data-table th {
+  text-align: center;
+}
+.data-table th:nth-child(1) {
+  text-align: left;
+}
 .data-table thead tr {
   background-color: #e89209;
   color: #ffffff;
