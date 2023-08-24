@@ -746,6 +746,7 @@ table {
 }
 
 .achievement {
+  background-color: #f4f4f4;
   margin: 2rem 0;
   padding: 1.5rem;
   width: 100%;
@@ -832,6 +833,16 @@ table {
   }
   .home-banner img:nth-child(3) {
     display: none;
+  }
+  .achievement div {
+    display: flex;
+    flex-direction: column;
+  }
+  .achievement div img {
+    align-self: center;
+  }
+  .achievement:nth-child(odd) div {
+    flex-direction: column;
   }
 }
 @media screen and (max-width: 1420px) {

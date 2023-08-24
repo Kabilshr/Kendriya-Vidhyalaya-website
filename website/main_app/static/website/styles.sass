@@ -705,6 +705,7 @@ table
     margin: 2rem
 
 .achievement
+    background-color: #f4f4f4
     margin: 2rem 0
     padding: 1.5rem
     width: 100%
@@ -742,14 +743,11 @@ table
     animation: fadeInUp 800ms forwards
     //transition: opacity ease-in-out, transform ease
 
-
 .fade-in
     animation: fade-in 500ms ease-in forwards
 
 .float-up
     animation: FloatUp 100ms ease forwards
-
-
 
 @media screen and ( max-width: 992px)
     .footer-logo //remove footer logo for smaller screens
@@ -786,6 +784,15 @@ table
             &:nth-child(3)
                 display: none
             display: none
+    .achievement
+        div
+            display: flex
+            flex-direction: column
+            img
+                align-self: center
+        &:nth-child(odd)
+            div
+                flex-direction: column
     
 @media screen and (max-width: 1420px)
     .top-section
@@ -813,8 +820,6 @@ table
             display: none
         img:nth-of-type(even)
             display: none
-    
-    
 
 //animation keyframes
 @keyframes fade-in
