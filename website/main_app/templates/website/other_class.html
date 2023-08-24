@@ -1,14 +1,32 @@
 {% extends 'website/layout.html' %}
 {% block body %}
-{% if data %}
-    {% for vacancy in data %}
-        {{vacancy.vacancy}} 
-        {% for class in vacancy.grade.all %} {{class.class_name}}{% endfor %}
-        <a href="{{vacancy.file.url}}">hi </a>
-    {% endfor %}
-    {% else %} 
-        <div class="no-vacant-container">
-            <h3 id="no-vacant">No Vacancy</h3>
-        </div>
+{% if data %}  
+    <h1 class="fade-in">Student Vacancy</h1>
+    <div class="table-responsive fade-in-up fade-in-up">
+        <table class="table data-table">
+            <thead>
+                <tr>
+                    <th scope="col">Class</th>
+                    <th scope="col">No of Vacancy</th>
+                    <th scope="col">File</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for vacancy in data %}
+                <tr>
+                    {% for class in vacancy.grade.all %} 
+                        <td>{{class.class_name}}</td>
+                    {% endfor %}
+                    <td scope="row">{{vacancy.vacancy}}</td>
+                    <td><a href="{{vacancy.file.url}}" target="_blank">click here to view...</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% else %} 
+    <div class="no-vacant-container">
+        <h3 id="no-vacant">No Vacancy</h3>
+    </div>
 {% endif %}
 {% endblock %}

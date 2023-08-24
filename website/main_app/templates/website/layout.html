@@ -59,7 +59,6 @@
                                         <li><a href="{% url 'newsletter' %}" class="dropdown-item">Newsletter</a></li>
                                     </ul>
                                 </li>
-                                <li><a class="dropdown-item" href="{% url 'fees' %}" target="_blank">Fee Structure</a></li>
                                 <li><a class="dropdown-item" href="{% url 'holidays' %}">Holidays</a></li>
                                 <li><a class="dropdown-item" href="{% url 'result' %}">Result Analysis</a></li>
                                 <li><a href="{% url 'teacher_achievement' %}" class="dropdown-item">Teacher Achiever</a></li>
@@ -90,7 +89,7 @@
                                     </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">Admission & Figures</a>
+                                <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">Admission</a>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="{% url 'tc_issued' %}">TC issued</a></li>
                                         <li><a class="dropdown-item" href="{% url 'other_class' %}">Student Vacancy</a></li>
@@ -98,7 +97,11 @@
                                     </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link  dropdown-toggle" href="{% url 'rick' %}">Fees</a>
+                                <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">Fees</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{% url 'fees' %}" target="_blank">Fee Structure</a></li>
+                                    <li><a class="dropdown-item" href="#">Online Fee</a></li>
+                                </ul>
                             </li>
                 </nav>
             </div>
