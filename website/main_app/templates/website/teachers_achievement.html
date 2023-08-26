@@ -6,7 +6,7 @@
         <h2 align="center">{{achiv.title}}</h2>
         <div class="achiv-body">
             <img src="{{achiv.image.url}}">
-            <p class="description">{{achiv.description}}</p>
+            <p class="description">{{achiv.description|linebreaks}}</p>
         </div>
     </div>
 {% endfor %}
