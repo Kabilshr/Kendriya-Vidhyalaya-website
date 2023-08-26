@@ -66,7 +66,6 @@ def about_kv(request):
 def contact_us(request):
     principal = member_list.objects.get(designation='APrincipal').name
     chairman= vmc_member.objects.get(post__iexact='chairman,vmc')
-    print(chairman)
     return render(request,"website/contact_us.html",{
         'principal': principal,
         'chairman':chairman,

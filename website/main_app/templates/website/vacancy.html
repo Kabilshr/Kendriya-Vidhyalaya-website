@@ -15,7 +15,7 @@
                      {% for vacancy in vacancy %}
                      <tr>
                          <td scope="row">{{forloop.counter}}.</td>
-                         <td>{{vacancy.vacant_designation}}</td>
+                         <td>{{vacancy.get_vacant_designation_display}}</td>
                          <td>{{vacancy.number}}</td>
                      </tr>
                      {% endfor %}
