@@ -1,12 +1,9 @@
 {% extends 'website/layout.html' %}
 {% block body %}
   <h1 class="fade-in">Principal's Message</h1>
-  
   <img class="about-img" src={{message.image.url}} alt="principal's picture">
-
   <div class="about-container">
     <p class="principal-msg ">{{message.message|linebreaks}}</p>
     <p class="name">{{message.name}}</p>
   </div>
-
 {% endblock %}
