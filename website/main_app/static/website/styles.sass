@@ -682,12 +682,17 @@ table
     border-radius: 10px
 
 //contact us
+.contact-container
+    display: grid
+
 .contact
     position: relative
-    left: 50%
-    transform: translateX(-50%)
+    // left: 50%
+    // transform: translateX(-50%)
+    place-self: center
     border-collapse: collapse
     margin: 5rem
+    width: 50%
     td,th
         padding: 1rem
         border: 1px solid
@@ -724,7 +729,7 @@ table
         text-transform: capitalize
     .achiv-body
         display: flex
-        div
+        .achiv-description-container
             display: block
     img
         width: 30rem

@@ -706,12 +706,16 @@ table {
   border-radius: 10px;
 }
 
+.contact-container {
+  display: grid;
+}
+
 .contact {
   position: relative;
-  left: 50%;
-  transform: translateX(-50%);
+  place-self: center;
   border-collapse: collapse;
   margin: 5rem;
+  width: 50%;
 }
 .contact td, .contact th {
   padding: 1rem;
@@ -758,7 +762,7 @@ table {
 .achievement .achiv-body {
   display: flex;
 }
-.achievement .achiv-body div {
+.achievement .achiv-body .achiv-description-container {
   display: block;
 }
 .achievement img {
