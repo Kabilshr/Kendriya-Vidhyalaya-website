@@ -755,8 +755,11 @@ table {
 .achievement h2 {
   text-transform: capitalize;
 }
-.achievement div {
+.achievement .achiv-body {
   display: flex;
+}
+.achievement .achiv-body div {
+  display: block;
 }
 .achievement img {
   width: 30rem;
