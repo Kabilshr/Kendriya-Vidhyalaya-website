@@ -684,15 +684,14 @@ table
 //contact us
 .contact-container
     display: grid
-
 .contact
     position: relative
     // left: 50%
     // transform: translateX(-50%)
     place-self: center
     border-collapse: collapse
-    margin: 5rem
-    width: 50%
+    margin: 5rem 1rem
+    width: 10px
     td,th
         padding: 1rem
         border: 1px solid
@@ -808,9 +807,14 @@ table
             flex-direction: column
             img
                 align-self: center
+                width: 50vw
         &:nth-child(odd)
             div
                 flex-direction: column
+    .map
+        margin: 0rem
+    .contact-container
+        width: 1vw
     
 @media screen and (max-width: 1420px)
     .top-section
@@ -838,10 +842,6 @@ table
             margin-right: auto
             width: 80%
             justify-content: space-evenly
-        h6
-            display: none
-        img:nth-of-type(even)
-            display: none
 
 //animation keyframes
 @keyframes fade-in

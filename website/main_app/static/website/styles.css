@@ -714,8 +714,8 @@ table {
   position: relative;
   place-self: center;
   border-collapse: collapse;
-  margin: 5rem;
-  width: 50%;
+  margin: 5rem 1rem;
+  width: 10px;
 }
 .contact td, .contact th {
   padding: 1rem;
@@ -844,9 +844,16 @@ table {
   }
   .achievement div img {
     align-self: center;
+    width: 50vw;
   }
   .achievement:nth-child(odd) div {
     flex-direction: column;
+  }
+  .map {
+    margin: 0rem;
+  }
+  .contact-container {
+    width: 1vw;
   }
 }
 @media screen and (max-width: 1420px) {
@@ -882,12 +889,6 @@ table {
     margin-right: auto;
     width: 80%;
     justify-content: space-evenly;
-  }
-  .home-banner h6 {
-    display: none;
-  }
-  .home-banner img:nth-of-type(even) {
-    display: none;
   }
 }
 @keyframes fade-in {
