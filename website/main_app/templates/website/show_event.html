@@ -32,5 +32,5 @@
     </div>
     <div class="container-lg">
     {% endwith %}
-    <p class="event-description my-3 p-3">{{event.description}}</p>
+    <p class="event-description my-3 p-3">{{event.description|linebreaks}}</p>
 {% endblock %}
