@@ -1,7 +1,7 @@
 $primary: #FA8072 //salmon
 $primary-light: #FB9183
 $secondary: #e89209
-$tertiary: #FFDD65//E1BC29
+$tertiary: #FFDD65
 $header: #f1f1f1
 //body styles
 *
@@ -12,8 +12,7 @@ html, body
   height: 100%
 
 body
-    //font-size: 16px
-    background-color: #fff//#efefef
+    background-color: #fff
     display: flex
     flex-direction: column
     font-family: 'Montserrat', sans-serif
@@ -23,11 +22,9 @@ body
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)
     border-radius: 10px
     background-color: #F5F5F5
-
   &::-webkit-scrollbar
     width: 0.5vw
     background-color: #F5F5F5
-
   &::-webkit-scrollbar-thumb
     border-radius: 10px
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)
@@ -44,11 +41,9 @@ h1,h2,h3
 
 .content
     position: relative
-    //flex: 1
 
 //navbar styles
 .header
-    //background-color: $header
     width: 100%
     position: relative
     font-size: 1.25rem
@@ -79,7 +74,7 @@ h1,h2,h3
 
 .dropdown-menu
     width: 15rem
-    border-radius: 11px//1.75%
+    border-radius: 11px
     transform: translateY(-10px)
     animation: fade-in 300ms forwards
     transition: ease-in-out 300ms
@@ -138,7 +133,7 @@ h1,h2,h3
 footer
     background-color: #000000bc
     position: relative
-    color: #000000//#474a4d
+    color: #000000
     margin-top: auto
     height: auto
     .background-dark
@@ -206,7 +201,6 @@ footer
 //body styles
 main
     position: relative
-    //margin-top: 5px
 
 //home page styles
 .home-section
@@ -214,7 +208,6 @@ main
     padding: 1.2rem 0
 
 .home-banner
-    //padding: 0px 15px
     min-height: 8rem
     color: #000
     position: relative
@@ -234,8 +227,6 @@ main
 .banner-title
     font-weight: bold
     padding: 0.5rem 1rem
-    // text-align: justify
-    // text-justify: inter-word
     h5
         font-size: 1.5rem
         color: inherit  
@@ -262,8 +253,6 @@ main
     height: $height
     background-color: #6f6f6f00
     img
-        // position: relative
-        // display: block
         margin: 0 auto
         height: $height
         object-fit: cover
@@ -297,7 +286,6 @@ main
     font-size: 1.2rem
 
 .thought-quote
-    //font-style: italic
     font-size: 2.5em
     font-family: 'Tangerine', serif
     
@@ -357,8 +345,6 @@ main
     position: relative
     font-size: 1.2rem
     color: $secondary
-    //height: 3.5rem
-    //padding: 0 1.3rem
     margin: 0.7rem 0
 
 .notice-date
@@ -391,7 +377,7 @@ main
 .stat-content
     display: flex
     justify-content: space-evenly
-    background-color: $primary//#0B417E
+    background-color: $primary
     color: #fff
     padding: 10px
     border-radius: 15px
@@ -421,14 +407,11 @@ main
         margin-top: 10px
         font-size: 1.3rem
     &:hover
-        background-color: $primary-light//#0a396e
+        background-color: $primary-light
         i
-            //font-size: 300%
-            //padding-bottom: 0px
             transform: translateY(-5px)
 
 .facilities
-    //background-color: #eee//#dadada
     button
         border: none
     margin: 2rem
@@ -443,7 +426,6 @@ main
     padding: 10px
     margin: 5px
     column-gap: 8px
-    //border: 1px outset
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1)
     text-overflow: ellipsis
     border-radius: 15px
@@ -475,17 +457,12 @@ main
     grid-area: 2 / 2 / 3
 
 .event-container
-    //margin: 2rem
     position: relative
     display: flex
     width: 100%
     overflow-x: hidden
     overflow-y: hidden
-    //overscroll-behavior-inline: contain
-    //scroll-snap-type: inline mandatory
     white-space: nowrap
-    //transition: transform 0.2s ease-in-out
-    //transform: scale(0.98)
     cursor: grab
     gap: 1rem
     &:active
@@ -498,8 +475,6 @@ main
         background-color: #f5f5f5
         box-shadow: none
         border: none
-        //scroll-snap-align: start
-        //scroll-padding-inline: 2rem
         flex-shrink: 0
         &:hover
             transform: translate(0)
@@ -525,11 +500,7 @@ main
 .card
     margin: 1.25rem
     position: relative
-    // box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2)
-    // transform: translate(0px)
-    // transition: ease-out 300ms
     background-color: #f4f4f4
-    // box-shadow: none
     border: none
     user-select: none
     &:hover
@@ -537,20 +508,13 @@ main
         box-shadow: none
     p
         margin: 0.2rem
-     
-    // &:hover
-    //     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5)
-    //     transform: translate3d(-3px, -2px, 0)
-
     &-title
         color: $secondary
         text-transform: capitalize
         margin: 0.5rem
         font-size: 1.3em
-
     &-body
         margin: 0.2rem
-    
     a
         position: absolute
         bottom: 10px
@@ -592,7 +556,7 @@ table
     position: relative
 
 .data-table
-    $table-color: $secondary //#009879
+    $table-color: $secondary
     border-collapse: collapse
     margin: 25px 0
     font-family: sans-serif
@@ -609,7 +573,6 @@ table
     th, td
         padding: 0.7rem 1rem
     tbody tr 
-        //position: relative
         border-bottom: 1px solid #dddddd
         &:nth-of-type(even) 
             background-color: #f3f3f3
@@ -625,29 +588,6 @@ table
         &:nth-of-type(even) 
             background-color: #ffffff
 
-// //member list image
-// //.member-list-body
-// .member-img
-//     $width: 15rem
-//     position: fixed
-//     left: 3%
-//     top: 5px
-//     width: $width
-//     height: $width
-//     padding: 5px
-//     border: solid 1px $secondary
-//     background-color: #fff
-//     img
-//         width: $width - 2rem
-//         height: $width - 2rem
-//         position: relative
-//         left: 50%
-//         transform: translate(-50%)
-
-// @for $i from 2 through 10 //upper limit till total members through data attribute and get total number by django
-//     .member-img:nth-child(#{$i})
-//         transform: translateY((calc( 100 * i ))px)
-     
 //vacancy page
 .no-vacant-container
     height: 10vh
@@ -677,8 +617,6 @@ table
     display: grid
 .contact
     position: relative
-    // left: 50%
-    // transform: translateX(-50%)
     place-self: center
     border-collapse: collapse
     margin: 5rem 1rem
@@ -732,15 +670,6 @@ table
             flex-direction: row-reverse
             justify-content: space-between
         
-//home page animations
-// .reveal
-//     position: relative
-//     opacity: 0
-//     transform: translateY(150px)
-
-// .reveal .active
-//     opacity: 1
-
 .hidden
     opacity: 0
     transform: translateY(100px)
@@ -749,7 +678,6 @@ table
 .fade-in-up
     opacity: 0
     animation: fadeInUp 800ms forwards
-    //transition: opacity ease-in-out, transform ease
 
 .fade-in
     animation: fade-in 500ms ease-in forwards
@@ -789,9 +717,6 @@ table
             font-size: 1.2rem
         img
             height: 3rem
-            // &:nth-child(3)
-            //     display: none
-            // display: none
     .achievement
         div
             display: flex
@@ -847,7 +772,6 @@ table
         opacity: 0
         -webkit-transform: translateY(100px)
         transform: translateY(100px)
-
     100%
         opacity: 1
         -webkit-transform: translateY(0)
