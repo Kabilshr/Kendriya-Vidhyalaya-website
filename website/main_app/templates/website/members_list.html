@@ -1,8 +1,8 @@
 {% extends 'website/layout.html' %}
 {% block body %}
-<h1 class="fade-in" >Staff Members</h1><!--style="margin-left: 25vw;"-->
+<h1 class="fade-in" >Staff Members</h1>
 <div class="table-responsive text-nowrap fade-in-up">
-    <table class="table data-table"><!--table-hover   style="margin-left: 20vw; width: 80rem; position: static;"-->
+    <table class="table data-table">
         <thead>
             <tr>
                 <th scope="col">S.no</th>
@@ -12,41 +12,13 @@
             </tr>
         </thead>
         <tbody class="member-list-body">
-            {% for members in members %}
-            <!-- <div class="member-img" id="member-img_{{forloop.counter}}" style="display: none;">
-                <img src="{{members.image.url}}">
-            </div>  -->
-            
+            {% for members in members %}            
             <tr id='{{forloop.counter}}'>
                 <td scope="row">{{forloop.counter}}.</td>
                 <td>{{members.name}}</td>
                 <td>{{members.origin}} </td>
                 <td>{{members.get_designation_display}}</td><!-- the get_designation_display shows the display name of the choice rather than the computer name of the choice mentioned in models-->
             </tr>
-            <!-- <script>
-                if (window.innerWidth > 1420){
-                    var item = document.getElementById('{{forloop.counter}}');
-                    var image = document.getElementById('member-img_{{forloop.counter}}');
-
-                    // ✅ Show hidden DIV on hover
-                    item.addEventListener('mouseover', function handleMouseOver() {
-                        image.style.display = 'block';
-                        
-                        // 👇️ if you used visibility property to hide the div
-                        // hiddenDiv.style.visibility = 'visible';
-                    });
-                    
-                    // ✅ (optionally) Hide DIV on mouse out
-                    item.addEventListener('mouseout', function handleMouseOut() {
-                        image.style.display = 'none';
-
-                        // 👇️ if you used visibility property to hide the div
-                        // hiddenDiv.style.visibility = 'hidden';
-                    });
-
-                }
-
-            </script> -->
             {% endfor %}
         </tbody>
     </table>
