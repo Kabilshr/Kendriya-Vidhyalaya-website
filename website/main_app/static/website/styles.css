@@ -550,13 +550,7 @@ main {
   padding: 1rem;
   grid-template-rows: min-content;
   background-color: #f5f5f5;
-  box-shadow: none;
-  border: none;
   flex-shrink: 0;
-}
-.event-container .card:hover {
-  transform: translate(0);
-  box-shadow: none;
 }
 .event-container .card-body {
   width: 18rem;
