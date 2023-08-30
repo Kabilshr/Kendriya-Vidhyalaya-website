@@ -332,3 +332,6 @@ class Video_gallery(models.Model):
         verbose_name_plural = "Add Video Link"
     def __str__(self) :
         return f"{self.description}"
+class visitor(models.Model):
+    number=models.BigIntegerField()
+    
