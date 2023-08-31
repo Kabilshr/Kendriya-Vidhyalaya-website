@@ -40,10 +40,22 @@ toTopBtn.addEventListener('click', () => {
     })
 })
 
+//date 
+// Create a new Date object
+var currentDate = new Date();
+
+// Access the current date and time
+var year = currentDate.getFullYear();
+var month = currentDate.getMonth() + 1; // Months are zero-based (0 = January)
+var day = currentDate.getDate();
+
+var displayDate = day + " / " + month + " / " + year;
+
+document.getElementById('date').innerHTML = displayDate;
+
 // scroll animations
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-        console.log(entry);
         if (entry.isIntersecting) {
             entry.target.classList.add('fade-in-up');
             observer.unobserve(entry.target);
@@ -103,46 +115,6 @@ slider.addEventListener('touchmove', (e) => { // Touchmove event
     const walk = (x - startX) * 3; // Adjust scroll speed as needed
     slider.scrollLeft = scrollLeft - walk;
 });
-
-//use scroll wheel to navigate events
-// slider.addEventListener('wheel', (e) => {
-//     e.preventDefault();
-//     slider.scrollLeft += e.deltaY;
-// });
-
-// function snapToNearestSlide() {
-//     const slideWidth = slider.offsetWidth;
-//     const slideIndex = Math.round(slider.scrollLeft / slideWidth);
-//     const scrollToX = slideIndex * slideWidth;
-//     // slider.scrollTo({
-//     //     left: scrollToX,
-//     //     behavior: 'smooth',
-//     // });
-// }
-
-// scroll animation
-// const boxes = document.querySelectorAll('.scroll');
-// const observerOptions = {
-//     root: null,
-//     rootMargin: '0px',
-//     threshold: 0.5 // When 50% of the element is visible
-// };
-
-// function handleIntersect(entries, observer) {
-//     entries.forEach(entry => {
-//         if (entry.isIntersecting) {
-//             entry.target.classList.add('fade-in-up');
-//             observer.unobserve(entry.target);
-//         }
-//     });
-// }
-
-// const animateObserver = new IntersectionObserver(handleIntersect, observerOptions);
-
-// boxes.forEach(box => {
-//     observer.observe(box);
-// });
-
 
 //enable popover
 const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')

@@ -175,6 +175,18 @@ footer
 .form-group
     margin-bottom: 15px
 
+.date-box
+    width: 12.5rem
+    border-radius: 5px
+    background-color: grey
+    padding: 0.5rem
+    margin: 1rem
+
+#date
+    padding: 0.25rem
+    &:hover
+        color: inherit
+
 .links
     display: grid
     justify-content: center
@@ -473,12 +485,7 @@ main
         padding: 1rem
         grid-template-rows: min-content
         background-color: #f5f5f5
-        box-shadow: none
-        border: none
         flex-shrink: 0
-        &:hover
-            transform: translate(0)
-            box-shadow: none
         &-body
             width: 18rem
 
@@ -653,6 +660,7 @@ table
     margin: 2rem 0
     padding: 1.5rem
     width: 100%
+    border-radius: 5px
     h2
         text-transform: capitalize
     .achiv-body

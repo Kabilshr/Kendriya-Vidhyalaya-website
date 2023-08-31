@@ -1,30 +1,40 @@
 {% extends 'website/layout.html' %}
 {% block body %}
+<h1 class="fade-in">Video Gallery</h1>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-2">
     {% for link in video_gallery %}
-        {{link.link}}
-        {{link.description}}
+    <div class="col">
+        <div class="card" style="width: 18rem; height: 16rem;">
+            <iframe style="width: 18rem; height: 11rem; border-radius: 10px 10px 0px 0px;" src="{{link.link}}"></iframe>
+            <div class="card-body">
+                <h5 class="card-title">{{link.description}}</h5>
+            </div>
+        </div>
+    </div>
     {% endfor %}
-    <nav aria-label="Page navigation" class="page-nav">
-        <ul class="pagination">
-            {% if video_gallery.has_previous %}
-                <li class="page-item">
-                    <a class="page-link" href="?page={{video_gallery.previous_page_number}}" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-            {% endif %}
-            <li class="page-item disabled">
-                <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">Page {{video_gallery.number}}  of {{video_gallery.paginator.num_pages}}</span>
+</div>
+
+<nav aria-label="Page navigation" class="page-nav">
+    <ul class="pagination">
+        {% if video_gallery.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{video_gallery.previous_page_number}}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
-            {% if video_gallery.has_next %}
-                <li class="page-item">
-                    <a class="page-link" href="?page={{video_gallery.next_page_number}}" aria-label="Previous">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            {% endif %}
-        </ul>
-    </nav>   
+        {% endif %}
+        <li class="page-item disabled">
+            <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">Page {{video_gallery.number}}  of {{video_gallery.paginator.num_pages}}</span>
+            </a>
+        </li>
+        {% if video_gallery.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{video_gallery.next_page_number}}" aria-label="Previous">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>   
 {% endblock %}
