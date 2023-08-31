@@ -151,7 +151,7 @@ def notice(request):
 def news_and_events(request):
     count=visitor.objects.get()
     events = News_and_Events.objects.all()[::-1][:24]
-    paginator=Paginator(events,8)
+    paginator=Paginator(events,9)
     page=request.GET.get("page") 
     events=paginator.get_page(page)
     return render(request,"website/news_and_events.html",{

@@ -203,6 +203,21 @@ footer button {
   margin-bottom: 15px;
 }
 
+.date-box {
+  width: 12.5rem;
+  border-radius: 5px;
+  background-color: grey;
+  padding: 0.5rem;
+  margin: 1rem;
+}
+
+#date {
+  padding: 0.25rem;
+}
+#date:hover {
+  color: inherit;
+}
+
 .links {
   display: grid;
   justify-content: center;

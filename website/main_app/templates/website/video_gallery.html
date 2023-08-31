@@ -12,28 +12,6 @@
     </div>
     {% endfor %}
 </div>
-<!-- 
-    {% for events in events %}
-    
-        {% with image=events.images.all %}
-        <div class="card" style="width: 18rem; height: 28rem;">
-            {% for image in image %}
-            {% if forloop.counter == 1 %}
-            <img src="{{image.image.url}}" class="card-img-top" alt="Event Image" style="height: 12rem;">
-            {% endif %}
-            {% endfor %}
-            <div class="card-body">
-                <h5 class="card-title">{{events.title}}</h5>
-                <p class="card-text text-truncate pb-2">
-                    {{events.description}}
-                </p>
-                <a href="{% url 'show_event' pk=events.id %}" class="btn btn-primary mt-4">Learn more ></a>
-            </div>
-        </div>
-    </div>
-    {% endwith %}
-    {% endfor %}
--->
 
 <nav aria-label="Page navigation" class="page-nav">
     <ul class="pagination">

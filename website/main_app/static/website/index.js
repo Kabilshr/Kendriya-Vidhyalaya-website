@@ -43,7 +43,6 @@ toTopBtn.addEventListener('click', () => {
 // scroll animations
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-        console.log(entry);
         if (entry.isIntersecting) {
             entry.target.classList.add('fade-in-up');
             observer.unobserve(entry.target);
@@ -142,6 +141,21 @@ slider.addEventListener('touchmove', (e) => { // Touchmove event
 // boxes.forEach(box => {
 //     observer.observe(box);
 // });
+
+//date 
+// Create a new Date object
+var currentDate = new Date();
+
+// Access the current date and time
+var year = currentDate.getFullYear();
+var month = currentDate.getMonth() + 1; // Months are zero-based (0 = January)
+var day = currentDate.getDate();
+
+var displayDate = day + " / " + month + " / " + year;
+
+document.getElementById('date').innerHTML = displayDate;
+
+
 
 
 //enable popover
