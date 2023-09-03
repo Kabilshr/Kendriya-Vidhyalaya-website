@@ -17,9 +17,9 @@
                 <tr>
                     <td scope="row">{{forloop.counter}}.</td>
                     <td>{{alumni.name}}</td>
-                    <td>curret position</td>
-                    <td>year passed</td>
-                    <td>{{alumni.description|linebreaks}}</td>
+                    <td>{{alumni.qualification}}</td>
+                    <td>{{alumni.pass_year}}</td>
+                    <td>{{alumni.description_of_acheivement|linebreaks}}</td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -57,9 +57,4 @@
         </button>
     </form>
 </div>
-     
-        
-    
-        
-
 {% endblock %}

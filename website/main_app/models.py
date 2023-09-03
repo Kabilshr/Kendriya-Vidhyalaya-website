@@ -45,7 +45,8 @@ class principals_message(models.Model):
 class Alumni(models.Model):
     name = models.CharField(max_length=64)
     description_of_acheivement = models.TextField(max_length=128)
-
+    pass_year = models.PositiveIntegerField()
+    qualification = models.TextField(max_length=64)
     def __str__(self):
         return f"{self.name}"
 
