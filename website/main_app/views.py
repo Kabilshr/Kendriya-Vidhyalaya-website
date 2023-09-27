@@ -308,11 +308,11 @@ def video_gallery(request):
     video_gallery = Video_gallery.objects.all()[::-1][:27]
     for i in video_gallery:
         video.append({'link':i.link.replace("watch?v=", "embed/"),"description":i.description})
-    paginator=Paginator(video_gallery,9)
+    paginator=Paginator(video,9)
     page=request.GET.get("page") 
     video_gallery=paginator.get_page(page)
     return render(request,"website/video_gallery.html",{
-        'video_gallery':video,
+        'video_gallery':video_gallery,
         "count":count.number})
 def archive(request):
     count=visitor.objects.get()
