@@ -15,7 +15,7 @@
     <link rel="icon" type="image/x-icon" href="{% static 'website/favicon.svg' %}">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script defer src="{% static 'website/index.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'website/styles.min.css' %}">
+    <link rel="stylesheet" href="{% static 'website/styles.css' %}">
     <title>Kendriya Vidyalaya Kathmandu</title>
 </head>
 <body>
@@ -121,10 +121,10 @@
         <div class="background-dark">
             <div class="container-lg justify-content-end">
                 <div class="row g-2">
-                    <div class="col-md-4 footer-logo my-auto">
+                    <div class="col-md-3 footer-logo my-auto">
                         <a href="{% url 'index' %}"><img src="{% static 'website/sitelogo.png' %}" height="200"></a>
                     </div>
-                    <div class="col-sm-7 col-md-4 my-auto">
+                    <div class="col-sm-7 col-md-5 my-auto">
                         <div class="footer-contact">
                             <div class="mb-2">
                                 <span class="footer-location">
@@ -185,7 +185,7 @@
                         </div>
                     </div>
                 </div>
-                <span style="color: #000;">
+                <span class="date-and-links" style="color: #000;">
                     <div class="date-box">
                         <i class="fa-solid fa-calendar" style="float: left; position: relative; top: -2px;"></i>
                         <b>
@@ -193,19 +193,19 @@
                             <span id="date"></span>
                         </b>
                     </div>
+                <div class="links">
+                    <ul type="none">
+                        <li class="btn btn-sm btn-secondary" style="color: white; margin: 2px;"><a href="https://kvsangathan.nic.in/">Kv sangathan</a></li>
+                        <li class="btn btn-sm btn-secondary" style="color: white; margin: 2px;"><a href="https://www.cbse.gov.in/">CBSE</a></li>
+                        <li class="btn btn-sm btn-secondary" style="color: white; margin: 2px;"><a href="https://ncert.nic.in/">NCERT</a></li>
+                        <li class="btn btn-sm btn-secondary" style="color: white; margin: 2px;"><a href="https://proposal.sakshat.ac.in/scholarship/index.php/scholarship/scholarship-user/home">Shakshat</a></li>
+                        <li class="btn btn-sm btn-secondary" style="color: white; margin: 2px;"><a href="https://kvsangathan.nic.in/academic/admission-guidelines">Admission Guidelines</a></li>
+                        <li class="btn btn-sm btn-secondary" style="color: white; margin: 2px;"><a href="https://www.shiksha.com/">Shiksha</a></li>
+                        <li class="btn btn-sm btn-secondary" style="color: white; margin: 2px;"><a href="{% url 'admin:index' %}">Admin</a></li>
+                        <li class="btn btn-sm btn-secondary" style="color: white; margin: 2px;"><a href="{% url 'archive' %}">Archive</a></li>
+                    </ul>
+                </div>
                 </span>
-            </div>
-            <div class="links">
-                <ul type="none">
-                    <li class="btn btn-sm btn-secondary" style="color: white; margin: 2px;"><a href="https://kvsangathan.nic.in/">Kv sangathan</a></li>
-                    <li class="btn btn-sm btn-secondary" style="color: white; margin: 2px;"><a href="https://www.cbse.gov.in/">CBSE</a></li>
-                    <li class="btn btn-sm btn-secondary" style="color: white; margin: 2px;"><a href="https://ncert.nic.in/">NCERT</a></li>
-                    <li class="btn btn-sm btn-secondary" style="color: white; margin: 2px;"><a href="https://proposal.sakshat.ac.in/scholarship/index.php/scholarship/scholarship-user/home">Shakshat</a></li>
-                    <li class="btn btn-sm btn-secondary" style="color: white; margin: 2px;"><a href="https://kvsangathan.nic.in/academic/admission-guidelines">Admission Guidelines</a></li>
-                    <li class="btn btn-sm btn-secondary" style="color: white; margin: 2px;"><a href="https://www.shiksha.com/">Shiksha</a></li>
-                    <li class="btn btn-sm btn-secondary" style="color: white; margin: 2px;"><a href="{% url 'admin:index' %}">Admin</a></li>
-                    <li class="btn btn-sm btn-secondary" style="color: white; margin: 2px;"><a href="{% url 'archive' %}">Archive</a></li>
-                </ul>
             </div>
         </div>
         <div class="credit mb-0 p-auto">
