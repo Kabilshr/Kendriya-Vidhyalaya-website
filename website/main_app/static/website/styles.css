@@ -620,6 +620,19 @@ main {
   margin: 2rem;
 }
 
+.progress-container {
+  width: 70%;
+  margin: 0 auto;
+  transform: translateY(-200%);
+}
+
+#progress-bar {
+  --progress-percent: 5%;
+  height: 6px;
+  width: max(5%, var(--progress-percent));
+  background-color: #FA8072;
+}
+
 .page-nav {
   position: relative;
   bottom: -1px;
