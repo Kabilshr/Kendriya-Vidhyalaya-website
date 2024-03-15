@@ -116,6 +116,18 @@ slider.addEventListener('touchmove', (e) => { // Touchmove event
     slider.scrollLeft = scrollLeft - walk;
 });
 
+const eventContainer = document.getElementById('event-container')
+function updateEventProgressBar(){
+    const scrollTop = eventContainer.scrollLeft;
+    const scrollWidth = eventContainer.scrollWidth;
+    const scrollPercentage = scrollTop / (scrollWidth - eventContainer.clientWidth) * 100;
+    const scrollPercentageInverse = 100 - scrollPercentage + '%';
+    
+    document.querySelector('#progress-bar').style.setProperty('--progress-percent', scrollPercentageInverse);
+}
+
+(eventContainer).addEventListener('scroll', updateEventProgressBar);
+
 //enable popover
 const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
 const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
