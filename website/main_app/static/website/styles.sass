@@ -534,13 +534,16 @@ main
 .progress-container
     width: 70%
     margin: 0 auto
+    border-radius: 5px
     transform: translateY(-200%)
 
 #progress-bar
-    --progress-percent: 5%
+    --progress-percent: 95%
     height: 6px
-    width: max(5%, var(--progress-percent))
-    background-color: $primary //change color
+    width: min(95%, var(--progress-percent))
+    border-radius: 0px 5px 5px 0px
+    margin-left: auto
+    background-color: #f5f5f5 //change color
 
 .page-nav
     position: relative

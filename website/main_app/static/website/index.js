@@ -120,9 +120,10 @@ const eventContainer = document.getElementById('event-container')
 function updateEventProgressBar(){
     const scrollTop = eventContainer.scrollLeft;
     const scrollWidth = eventContainer.scrollWidth;
-    const scrollPercentage = scrollTop / (scrollWidth - eventContainer.clientWidth) * 100 + '%';
+    const scrollPercentage = scrollTop / (scrollWidth - eventContainer.clientWidth) * 100;
+    const scrollPercentageInverse = 100 - scrollPercentage + '%';
     
-    document.querySelector('#progress-bar').style.setProperty('--progress-percent', scrollPercentage);
+    document.querySelector('#progress-bar').style.setProperty('--progress-percent', scrollPercentageInverse);
 }
 
 (eventContainer).addEventListener('scroll', updateEventProgressBar);
