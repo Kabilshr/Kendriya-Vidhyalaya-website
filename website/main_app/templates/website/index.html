@@ -88,26 +88,28 @@
   </div>
   <hr class="thought-line">
 </section>
-<section class="home-section notice-section">
-  <div class="notice">
-    <h2 id="notice-heading" class="hidden">Notice</h2>
-    <div class="notice-content">
-      {% for notice in notice %}
-      <a href="{{notice.file.url}}" target="_blank">
-        <div class="notice-card hidden">
-          <div class="notice-date">
-            <span>{{notice.date|date:"d"}}</span>
-            <span>{{notice.date|date:"F"}}</span>
+<section class="home-section">
+  <h2 align="center" class="hidden" >Notice</h2>
+  <div class="notice-section">
+    <div class="notice">
+      <div class="notice-content">
+        {% for notice in notice %}
+        <a href="{{notice.file.url}}" target="_blank">
+          <div class="notice-card hidden">
+            <div class="notice-date">
+              <span>{{notice.date|date:"d"}}</span>
+              <span>{{notice.date|date:"F"}}</span>
+            </div>
+            <div class="notice-message">
+              <p class="notice-title text-wrap"  style="margin: 0;">{{notice.title}}</p>
+            </div>
           </div>
-          <div class="notice-message">
-            <p class="notice-title text-wrap"  style="margin: 0;">{{notice.title}}</p>
-          </div>
-        </div>
-      </a>
-      {% endfor %}
+        </a>
+        {% endfor %}
+      </div>
     </div>
+    <img src="{% static 'website/nepal_india_flag.png' %}" alt="" class="notice-space-img">
   </div>
-  <img src="{% static 'website/nepal_india_flag.png' %}" alt="" class="notice-space-img">
 </section>
 <section class="home-section">
   <div class="stat-content hidden">
@@ -128,7 +130,7 @@
     </div>
   </div>
 <!-- Facilities -->
-  <h2 class="hidden" align="center">Facilites</h2>
+  <h2 class="hidden" align="center" style="margin-top: 10%;">Facilites</h2>
   <div class="facilities">
     <div class="row row-cols-1 row-cols-md-2 g-3 mb-1">
       <div class="col">
